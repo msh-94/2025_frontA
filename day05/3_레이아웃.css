@@ -1,0 +1,24 @@
+
+
+/* wrap : 전체구역 */
+#wrap{
+    width: 1280px;/* 웹 표준 가로사이즈 : 1280px */
+    margin: 0 auto;
+}
+/* 본문 */
+
+#main{
+    display: flex;
+    flex-wrap: nowrap; /* 크기 자동맞춤 */
+    flex-direction: row; /* 배치 방향 : 가로 */ 
+    justify-content: space-between; /* 양쪽에 여백없이 균등정렬 */
+    align-items: stretch;
+}
+#main > #contents{ width: 850px;}
+#main > #aside{ width: 400px;}
+/* 확인용 : 추후에 지움 */
+*{ border: 1px solid red;
+    box-sizing: border-box;}
+#header{ height: 150px;}
+#main{ height: 500px;}
+#footer{ height: 100px;}

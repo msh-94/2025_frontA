@@ -1,0 +1,24 @@
+*{
+    border: 1px solid red;
+}
+
+
+
+
+.q{
+    display: flex;
+    border: 1px solid blue;
+}
+.a{
+    flex-direction: row;
+}
+.a2{
+    display: flex;
+}
+.c{ 
+    width: 845px; height: 400px;
+}
+.b{
+    width: 1700px;
+    height: 60px;
+}

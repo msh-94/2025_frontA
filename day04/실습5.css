@@ -1,0 +1,49 @@
+.title{
+    background-color: pink;
+    text-align: center;
+    width: 400px; height: 750px;
+    margin: 0 auto;
+}
+.main{
+    border: 3px solid white;
+    border-radius: 30px;
+    text-align: center;
+    font-weight: bold;
+    background-color: pink;
+    margin: 30px 8px 20px 8px;
+    padding: 20px;
+    width: 300px; height: 15px;
+    font-size: 25px;
+}
+.jpg{
+    width: 250px; height: 250px;
+    border-radius: 150px;
+    margin: 10px 3px;
+    padding: 10px;    
+}
+.word{
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+}
+a{
+    background-color: skyblue;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    width: 330px;    
+    text-align: center;    
+    border: none;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px;
+    height: 30px;
+    padding: 15px;
+    
+}
+.size{
+    padding: 15px;
+    margin: 3px 20px 5px 20px;
+    line-height: 150%;
+}

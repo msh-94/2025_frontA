@@ -1,0 +1,120 @@
+*{ margin: 0px; padding: 0px; }
+*{box-sizing: border-box;}
+a{
+    text-decoration: none; /*밑줄제거*/
+    color: black; /* 글꼴색상*/
+}
+li{list-style-type:none;} /* ul 또는 ol 에서 글머리 제거*/
+/*======================헤더 CSS======================*/
+#header{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row; /* 가로배치 생략가능 */
+    align-items: center; /* 세로 가운데 정렬 */
+    margin: 15px auto; /* 구역 가로 가운데 자동 정렬 */
+    width: 1280px;
+}
+.header-menu>.top-menu{
+    display: flex; justify-content: flex-end;
+    font-size: 12px;
+}
+.main-menu{
+    display: flex; justify-content: flex-end;
+    
+}
+.main-menu>li{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px 0px 30px 100px;
+}
+#main-img>img{ width: 100%; }
+/*========================본문CSS=====================*/
+#main{
+    display: flex;
+    justify-content: space-between;
+    margin: 30px auto;
+    width: 1280px;
+}
+.sidebar{ width: 250px; }
+.content{ width: 1000px;
+    display: flex; justify-content: space-between;
+}
+.content>.leftbox{ width: 490px;}
+.content>.rightbox{ width: 490px;}
+/*=======================사이드바CSS================= */
+.sidebar>.left-top>h3{
+    background-color: #0ca9a2;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+}
+.checkbox{
+    border-radius: 10px;
+    height: 30px; padding: 1px 7px;
+    width: 180px; 
+}
+.searchbox{ margin: 10px 0px;}
+.button{ padding: 4px 10px;} 
+.left-top>h4{border-top: 2px solid black; padding: 10px 5px;
+    border-bottom: 1px solid #eeeeee; 
+    margin-top: 30px;
+    font-size: 18px;
+    padding: 10px;
+}
+
+.left-top>p{ padding: 5px; line-height: 160%;}
+.left-top>ul{ padding: 5px 10px;}
+/*=========================본문컨텐츠CSS==================*/
+
+.content .sub-title{/* 선택자 자손 선택자 */
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+.content>.leftbox>.board>li{
+    display: flex; justify-content: space-between;
+    padding: 7px 0px;
+}
+.content>.leftbox>.board{
+    margin-bottom: 40px;
+}
+/*===================오른쪽 내용 본문CSS========*/
+.rightbox>h3{
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+.rightbox>.product-list{
+    display: flex;    
+    flex-wrap: wrap;
+}
+.rightbox>.product-list>.product{
+    width: 240px;
+    margin-bottom: 30px;
+}
+/*========================푸터CSS============*/
+#footer{
+    background-color: #05344e;
+    color: white; 
+    padding: 20px 0px;      
+}
+.footer-inner{    
+    width: 1280px;
+    margin: 0 auto;  
+}
+.footer-inner>.top-menu{    
+    display: flex;
+    margin-bottom: 30px;    
+}
+.footer-inner>.top-menu>li{ margin-right: 40px;}
+.footer-inner>.bottom-menu{
+    display: flex;
+    justify-content: space-between;    
+    margin-bottom: 20px;
+}
+.footer-inner>.bottom-menu>.footer-title{
+    margin-bottom: 10px;
+}
+.footer-inner>.bottom-menu> li{
+    margin: 5px 0px;
+}

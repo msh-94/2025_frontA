@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    
+
+
+    <ul> <!-- unorder list : 순서없는 목록 -->
+        <li> 1일차 </li>    <!-- list item : 목록의 항목 -->
+        <li> 2일차 </li>    <!-- li -> ul -> body -> html -->
+        <li> 3일차 </li>
+    </ul>                   <!-- ul -> vody -> html -->
+
+    <ol> <!-- order list : 순서(번호)있는 목록-->
+        <li> 1일차 </li>
+        <li> 2일차 </li>
+        <li> 3일차 </li>
+
+    </ol>
+
+    
+    <a href="https://www.naver.com"> 네이버로 이동 </a> <br />
+    <!-- 속성 : 각 마크업들의 추가적인 특징 , 각 마크업마다 다른 속성을 갖는다.  -->
+    <a href="2_제목및문단.html"> 이전실습파일로 이동</a> <br />
+    <a href="https://www.naver.com" target="_blak"> 네이버로 새 창/탭 열기 </a> <br />
+    <a href="tel:010-5456-0036"> 전화걸기(모바일에서만 가능) </a> <br />
+
+    <!-- 
+    상대경로 vs 절대경로 
+        상대경로 : 현재 파일 기준(상대적)으로 부터의 경로
+            - 현재 위치에서 호출한 파일의 경로 표현 방식
+            - 의미
+                ./ : 현재경로 뜻 , 생력가능 "./1_HTML시작.html" == "1_HTML시작.html"
+                ../ : 상위폴더 위동 뜻
+                    ------- 프로젝트 폴더 상태 --------
+                    2025_FRONTA : 최상위 폴더
+                        day02
+                            1_html
+                            2_html
+                            3_html
+                        day03
+                            test.html
+        절대경로 : 절대(고정된) 기준으로 부터의 경로
+            - 파일 위치의 전체 경로 표현 방식
+    
+    -->
+    <a href="./1_HTML시작.html"> 상대경로 </a> <br />
+    <a href="http://192.168.40.197:5500/day02/1_HTML시작"> 절대경로 </a> <br />
+    <a href="C:\Users\TJ-BU-702-P23\Desktop\2025_frontA\day02"> (로컬)기준의 절대경로 </a> <br />
+
+    <a href="../day03/test.html"> 테스트 </a>
+
+
+
+
+</body>
+</html>

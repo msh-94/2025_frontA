@@ -1,0 +1,19 @@
+.title{
+    font-family: 궁서;    
+    font-style: italic;    
+    font-size: 50px;
+}
+.main{
+    font-family: 굴림;
+    font-weight: bold;
+    color: blue;
+    word-spacing: 10px;
+    letter-spacing: 10px;
+    line-height: 150%;
+}
+.p1{
+    text-align: center;
+    color: red;
+    text-decoration: underline overline line-through;
+    text-shadow: 1px 1px 5px gray;
+}

@@ -1,0 +1,23 @@
+.img1{
+    width: 300px;
+    margin-bottom: 20px;
+}
+.b1{
+    font-weight: bold;    
+    font-size: 20px;
+    margin: 10px 3px;
+}
+.b2{
+    color: orange;
+    font-size: 40px;
+}
+.m1{
+    background-color: #0f6878;
+    color: white;
+    padding: 25px 20px;
+    line-height: 160%;
+    width: 400px;
+}
+.m2{
+    color: orange;
+}
