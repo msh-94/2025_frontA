@@ -1,0 +1,57 @@
+*{ margin: 0px; padding: 0px; }
+*{box-sizing: border-box;}
+a{
+    text-decoration: none; /*밑줄제거*/
+    color: black; /* 글꼴색상*/
+}
+li{list-style-type:none;} /* ul 또는 ol 에서 글머리 제거*/
+/*==========================헤드 CSS=================*/
+#header{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row; /* 가로배치 생략가능 */
+    align-items: center; /* 세로 가운데 정렬 */
+    margin: 15px auto; /* 구역 가로 가운데 자동 정렬 */
+    width: 1000px;
+}
+.top-menu{
+    display: flex; justify-content: flex-end;
+    font-size: 12px;    
+}
+.top-menu>li{margin-left: 20px;}
+.fcb{color: blue;}
+.main-img{
+    width: 1280px;
+    margin: 0 auto;
+}
+.main-img>img{width: 100%;}
+/*=======================본문CSS===================*/
+.main-top{
+    display: flex;
+    margin: 15px auto;
+    width: 1000px;    
+}
+.main-top>span{
+    padding: 15px 30px;
+}
+.main-bottom{
+    display: flex;
+    margin: 0 auto;        
+    justify-content: center;
+    background-color: #eeeeee;
+}
+.menu-img{
+    width: 200px;
+    height: 100px;
+}
+.menu-list{
+    padding: 50px 20px;
+}
+/*========================푸터CSS=======================*/
+#footer{
+    background-color: gray;
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;    
+}
