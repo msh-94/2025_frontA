@@ -55,3 +55,19 @@ li{list-style-type:none;} /* ul 또는 ol 에서 글머리 제거*/
     justify-content: space-evenly;
     align-items: center;    
 }
+.footer-banner{
+    display: flex;
+    margin: 10px 5px;
+    padding: 10px 3px;
+}
+.footer-left{
+    font-weight: bold;
+    font-size: 25px;
+}
+.footer-bottom{
+    margin: 10px 5px;
+    padding: 10px 3px;
+}
+.footer-img>img{
+    padding: 10px 3px;
+}
