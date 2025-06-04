@@ -54,6 +54,7 @@ li{list-style-type:none;} /* ul 또는 ol 에서 글머리 제거*/
     display: flex;
     justify-content: space-evenly;
     align-items: center;    
+    padding: 10px 0px;
 }
 .footer-banner{
     display: flex;
