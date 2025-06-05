@@ -10,7 +10,8 @@ a{ color: black; text-decoration: none;}
     width: 1280px; margin: 0 auto;
 }
 #main{ width: 1200px; display: flex; justify-content: center;
-align-items: center; }
+align-items: center; padding: 200px 0px; height: 830px; 
+}
 #footer{width: 100%;}
 /*=========================1.본문=================*/
 
@@ -22,30 +23,99 @@ align-items: center; }
     display: flex; flex-direction: column;
     align-items: center; 
 }
-#mainRight h1{
-    font-size: 50px; font-family: 궁서체;
+.log-Main{padding: 10px 0px; margin: 0px 0px 10px;
+    display: flex; flex-direction: column; justify-content: center;
 }
-#mainRight .box {
-    padding: 9px 0px 7px 8px;
-    width: 270px; height: 38px;        
+.log{ margin: 24px 0px 0px;}
+.title{
+    background-image: url(https://static.cdninstagram.com/rsrc.php/v4/yB/r/E7m8ZCMOFDS.png);
+    background-position: 0px -52px;
+    background-size: auto;
+    width: 175px; height: 51px;
+    background-repeat: no-repeat;
+    margin-left: 35px;
+}
+
+#mainRight .box {    
+    width: 100%; align-items: center; 
+    border: 1px solid rgba(219, 219, 219, 1); 
+    border-radius: 3px;   margin: 10px 0px;
+    
+      
 }
 #mainRight .box > input{
     background-color: #fff;
-    padding: 9px 0px 7px 8px;
-    width: 260px; height: 36px;
+    padding: 9px 8px 7px 8px;
+     height: 36px; width: 250px;
+    border: 0px; flex: 1 0 auto;
+    outline: none; 
 }
-#mainRight .loginbox > input{
+.loginbox{ margin: 8px 40px; padding: 5px 0px;     
+}
+#mainRight .loginbox>input{
     font-size: 14px;
     background-color: #5e47de;    
     font-weight: bold;
     color: white;
-    width: 270px; height: 32px; 
+    width: 100%;
     border-radius: 10px;
+    padding: 5px 50px;
+    border: none;
 }
+
+
+
 #mainRight p{
     color: rgba(115, 115, 115, 1);
+    margin: 0px 18px; 
+    
 }
-.facelogin{color: #3579EA; font-size: 14px;}
+.size1{ width: 60px;}
+.divider{
+    display: flex; align-items: center;
+    width: 100%; 
+}
+.divider::before , .divider::after {
+    height: 1px;  background-color: rgba(219, 219, 219, 1);
+    top: 6.3px; content: ""; width: 100%;
+}
+.facelogin{color: #3579EA; font-size: 14px; align-items: center; }
 .password-color>a{font-size: 14px; color: #4150F7;}
 .still{ font-size: 14px;}
 .still>a{font-size: 14px; color: #4150F7;}
+.face{width: 20px; height: 20px;}
+.facebook{
+    display: flex; align-items: center; 
+    justify-content: center; margin: 10px 0px;
+}
+.bottom-log{padding: 10px 0px;}
+/*=============================푸터======================*/
+.footer-inner{
+    padding-bottom: 52px;
+}
+.footer-banner{
+    display: flex; justify-content: center;
+    flex-wrap: wrap;     
+}
+.footer-font>a{
+    font-size: 12px; color: rgba(115, 115, 115, 1);
+}
+.footer-font>a:hover{
+    text-decoration: underline; color: rgba(115, 115, 115, 1);
+}
+.footer-font{
+    margin : 0px 8px 12px 8px;
+}
+.footer-bottom{
+    display: flex; margin: 12px 0px;
+    justify-content: center;
+}
+.cong>span , .cong>div>img ,.copy{
+    font-size: 12px; color: rgba(115, 115, 115, 1);
+}
+.copy{margin-left: 16px;}
+.cong{
+    display: flex; justify-content: center;
+    align-items: center;
+    
+}
