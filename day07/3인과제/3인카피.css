@@ -1,0 +1,18 @@
+/*========================= 공통 CSS =====================*/
+*{
+    padding: 0px; margin: 0px;
+    box-sizing: border-box; font-size: 12px;
+}
+li{ list-style-type: none;}
+a{ color: black; text-decoration: none;}
+*{border: 1px solid red;}
+/*=======================레이아웃=========================*/
+#wrap{
+    width: 1280px;
+}
+#header{
+    height: 180px;
+}
+#footer{
+    height: 441px;
+}

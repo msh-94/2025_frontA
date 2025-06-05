@@ -1,0 +1,366 @@
+$(function(){
+	$.extend({
+		iosapi : {
+			
+			/**
+			 * fn_check_webview_agent()
+			 * 
+			 * 웹뷰의 agent문자 체크
+			 */
+			fn_check_webview_agent : function() {
+				var returnVal = false;
+				
+				var agent = navigator.userAgent;
+				if (agent.indexOf("IOS") != -1) {
+					returnVal = true;
+				}
+				
+				return returnVal;
+			},
+
+			/**
+			 * fn_call_NFC_scan()
+			 * 
+			 * 웹페이지에서 앱으로 NFC스캔 시작 요청
+			 */
+			fn_call_set_com_code : function(comCode) {
+				try{
+					var data = {
+				            cmd : 'comcode',
+				            comCode : comCode
+				        }
+				  alert(JSON.stringfy(data));
+				  
+					webkit.messageHandlers.callbackHandler.postMessage(data);
+					
+				}catch(err){
+					alert(err)
+				}
+			},
+			
+			
+			/**
+			 * fn_call_NFC_scan()
+			 * 
+			 * 웹페이지에서 앱으로 NFC스캔 시작 요청
+			 */
+			fn_call_NFC_scan : function() {
+				try{
+					var data = {
+				            cmd : 'nfc',
+				            param : 'run'
+				        }
+					webkit.messageHandlers.callbackHandler.postMessage(data);
+					
+				}catch(err){
+					alert(err)
+				}
+			},
+			
+			/**
+			 * fn_call_NFC_result_in()
+			 * 
+			 * NFC스캔 결과 처리에 대한처리요청(IN)
+			 */
+			fn_call_NFC_result_in : function(options) {
+				try{
+					var data = {
+				            cmd : 'nfcin',
+				            options : JSON.stringify(options)
+				        }
+					webkit.messageHandlers.callbackHandler.postMessage(data);
+					
+				}catch(err){
+					alert(err)
+				}
+			},
+			
+			/**
+			 * fn_call_NFC_result_out()
+			 * 
+			 * NFC스캔 결과 처리에 대한처리요청(OUT)
+			 */
+			fn_call_NFC_result_out : function(options) {
+				try{
+					var data = {
+				            cmd : 'nfcout',
+				            options : JSON.stringify(options)
+				        }
+					webkit.messageHandlers.callbackHandler.postMessage(data);
+					
+				}catch(err){
+					alert(err)
+				}
+			},
+			
+			
+			/**
+			 * fn_call_image_scan()
+			 * 
+			 * 웹페이지에서 앱으로 이미지문자스캔 시작 요청
+			 */
+			fn_call_image_scan : function() {
+				try{
+					var data = {
+				            cmd : 'imagescan'
+					}
+					webkit.messageHandlers.callbackHandler.postMessage(data);
+					
+				}catch(err){
+					alert(err)
+				}
+			},
+
+
+			/**
+			 * fn_call_QR_scan()
+			 * 
+			 * 웹페이지에서 앱으로 QR스캔 시작 요청
+			 */
+			fn_call_QR_scan : function() {
+				try{
+					var data = {
+				            cmd : 'qr'
+				        }
+					webkit.messageHandlers.callbackHandler.postMessage(data);
+					
+				}catch(err){
+					alert(err)
+				}
+			},
+			
+			/**
+			 * fn_call_QR_result_in()
+			 * 
+			 * QR스캔 결과 처리에 대한처리요청
+			 */
+			fn_call_QR_result_in : function(options) {
+				try{
+					var data = {
+				            cmd : 'qrin',
+				            options : JSON.stringify(options)
+				        }
+				  alert( JSON.stringify(data) );      
+					webkit.messageHandlers.callbackHandler.postMessage(data);
+					
+				}catch(err){
+					alert(err)
+				}
+			},
+			
+			
+			/**
+			 * fn_call_signpad()
+			 * 
+			 * 웹페이지에서 앱으로 서명 요청
+			 */
+			fn_call_signpad : function() {
+				try{
+					var data = {
+				            cmd : 'signpad',
+				            callback : 'sign_return'
+				        }
+					webkit.messageHandlers.callbackHandler.postMessage(data);
+					
+				}catch(err){
+					alert(err)
+				}
+			},
+			
+			/**
+			 * fn_call_camera_album()
+			 * 
+			 * 웹페이지에서 앱으로 앨범 호출 요청 더본코리아 QCSS
+			 */
+			fn_call_camera_album2 : function(options) {
+				try{
+					var data = {
+				            cmd : 'file2',
+				            options : options
+				        }
+					webkit.messageHandlers.callbackHandler.postMessage(data);
+					
+				}catch(err){
+					alert(err)
+				}
+			},
+
+			/**
+			 * fn_call_camera_album()
+			 * 
+			 * 웹페이지에서 앱으로 앨범 호출 요청
+			 */
+			fn_call_camera_album : function(options) {
+				try{
+					var data = {
+				            cmd : 'file',
+				            options : options
+				        }
+					webkit.messageHandlers.callbackHandler.postMessage(data);
+					
+				}catch(err){
+					alert(err)
+				}
+			},
+			
+			/**
+			 * fn_call_file_download()
+			 * 
+			 * 웹페이지에서 앱으로 첨부파일 연결 요청
+			 */
+			fn_call_file_download : function(options) {
+				try{
+					var data = {
+				            cmd : 'download',
+				            options : JSON.stringify(options)
+				        }
+					webkit.messageHandlers.callbackHandler.postMessage(data);
+					
+				}catch(err){
+					alert(err)
+				}
+			},
+			
+			
+			/**
+			 * fn_call_file_download()
+			 * 
+			 * 웹페이지에서 앱으로 첨부파일 연결 요청
+			 */
+			fn_call_image_view : function(options) {
+				try{
+					var data = {
+				            cmd : 'imageview',
+				            options : JSON.stringify(options)
+				        }
+					webkit.messageHandlers.callbackHandler.postMessage(data);
+					
+				}catch(err){
+					alert(err)
+				}
+			},
+			
+			/**
+			 * fn_call_app_version()
+			 * 
+			 * 웹페이지에서 앱으로 앱 버전 호출 요청
+			 */
+			fn_call_app_version : function() {
+				try{
+					var data = {
+				            cmd : 'version'
+				        }
+					webkit.messageHandlers.callbackHandler.postMessage(data);
+					
+				}catch(err){
+					alert(err)
+				}
+			},	
+			
+			/**
+			 * fn_call_app_location()
+			 * 
+			 * 앱으로 웹으로 위도 경도 전달 요청
+			 */
+			fn_call_app_location : function() {
+				try{
+					var data = {
+				            cmd : 'location'
+				        }
+					webkit.messageHandlers.callbackHandler.postMessage(data);
+					
+				}catch(err){
+					alert(err)
+				}
+			},	
+
+			/**
+			 * fn_call_app_appmove()
+			 * 
+			 * 사파리 호출
+			 */
+			fn_call_app_appmove : function(options) {
+				try{
+					var data = {
+				            cmd : 'appmove'
+				        }
+					webkit.messageHandlers.callbackHandler.postMessage(data);
+					
+				}catch(err){
+					alert(err)
+				}
+			},	
+
+			/**
+			 * fn_call_app_websafari()
+			 * 
+			 * 사파리 호출
+			 */
+			fn_call_app_websafari : function(options) {
+				try{
+					var data = {
+				            cmd : 'websafari',
+				            options : JSON.stringify(options)
+				        }
+					webkit.messageHandlers.callbackHandler.postMessage(data);
+					
+				}catch(err){
+					alert(err)
+				}
+			},	
+
+			/**
+			 * fn_call_app_exit()
+			 * 
+			 * 웹페이지에서 앱으로 앱종료 호출 요청
+			 */
+			fn_call_app_exit : function() {
+				try{
+					var data = {
+				            cmd : 'exit'
+				        }
+					webkit.messageHandlers.callbackHandler.postMessage(data);
+					
+				}catch(err){
+					alert(err)
+				}
+			},
+
+			/**
+			 * fn_call_address_load()
+			 * 
+			 * 휴대폰 주소록 가져오기
+			 */
+			fn_call_address_load : function() {
+				try{
+					var data = {
+				            cmd : 'readAddress'
+				        }
+					webkit.messageHandlers.callbackHandler.postMessage(data);
+					
+				}catch(err){
+					alert(err)
+				}
+			},
+
+			/**
+			 * fn_call_pushToken()
+			 * 
+			 * Push Token 가져오기
+			 */
+			fn_call_pushToken : function() {
+				try{
+					var data = {
+				            cmd : 'pushToken'
+				        }
+					webkit.messageHandlers.callbackHandler.postMessage(data);
+					
+				}catch(err){
+					alert(err)
+				}
+			}
+
+		}
+	});
+});
+	

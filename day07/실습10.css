@@ -5,22 +5,47 @@
 }
 li{ list-style-type: none;}
 a{ color: black; text-decoration: none;}
-*{border: 1px solid red;}
+
 #wrap{
     width: 1280px; margin: 0 auto;
 }
 #main{ width: 1200px; display: flex; justify-content: center;
-align-items: center;}
+align-items: center; }
 #footer{width: 100%;}
 /*=========================1.본문=================*/
 
 #main-img>img{
-    width: 600px;
+    width: 552px; height: 450px;
 }
-#mainRight{width: 600px; text-align: center;}
+#mainRight{
+    width: 350px; text-align: center;
+    display: flex; flex-direction: column;
+    align-items: center; height: 407px;
+}
 #mainRight h1{
     font-size: 50px; font-family: 궁서체;
 }
-#mainRight .box{
-    
+#mainRight .box {
+    padding: 9px 0px 7px 8px;
+    width: 270px; height: 38px;        
 }
+#mainRight .box > input{
+    background-color: #fff;
+    padding: 9px 0px 7px 8px;
+    width: 260px; height: 36px;
+}
+#mainRight .loginbox > input{
+    font-size: 14px;
+    background-color: #5e47de;    
+    font-weight: bold;
+    color: white;
+    width: 270px; height: 32px; 
+    border-radius: 10px;
+}
+#mainRight p{
+    color: rgba(115, 115, 115, 1);
+}
+.facelogin{color: #3579EA; font-size: 14px;}
+.password-color>a{font-size: 14px; color: #4150F7;}
+.still{ font-size: 14px;}
+.still>a{font-size: 14px; color: #4150F7;}

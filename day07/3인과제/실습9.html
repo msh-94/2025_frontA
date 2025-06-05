@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)https://nenechicken.com/home_login.asp -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<meta name="Generator" content="EditPlus®">
+		<meta name="Author" content="">
+		<meta name="Keywords" content="">
+		<meta name="Description" content="">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi">
+		<link href="./실습9_files/css2" rel="stylesheet">
+		<!--== CSS ================================-->
+		<link rel="stylesheet" href="./실습9_files/NENEHomePage.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="./실습9_files/NENEHomePage_media.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="./실습9_files/swiper.min.css">
+		<!--== JS =================================-->
+		<script type="text/javascript" async="" src="./실습9_files/analytics.js.다운로드"></script><script type="text/javascript" async="" src="./실습9_files/js"></script><script type="text/javascript" src="./실습9_files/jquery-1.11.3.min.js.다운로드"></script>
+		<script type="text/javascript" src="./실습9_files/swiper.min.js.다운로드"></script>
+
+		<script src="./실습9_files/comon.js.다운로드" language="javascript"></script>
+		<script src="./실습9_files/common.js.다운로드" language="javascript"></script>
+		<script type="text/javascript" src="./실습9_files/Form_Module.js.다운로드"></script>
+		<script src="./실습9_files/postcode.v2.js.다운로드"></script>
+
+		<!--ios hybrid js -->
+		<script type="text/javascript" src="./실습9_files/ios-api.js.다운로드"></script>
+
+		<script type="text/javascript" src="./실습9_files/sdk.js.다운로드"></script><script charset="UTF-8" src="./실습9_files/kakao.js.다운로드"></script><script charset="UTF-8" src="./실습9_files/services.js.다운로드"></script>
+
+		<title>네네치킨</title>
+
+		<meta name="description" content="네네치킨">
+		<meta property="og:locale" content="ko_KR">
+		<meta property="og:type" content="website">
+		<meta property="og:site_name" content="네네치킨">
+		<meta property="og:title" content="네네치킨">
+		<meta property="og:url" content="https://nenechicken.com/">
+		<meta property="og:description" content="네네치킨에 오신것을 환영합니다.">
+
+		<link rel="canonical" href="http://www.nenechicken.com/">
+		<link rel="shortcut icon" type="image/x-icon" href="https://nenechicken.com/images/favicon.ico">
+
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async="" src="./실습9_files/js(1)"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'UA-151969205-3');
+		</script>
+
+		<!-- Google tag (gtag.js) -->
+		<script async="" src="./실습9_files/js(2)"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'G-FTH0JGQNNZ');
+		</script>
+
+		<!-- Pango Tagmanager -->
+		<!--
+		<script src="https://pango-gy.com/adfraud/pango-adfraud.js"></script>
+		<script>pangoAdFraud('KR-151969205-3');</script>
+		-->
+
+		<!-- naver 사이트 연관 채널 -->
+		<script type="application/ld+json">
+			{
+			  "@context": "http://schema.org/",
+			  "@type": "Organization",
+			  "name": "nenechicken",
+			  "url": "https://nenechicken.com",
+			  "sameAs": [
+				"https://www.instagram.com/nenechicken_official",
+				"https://www.facebook.com/nenechicken4479",
+				"https://www.youtube.com/channel/UCMEymWAglBpb7phxXGbmoHQ",
+				"https://play.google.com/store/apps/details?id=com.fuse_smart_nene",
+				"https://apps.apple.com/kr/app/id1541274219"
+			  ]  
+			}
+		</script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			window.onpageshow = function(event){
+				if(event.persisted || (window.performance && window.performance.navigation.type == 2)){  
+					//히스토리 백 이벤트
+					LOADINGOFF();
+				}
+			}
+
+			headHeigh();
+			cart_cnt('F1BE18F97C4B46DFA71B184B2152F185');
+			cpn_cart_cnt('F1BE18F97C4B46DFA71B184B2152F185');
+		});
+
+		$(window).on('scroll', function() {
+			Headerfiex();
+		});
+
+		//== resize Banner Swiper ===
+		 $(window).on('resize', function(){
+			headHeigh();
+		 });    
+
+		//== 헤더 ===============
+		function headHeigh(){
+
+			var Height = $(".HeaderWrap").innerHeight();
+			$(".Hcontainer").attr('style', 'padding-top:'+ Height +'px');
+		
+		}
+
+		function Headerfiex(){
+			var page = $('.HMainBox').offset().top;
+			if($(window).scrollTop() > 0 && window.innerWidth >= 768) { // 스크롤이 내려가면
+				//$(".HMainBox").fadeOut(250);
+				$(".HeaderWrap").css('border-bottom','1px solid #ddd');
+
+			} else { // 스크롤 올릴 때
+				//$(".HMainBox").fadeIn(250);
+				$(".HeaderWrap").css('border-bottom','0');
+
+			}
+
+		}
+
+		//== 로그아웃 ===============
+		function LOGOUT(){
+			$.ajax({
+				type: "POST"
+				,url: "/process/logout.fuse"
+				,success : function(ret) {
+					location.href=ret;
+					return;
+				}, error : function() {
+					//alert("페이지 오류 입니다. 관리자에게 문의하세요.");
+				}
+			});
+		}
+
+		//== 모바일 로그아웃 ============
+		function MOLOGOUT(){
+			$.ajax({
+				type: "POST"
+				,url: "/process/logout.fuse"
+				,success : function(ret) {
+					location.href=ret;
+					return;
+				}, error : function() {
+					//alert("페이지 오류 입니다. 관리자에게 문의하세요.");
+				}
+			});
+		}
+
+		// 주문하기 - 포장/배달 선택 pop =============
+		function OrderType(){
+		
+			$("body").addClass('fixed');
+			$("#OrderSpop_fiex").css('display','');
+			$(".OrderSpop").css('display','');
+		}
+
+		// 주문하기 - 포장/배달 선택 pop 닫기 =============
+		function OrderCOLSE(){
+			$("body").removeClass('fixed');
+			$("#OrderSpop_fiex").css('display','none');
+			$(".OrderSpop").css('display','none');
+		}
+
+		function DSelect(){
+			
+				location.href="/home_login.asp";
+			
+		}
+
+		function BaseAddr(ADRLIST_IDX){
+			$.ajax({
+				type: "POST"
+				,url: "/process/BaseAddr.fuse?ADRLIST_IDX="+ADRLIST_IDX
+				,success : function(ret) {
+					location.href="/home_order_Delivery.asp?ADRLIST_IDX="+ADRLIST_IDX
+					return;
+				}, error : function() {
+					//alert("페이지 오류 입니다. 관리자에게 문의하세요.");
+				}
+			});
+		}
+
+		function SUBCONTENT(){
+			$(".Sub-add-content").slideToggle();
+			$(".leftAddbtn").toggleClass('on');
+		}
+
+		function QUSTIONALERT(){
+			
+			alert('지금은 1:1문의하기 사용이 불가하십니다.\n고객센터 전화 문의로 진행 부탁드립니다.');
+		
+		}
+	</script></head>
+	 
+	<body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+		<!--== Header Box ============================-->
+		<div class="HeaderWrap Fiexd">
+			<div class="HeaderBox">
+				<div class="HSubBox">
+					<div class="SubMenu">
+						<div class="SMList on" onclick="LOADINGON(); location.href=&#39;/index.asp&#39;">홈</div>
+						<div class="SMList" onclick="window.open(&#39;/Brand_Startup.asp&#39;)">창업</div>
+						<div class="SMList" onclick="window.open(&#39;/Brand_index.asp&#39;)">브랜드소개</div>
+					</div>
+
+					
+						<div class="Deliverywrap subD" onclick="DSelect();">
+							<div class="iconB"><img src="./실습9_files/icon_location.svg" style="width:20px;"></div>
+							<div class="DeliveryInfo">
+								<span>어디로 배달해 드릴까요?</span>
+							</div>
+							<!--== 배송지 Select box ===========--->
+							<div class="DeliverySelect" style="display:none" id="DeliverySelect_div">
+
+							</div>
+						</div>
+
+					
+
+					<div class="SubMenu">
+						
+							<div class="SMList" onclick="LOADINGON(); location.href=&#39;/home_login.asp&#39;">로그인</div>
+							<!--<div class="SMList" onclick="location.href='/home_join_type.asp'">회원가입</div>-->
+						
+						<!--<div class="SMList" onclick="location.href='/nene_Owner_login.asp'">점주님공간</div>-->
+					</div>
+					<!--== 모바일 header contents ============-->
+					<div class="mo_header_flex">
+						<span class="icon">	
+							
+							<img src="./실습9_files/mo_header_left.svg" onclick="LOADINGON(); history.back(-1);">
+							
+							<img src="./실습9_files/mo_header_home.svg" onclick="LOADINGON(); location.href=&#39;/index.asp&#39;">
+						</span>
+						<span class="title">
+							
+								로그인
+							
+						</span>
+						<!--== 모바일 헤더 카트 영역 ============-->
+						<div class="MenuaddBtn">
+							
+								<div class="moCart" onclick="LOADINGON(); location.href=&#39;/home_cart.asp&#39;">
+									<span class="Mo_CartCount" id="mo_cart_count" style="display:none">0</span>
+									<img src="./실습9_files/icon_cart.svg">
+								</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="HMainBox">
+				<div class="MainLogo" onclick="location.href=&#39;/index.asp&#39;"><img src="./실습9_files/NENE_Logo.svg"></div>
+				<div class="MenuWrap">
+					<div class="MainMenu">
+						<div class="MMList" id="Morder" onclick="OrderType();"><span>주문</span></div>
+						<div class="MMList" id="Mmenu" onclick="LOADINGON(); location.href=&#39;/home_menu.asp&#39;"><span>메뉴</span></div>
+						<div class="MMList" id="Mcoupon" onclick="LOADINGON(); location.href=&#39;/home_Ecoupon.asp&#39;"><span>쿠폰 사용하기</span></div>
+						<div class="MMList" id="Mgift" onclick="LOADINGON(); location.href=&#39;/daou/home_GiftCoupon.asp&#39;"><span>선물하기</span></div>
+						<div class="MMList" id="Mshop" onclick="LOADINGON(); location.href=&#39;/home_shop.asp&#39;"><span>매장안내</span></div>
+						<div class="MMList" id="Mevent" onclick="LOADINGON(); location.href=&#39;/home_event.asp&#39;"><span>이벤트/공지</span></div>
+					</div>
+					<div class="MainIcon ">
+						<!--<div class="MIconBox"><img src="/images/icon_search.svg"></div>-->
+						
+							<div class="MIconBox" onclick="LOADINGON(); location.href=&#39;/home_login.asp&#39;"><img src="./실습9_files/icon_user.svg"></div>
+						
+							<div class="MIconBox" onclick="LOADINGON(); location.href=&#39;/home_cart.asp&#39;">
+								<span class="CartCount" id="cart_count" style="display:none">0</span>
+								<img src="./실습9_files/icon_cart.svg">
+							</div>
+						
+					</div>
+				</div>
+				<!--== 모바일 메뉴 박스(매장안내는 2차메뉴 다르게 진행)=====-->
+				
+					<div class="MoMenu">
+						<div class="MoList" onclick="LOADINGON(); location.href=&#39;/home_Ecoupon.asp&#39;">쿠폰 사용하기</div>
+						<div class="MoList" onclick="LOADINGON(); location.href=&#39;/daou/home_GiftCoupon.asp&#39;">선물하기</div>
+						<div class="MoList" onclick="LOADINGON(); location.href=&#39;/home_event.asp&#39;">이벤트/공지</div>
+					</div>
+				
+			</div>
+			<!--== 모바일 더보기 버튼 ===-->
+			<div class="AddMenuBak"></div>
+			<div class="AddMenu" style="">
+				<div class="Add-inner">
+					<div class="Add-con">
+						<div class="Add-header">
+							<div class="Add-logo">
+								<img src="./실습9_files/NENE_Logo_bw.svg" onclick="LOADINGON(); location.href=&#39;/index.asp&#39;" class="logoimg">
+								<span class="AddmenuClose">
+									<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px">
+										<path fill-rule="evenodd" fill="rgb(0, 0, 0)" d="M16.004,13.958 L14.094,15.869 L8.316,10.207 L2.635,16.005 L0.724,14.094 L6.386,8.316 L0.588,2.635 L2.499,0.724 L8.277,6.386 L13.958,0.588 L15.869,2.499 L10.207,8.277 L16.004,13.958 Z"></path>
+									</svg>
+								</span>
+							</div>
+							<div class="Add-info">
+								
+									<div class="Title" onclick="LOADINGON(); location.href=&#39;/home_login.asp&#39;">로그인</div>
+									<div class="Title" onclick="LOADINGON(); location.href=&#39;/home_join_type.asp&#39;">회원가입</div>
+								
+							</div>
+						</div>
+					</div>
+					<div class="Add-flexBox">
+						<div class="Add-content">
+							<div class="addlist" onclick="OrderType();">주문</div>
+							<div class="addlist" onclick="LOADINGON(); location.href=&#39;/home_menu.asp&#39;">메뉴</div>
+							<div class="addlist" onclick="LOADINGON(); location.href=&#39;/home_Ecoupon.asp&#39;">쿠폰 사용하기</div>
+							<div class="addlist" onclick="LOADINGON(); location.href=&#39;/daou/home_GiftCoupon.asp&#39;">선물하기</div>
+							<div class="addlist" onclick="LOADINGON(); location.href=&#39;/home_shop.asp&#39;">매장안내</div>
+							<div class="addlist" onclick="LOADINGON(); location.href=&#39;/home_event.asp&#39;">이벤트/공지</div>
+							<!--<div class="addlist" onclick="location.href='/nene_Owner_login.asp'">점주님공간</div>-->
+						</div>
+						
+						<div class="Add-content">
+							<div class="addlist" onclick="LOADINGON(); location.href=&#39;/Brand_story.asp&#39;">브랜드 스토리</div>
+							<div class="addlist" onclick="LOADINGON(); location.href=&#39;/Brand_Startup.asp&#39;">창업안내</div>
+							<div class="addlist" onclick="LOADINGON(); location.href=&#39;/Brand_news.asp&#39;">뉴스미디어</div>
+							<div class="addlist" onclick="LOADINGON(); location.href=&#39;/home_qustion.asp&#39;">1:1 문의</div>
+						</div>
+						
+						<div class="Add-infoBox">
+							<div class="AinfoBox">
+								<div class="Abox">
+									<div class="FcopyTitle">
+										COPYRIGHT 2024 BY<br> <span class="color">NENECHICKCEN</span>.
+										<br>ALL RIGHTS RESERVED.
+									</div>
+									
+									<div class="LanguageTitle">
+										회사소개
+										<div class="LanguageBtn">
+											<span onclick="window.open(&#39;/Brand_Index.asp&#39;)">KOR</span>
+											<span class="line"></span>
+											<span onclick="window.open(&#39;/BrandEN_Index.asp&#39;)">ENG</span>
+										</div>
+									</div>
+									
+									<div class="FinfoBox">
+										<div class="FinfoCompany">
+											<div class="CtitleBox"><span class="Ctitle">상호명</span>(주)혜인식품</div>
+											<div class="CtitleBox"><span class="Ctitle">사업자등록번호</span>127-81-96998</div>
+											<div class="CtitleBox"><span class="Ctitle">대표자</span>현철호,현광식</div>
+										</div>
+									</div>
+								</div>
+								<div class="Abox">
+									<div class="FinfoBox">
+										<div class="Finfoicon">
+											<img src="./실습9_files/m_icon_footer_1.svg">
+										</div>
+										<div class="FinfoAdss">
+											서울특별시 도봉구 노해로 391 <br>
+											네네빌딩 (우) 01415 
+										</div>
+									</div>
+									<div style="display:flex;flex-direction: column;">
+										<div class="FinfoCallBox">
+											<div class="Finfoicon">
+												<img src="./실습9_files/m_icon_footer_4.svg">
+											</div>
+											<div class="FinfoCallCenter">
+												<div class="CtitleBox">
+													<span class="Ctitle">전화주문</span>1599-4479
+												</div>
+												<div class="CtitleBox">
+													<span class="Ctitle">고객센터</span>02-930-6665 
+												</div>
+											</div>
+										</div>
+										
+									</div>
+									
+										<div class="FinfoCallBox" style="align-items: center;">
+											<div class="Finfoicon">
+												<img src="./실습9_files/m_icon_footer_5.svg">
+											</div>
+											<div class="FinfoEmail">
+												cs@nenechicken.com 
+											</div>
+										</div>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--== 모바일 더보기 menu end ===-->
+		</div>
+		<div class="Hcontainer " style="padding-top:180px">
+
+	
+		<form name="autoLoginFrm" id="autoLoginFrm" method="post">
+			<input type="hidden" name="autologin" value="on">
+			<input type="hidden" name="userid" value="">
+			<input type="hidden" name="pass" value="">
+			<input type="hidden" name="part" value="inside">
+			<input type="hidden" name="user_tab" value=""><!--회원가입경로 구분-->
+			<input type="hidden" name="user_tabkey" value=""><!--회원가입경로 구분-->
+			<input type="hidden" name="mode" value="auto"><!--회원가입경로 구분-->			
+			<input type="hidden" name="DEVICE_ID" value="">
+		</form>
+
+		<script language="JavaScript">
+			function autoLoginSubmit(){
+				var formData = $("#autoLoginFrm").serialize();
+				var arrTemp = "";
+				var f = document.autoLoginFrm;
+	
+				$.ajax({
+					type : "POST",
+					url : "/process/login_ok.fuse",
+					data : formData,
+					dataType : "text",
+					error : function(){
+						//alert("인터넷 회선이 불안합니다. 다시 시도해 주세요.\n같은증상이 계속 반복될시 관리자에게 문의 바랍니다.");
+					},
+					success : function(arrData){
+						if (arrData != ""){
+							arrTemp = arrData.split("||")
+							
+							if (arrTemp[0] == "Y"){
+								//location.href=arrTemp[1]+"?DEVICE_ID="+ f.DEVICE_ID.value;
+								location.reload();
+							}else if (arrTemp[0] == "I"){
+								location.href=arrTemp[1];
+							}else if (arrTemp[0] == "N"){
+								alert(arrTemp[1]);
+								return;
+							}
+						}
+					}
+				});
+			}
+
+			$( document ).ready(function() {
+				if ("" == "on" && "" == ""){
+					autoLoginSubmit();
+				}
+			});
+
+			window.onpageshow = function(event) {
+				if ( event.persisted || (window.performance && window.performance.navigation.type == 2)) {
+					cart_cnt('F1BE18F97C4B46DFA71B184B2152F185');
+					cpn_cart_cnt('F1BE18F97C4B46DFA71B184B2152F185');
+
+					if ("/home_login.asp" == "/home_Ecoupon.asp"){
+						location.reload();
+					}
+
+					if ("/home_login.asp" == "/home_cart.asp"){
+						location.reload();
+					}
+				}
+			}
+		</script>
+
+<script type="text/javascript">
+	//== 페이지 로드 후 실행 ==================================
+	$(document).ready(function(){
+		Motabdisplay();  //상단tab사용안함
+		headHeigh();
+		loginCSS();
+
+	});
+
+	//== resize ==========================================
+	 $(window).on('resize', function(){
+		Motabdisplay();  //상단tab사용안함
+		headHeigh();
+		loginCSS();
+	 }); 
+
+	function loginCSS(){
+		var Swidth = $(window).width();
+		if (Swidth < 768)
+		{
+			$(".SHeaderWrap").css("display","none");
+		}else{
+		
+			$(".SHeaderWrap").css("display","");
+		}
+	}
+
+	//== 로그인  =========================================
+	function LOGINTYPE(TYPE,Th){
+		$(".loginType").css('display','none');
+		$(".Ltab").removeClass('active');
+
+		$("#"+TYPE).css('display','');
+		$(Th).addClass('active');
+	}	
+	
+	//== 개인정보수집동의 ===================================
+	function PRIVACY(val){
+		var URL;
+		$("body").addClass('fixed');
+		$("#Popup_fiex").css('display','');
+		$(".PopupBox").css('display','');
+
+		if (val == "PRIVACY"){//개인정보수집
+			URL = "/process/Privacy.fuse"		
+		}else if (val == "PRIVACYLAW"){//이용약관동의
+			URL = "/process/privacylaw.fuse"		
+		}else if (val == "LOCATION"){//위치기반서비스
+			URL = "/process/privacylocation.fuse"		
+		}
+
+		$.ajax({
+			type: "POST"
+			,dlocationataType: "html"
+			,url: URL
+			,success : function(ret) {
+				var strray = ret.split("||")
+				$(".PopupBox").text("");
+				$(".PopupBox").append(strray[0]);
+			}, error : function() {
+				//alert("페이지 오류 입니다. 관리자에게 문의하세요.");
+			}
+		});
+	}
+	
+	//== 팝업 닫기  ===================================
+	function POPCOLSE(){
+		$("body").removeClass('fixed');
+		$("#Popup_fiex").css('display','none');
+		$(".PopupBox").css('display','none');	
+	}
+
+	function control_enter(){			// 엔터키를 눌렀을때 폼체크 확인부분으로 넘겨주는 코드
+		var frm = document.Frm;
+		if(event.keyCode == 13){
+			event.keyCode = 0;
+			submitChk();
+		}
+	}
+
+	function submitChk() {
+		LOADINGON();
+
+		//alert(sessionStorage.getItem('push_token'));
+
+		if (document.Frm.userID.value == "") {
+			var msg = "아이디를 입력해주세요!"
+			LOADINGOFF();
+			alert(msg);
+			return;
+		}
+
+		if (document.Frm.pass.value.search(/\s/) != -1){
+			var msg = "비밀번호에 공백이 포함되어있습니다!"
+			LOADINGOFF();
+			alert(msg);
+			return;
+		}
+
+		if (document.Frm.pass.value == "") {
+			var msg = "비밀번호를 입력해주세요!"
+			LOADINGOFF();
+			alert(msg);
+			return;
+		}
+
+		var formData = $("#Frm").serialize();
+
+		//document.Frm.target = "_self";
+		//document.Frm.action = "/process/login_ok.fuse";
+		//document.Frm.submit();
+
+        $.ajax({
+            type : "POST",
+            url : "/process/login_ok.fuse",
+			data : formData,
+            dataType : "text",
+            error : function(){
+				//alert("인터넷 회선이 불안합니다. 다시 시도해 주세요.\n같은증상이 계속 반복될시 관리자에게 문의 바랍니다.");
+            },
+            success : function(arrData){
+                if (arrData != ""){
+					arrTemp = arrData.split("||")
+					
+					if (arrTemp[0] == "Y"){
+						location.href=arrTemp[1];
+					}else if (arrTemp[0] == "I"){
+						location.href=arrTemp[1];
+					}else if (arrTemp[0] == "T"){
+						$("#userNum").val(arrTemp[2]);
+
+						document.TFrm.target = "_self";
+						document.TFrm.action = arrTemp[1];
+						document.TFrm.submit();		
+					}else if (arrTemp[0] == "N"){
+						alert(arrTemp[1]);
+						LOADINGOFF();
+						return;
+					}
+                }
+            }
+        });
+	}
+
+	//비회원 로그인
+	function GUEST_LOGIN(){
+		LOADINGON();
+
+		/*정보확인*/
+		if ($("#smsmsgOk").val() != "1"){
+			var msg = "휴대폰을 인증하세요."
+			alert(msg);
+			$("#mobile2").focus();
+			LOADINGOFF();
+			return false;
+		}
+
+		const privacy_check = document.getElementById('privacy').checked;
+		const location_check = document.getElementById('location').checked;
+		const agecheck_check = document.getElementById('agecheck').checked;
+
+		if (privacy_check == false){
+			var msg = "개인정보수집 동의를 확인해주세요."
+			alert(msg);
+			LOADINGOFF();
+			return false;
+		}
+
+		if (location_check == false){
+			var msg = "위치기반서비스 동의를 확인해주세요."
+			alert(msg);
+			LOADINGOFF();
+			return false;
+		}
+
+		if (agecheck_check == false){
+			var msg = "14세 이상 동의를 확인해주세요."
+			alert(msg);
+			LOADINGOFF();
+			return false;
+		}
+		/*정보확인*/
+
+		//document.Frm.target = "_self";
+		//document.Frm.action = "/process/guest_login_ok.fuse";
+		//document.Frm.submit();		
+
+		var formData = $("#Frm").serialize();
+
+		$.ajax({
+			type: "POST", 
+			url: "/process/guest_login_ok.fuse", 
+			data : formData,
+			dataType: "text", 
+			success: function(arrData){
+				if (arrData != ""){
+					var arrTemp = arrData.split("||")
+					
+					if (arrTemp[0] == "Y"){
+						location.href=arrTemp[1];
+					}else if (arrTemp[0] == "I"){
+						location.href=arrTemp[1];
+					}else if (arrTemp[0] == "N"){
+						alert(arrTemp[1]);
+						LOADINGOFF();
+						return;
+					}
+				}
+
+			},
+			error: function(response){
+				// 리턴 메세지 처리------------------------------
+				alert("통신에 실패하였습니다!");
+				return;
+				// 리턴 메세지 처리------------------------------
+			}
+		});
+	}
+
+	function naver_call(){			
+		//location.href = '/f_contents/naver_login_set.fuse';
+		document.Frm.target = "_self";
+		document.Frm.action = "/process/naver_login_set.fuse";
+		document.Frm.submit();		
+	}
+
+	function kakao_call(){
+		//alert(navigator.userAgent);
+		//return;
+
+		//location.href = '/f_contents/daum_login_set.fuse';
+		document.Frm.target = "_self";
+		document.Frm.action = "/process/daum_login_set.fuse";
+		document.Frm.submit();		
+	}
+</script>
+<form name="TFrm" id="TFrm" method="post" class="contentform"> 
+	<input type="hidden" name="userNum" id="userNum"><!--회원가입경로 구분-->
+</form>
+
+<form name="Frm" id="Frm" method="post" class="contentform"> 
+	<input type="hidden" name="user_tab"><!--회원가입경로 구분-->
+	<input type="hidden" name="smsmsg" id="smsmsg">
+	<input type="hidden" name="smsmsgOk" id="smsmsgOk">
+	<input type="hidden" name="phone_ok" value="">
+
+	<!--== SubPage Header =====================-->
+	<div class="SHeaderWrap">
+		<div class="SHeaderbox">
+			<div class="SHTitleBox SH2">
+				<div class="Toptitle">LOGIN</div>
+				<div class="Bottomtitle">로그인</div>
+			</div>
+			<div class="SHContents height">
+				<div class="SconWrap">
+					<div class="SHTitleWrap">
+						<div class="STitle">
+							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="11px" height="18px">
+								<path fill-rule="evenodd" fill="#000000" d="M0.292,8.212 L8.245,0.270 C8.628,-0.113 9.250,-0.113 9.634,0.270 L10.561,1.196 C10.944,1.579 10.945,2.198 10.563,2.582 L4.260,8.906 L10.563,15.231 C10.945,15.614 10.944,16.233 10.561,16.616 L9.633,17.543 C9.250,17.925 8.628,17.925 8.244,17.543 L0.292,9.599 C-0.092,9.217 -0.092,8.595 0.292,8.212 Z"></path>
+							</svg>
+							로그인
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+	<!--== Login Wrap  =====================-->
+	<div class="MoContentFlex">
+		<div class="LoginWrap">
+			<div class="LoginHtitle">
+				<div class="Htitle">
+					정직한 음식이 만드는 행복한 세상!<br>
+					네네치킨에 오신 것을 환영합니다
+				</div>
+				<!--<div class="Stitle">2018년 이전 가입고객은 통합회원 가입하여 주시기 바랍니다.</div>-->
+			</div>
+			<div class="LoginTab">
+				<div class="Ltab active" onclick="JAVASCRIPT:LOGINTYPE(&#39;LOGIN&#39;,this)">회원 로그인</div>
+				<div class="Ltab" onclick="JAVASCRIPT:LOGINTYPE(&#39;GUEST&#39;,this)">비회원 로그인</div>
+			</div>
+			<!--== 회원로그인 ===================================================-->
+			<div class="loginType" id="LOGIN">
+				<div class="L_InputBox">
+					<div class="LInputB">
+						<span class="login_I">ID</span>
+						<div class="input-inner">
+							<div class="input_icon">
+								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="19px" height="19px">
+									<path fill-rule="evenodd" fill="#79747E" d="M9.500,-0.000 C6.876,-0.000 4.750,2.126 4.750,4.750 C4.750,7.374 6.876,9.500 9.500,9.500 C12.124,9.500 14.250,7.374 14.250,4.750 C14.250,2.126 12.124,-0.000 9.500,-0.000 ZM11.875,4.750 C11.875,3.444 10.806,2.375 9.500,2.375 C8.194,2.375 7.125,3.444 7.125,4.750 C7.125,6.056 8.194,7.125 9.500,7.125 C10.806,7.125 11.875,6.056 11.875,4.750 ZM16.625,15.438 C16.388,14.594 12.706,13.063 9.500,13.063 C6.294,13.063 2.612,14.594 2.375,15.449 L2.375,16.625 L16.625,16.625 L16.625,15.438 ZM-0.000,15.438 C-0.000,12.279 6.329,10.688 9.500,10.688 C12.671,10.688 19.000,12.279 19.000,15.438 L19.000,19.000 L-0.000,19.000 L-0.000,15.438 Z"></path>
+								</svg>
+							</div>
+							<div style="flex:1"><input type="text" name="userID" value="" placeholder="아이디" maxlength="20"></div>
+						</div>
+					</div>			
+					<div class="LInputB">
+						<span class="login_I">PASSWORD</span>
+						<div class="input-inner">
+							<div class="input_icon">
+								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="21px">
+									<path fill-rule="evenodd" fill="#79747E" d="M16.040,8.982 L15.077,8.982 L15.077,6.095 C15.077,2.735 12.343,-0.000 8.982,-0.000 C5.622,-0.000 2.887,2.735 2.887,6.095 L2.887,8.982 L1.925,8.982 C0.862,8.982 0.000,9.844 0.000,10.907 L0.000,18.606 C0.000,19.669 0.862,20.531 1.925,20.531 L16.040,20.531 C17.102,20.531 17.964,19.669 17.964,18.606 L17.964,10.907 C17.964,9.844 17.102,8.982 16.040,8.982 ZM11.869,8.982 L6.095,8.982 L6.095,6.095 C6.095,4.503 7.390,3.208 8.982,3.208 C10.574,3.208 11.869,4.503 11.869,6.095 L11.869,8.982 Z"></path>
+								</svg>
+							</div>
+							<div style="flex:1"><input type="password" name="pass" placeholder="비밀번호" onkeypress="control_enter();"></div>
+						</div>
+					</div>	
+				</div>
+				<div class="ID_Check_box">
+					<div class="ID_Check">
+						<div class="Logincheck">
+							<input type="checkbox" id="save" name="saveid" value="on">
+							<label for="save">
+								아이디 저장
+							</label>
+						</div>
+						<div class="Logincheck">
+							<input type="checkbox" id="auto" name="autologin" value="on">
+							<label for="auto">
+								자동 로그인
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="loginBtnbox">
+					<div class="login_btn" onclick="submitChk();">로그인</div>
+					<div class="join_btn" onclick="location.href=&#39;/home_join_type.asp&#39;">회원가입</div>
+				</div>
+				<div class="loginfind">
+					<ul class="c_pointer ">
+						<li onclick="location.href=&#39;/home_findid.asp&#39;">아이디 찾기<span class="line"></span></li>
+						<li onclick="location.href=&#39;/home_find_password.asp&#39;">비밀번호 찾기</li>
+					</ul>
+				</div>
+				<div class="login_line"></div>
+				<div class="LInner">
+					<div class="SNSlogin">
+						<p class="title">SNS 간편 로그인</p>
+						<div class="SNSBox">
+							<div class="snsbtn kakao" onclick="JAVASCRIPT:kakao_call();"><img src="./실습9_files/I_kakao.png"></div>
+							<div class="snsbtn naver" onclick="JAVASCRIPT:naver_call();"><img src="./실습9_files/I_naver.png"></div>
+							<div class="snsbtn apple">
+								<!--<img src="/images/I_apple.png">-->
+								<script type="text/javascript" src="./실습9_files/appleid.auth.js.다운로드"></script>
+								<div id="appleid-signin" class="sns_login_BN apple_bN" data-mode="right-align" data-color="black" data-border="false" data-border-radius="70" data-size="70" data-height="70" data-logo-size="large"></div>
+								<script type="text/javascript">
+									AppleID.auth.init({
+										clientId : 'com.home.nenechicken.com',
+										scope : 'name email',
+										redirectURI: 'https://nenechicken.com/process/apple_login_callback.fuse',
+										state : 'STATE'
+									});
+								</script>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--== 비회원로그인 ===================================================-->
+			<div class="loginType" id="GUEST" style="display:none">
+				<div class="guestBox">
+					<div class="inputCon">
+						<table class="inputForm">
+							<tbody>
+								<tr>
+									<td class="title p_bottom_10">연락처</td>
+									<td class="inputBox p_bottom_10">
+										<div class="joinFlex">
+											<select id="mobile1" name="mobile1" class="form-control m_right_10"><option value="010">010</option><option value="011">011</option><option value="016">016</option><option value="017">017</option><option value="018">018</option><option value="019">019</option></select>
+
+											<input type="tel" name="mobile2" id="mobile2" class="form-control m_right_10" onkeyup="this.value=this.value.replace(/[^0-9]/g,&#39;&#39;);" maxlength="4">
+											<input type="tel" name="mobile3" id="mobile3" class="form-control" onkeyup="this.value=this.value.replace(/[^0-9]/g,&#39;&#39;);" maxlength="4">
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td class="title"></td>
+									<td class="inputBox p_bottom_10">
+										<div class="btn_box_B c_pointer" onclick="SMSSEND(&#39;forget&#39;);"><span id="smstitle">인증번호발송<span></span></span></div>
+									</td>
+								</tr>
+								<tr id="sms_tr1" style="display:none;">
+									<td class="title p_bottom_10">인증번호</td>
+									<td class="inputBox p_bottom_10">
+										<div class="joinFlex">
+											<div class="p_relative m_right_10" style="width: 60%;">
+												<input type="text" name="phone_areOK" id="phone_areOK" class="form-control" onkeyup="this.value=this.value.replace(/[^0-9]/g,&#39;&#39;);" maxlength="4">
+												<span class="timertitle input_timer" id="timer_value"></span>
+											</div>
+											<div class="btn_box_G c_pointer" style="width:40% ;padding:13px 0;" onclick="SMSCHECK(&#39;&#39;);">인증번호 확인</div>
+										</div>
+									</td>
+								</tr>
+								<tr id="sms_tr2" style="display:none">
+									<td class="title p_bottom_10"></td>
+									<td class="inputBox infotitle">
+										· 개인정보를 도용하여 가입한 경우,서비스 이용에 대해 제한 및 법적 제재를 받으실 수 있습니다.
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!--== 약관 ========================-->
+					<div class="TermsCheckWrap">
+						<div class="TermsCheck">
+							<div class="R_check">
+								<input type="checkbox" id="privacy" name="joinchk">
+								<label for="privacy">
+									개인정보 수집/이용 동의(필수)
+								</label>
+							</div>
+							<span class="m_left_15 c_pointer" onclick="JAVASCRIPT:PRIVACY(&#39;PRIVACY&#39;);">
+								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15px" height="8px">
+									<path fill-rule="evenodd" fill="#949494" d="M14.047,0.178 C13.937,0.068 13.791,0.006 13.638,0.006 C13.485,0.006 13.338,0.068 13.228,0.178 L7.102,6.349 L0.978,0.178 C0.868,0.068 0.722,0.006 0.568,0.006 C0.416,0.006 0.269,0.068 0.159,0.178 C0.106,0.232 0.064,0.296 0.034,0.367 C0.005,0.438 -0.009,0.514 -0.009,0.591 C-0.009,0.668 0.005,0.744 0.034,0.815 C0.064,0.886 0.106,0.950 0.159,1.004 L6.675,7.566 C6.789,7.681 6.943,7.745 7.102,7.745 C7.262,7.745 7.416,7.681 7.530,7.566 L14.046,1.004 C14.099,0.950 14.141,0.886 14.170,0.815 C14.199,0.744 14.214,0.668 14.214,0.591 C14.214,0.514 14.199,0.438 14.170,0.367 C14.141,0.296 14.099,0.232 14.046,0.178 L14.047,0.178 Z"></path>
+								</svg>
+							</span>						
+						</div>
+						<div class="TermsCheck">
+							<div class="R_check">
+								<input type="checkbox" id="location" name="joinchk">
+								<label for="location">
+									위치기반서비스 동의(필수)
+								</label>
+							</div>
+							<span class="m_left_15 c_pointer" onclick="JAVASCRIPT:PRIVACY(&#39;LOCATION&#39;);">
+								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15px" height="8px">
+									<path fill-rule="evenodd" fill="#949494" d="M14.047,0.178 C13.937,0.068 13.791,0.006 13.638,0.006 C13.485,0.006 13.338,0.068 13.228,0.178 L7.102,6.349 L0.978,0.178 C0.868,0.068 0.722,0.006 0.568,0.006 C0.416,0.006 0.269,0.068 0.159,0.178 C0.106,0.232 0.064,0.296 0.034,0.367 C0.005,0.438 -0.009,0.514 -0.009,0.591 C-0.009,0.668 0.005,0.744 0.034,0.815 C0.064,0.886 0.106,0.950 0.159,1.004 L6.675,7.566 C6.789,7.681 6.943,7.745 7.102,7.745 C7.262,7.745 7.416,7.681 7.530,7.566 L14.046,1.004 C14.099,0.950 14.141,0.886 14.170,0.815 C14.199,0.744 14.214,0.668 14.214,0.591 C14.214,0.514 14.199,0.438 14.170,0.367 C14.141,0.296 14.099,0.232 14.046,0.178 L14.047,0.178 Z"></path>
+								</svg>
+							</span>						
+						</div>
+						<div class="TermsCheck">
+							<div class="R_check">
+								<input type="checkbox" id="agecheck" name="joinchk">
+								<label for="agecheck">
+									본인은 14세 이상입니다.(필수)
+								</label>
+							</div>					
+						</div>
+					</div>
+					<div class="guestbtn" onclick="JAVASCRIPT:GUEST_LOGIN();">비회원 주문하기</div>
+					<div class="guestTitle m_top_15">비회원 주문 시 할인 혜택을 받을 수 없습니다.</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+<!--====== FOOTER ============================-->	
+
+	</div>
+
+	<!--== Footer Box ============================-->
+		<div class="FooterWrap">
+			<div class="FooterBox">
+				<div class="FBox1">
+					<!--== 로고 ===-->		
+					<div class="FooterList">
+						<img src="./실습9_files/NENE_Logo_w.svg" class="Footerlogo">
+						<div class="FcopyTitle">
+							COPYRIGHT 2024 BY <span class="color">NENECHICKEN</span>.
+							<br>ALL RIGHTS RESERVED.
+						</div>
+						<div class="LanguageTitle">
+							<span class="tit">회사소개</span>
+							
+							<div class="LanguageBtn">
+								<span onclick="window.open(&#39;/Brand_Index.asp&#39;)">KOR</span>
+								<span class="line"></span>
+								<span onclick="window.open(&#39;/BrandEN_Index.asp&#39;)">ENG</span>
+							</div>
+							
+						</div>
+					</div>
+					<!--== 메뉴 === -->
+					<div class="FooterList">
+						 <div class="FooterMenuBox">
+							<div class="FMenuBox">
+								<span class="FMenu" onclick="LOADINGON(); location.href=&#39;/home_law.asp&#39;">이용약관</span>
+								<span class="FMenu" onclick="LOADINGON(); location.href=&#39;/home_locationLaw.asp&#39;">위치정보이용약관</span>
+								<!--<span class="FMenu font" onclick="location.href='/home_videoLaw.asp'">영상정보처리기기 운영관리 방침 </span> -->
+							</div>
+							<div class="FMenuBox">
+								<span class="FMenu" onclick="LOADINGON(); location.href=&#39;/home_privacy.asp&#39;">개인정보처리방침</span>
+								<!--<span class="FMenu" onclick="location.href='/home_locationprivacy.asp'">개인위치정보처리방침 </span>-->
+								<span class="FMenu" onclick="LOADINGON(); location.href=&#39;/home_email.asp&#39;">이메일무단수집거부</span>
+							 </div>
+						 </div>
+					</div>
+				</div>
+				<div class="FBox2">
+					<!--== 회사정보 === -->
+					<div class="FooterinfoBox">
+						<div class="FinfoBox">
+							<div class="Finfoicon">
+								<img src="./실습9_files/icon_footer_1.svg">
+							</div>
+							<div class="FinfoAdss">
+								서울특별시 도봉구 노해로 391 <br>
+								네네빌딩 (우) 01415    
+								<div class="MapBtn">
+									<div class="Mbtn" onclick="location.href=&#39;/home_directions.asp&#39;">
+										<span class="Mtitle">오시는길</span>
+										<img src="./실습9_files/icon_subLeft_w.svg" style="width:14px">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="FinfoBox">
+							<!-- <div class="FinfoOicon">
+								<img src="/images/icon_footer_2.svg">
+							</div> -->
+							<div class="FinfoTel2">
+								<span class="Ttitle">전화주문</span>
+								<span class="TelNumber">1599-4479</span>
+							</div>
+						</div>
+						<div class="FinfoBox">
+							<div class="Finfoicon">
+								<img src="./실습9_files/icon_footer_3.svg">
+							</div>
+							<div class="FinfoCompany">
+								<div class="CtitleBox"><span class="Ctitle">상호명</span>(주)혜인식품</div>
+								<div class="CtitleBox"><span class="Ctitle">사업자등록번호</span>127-81-96998</div>
+								<div class="CtitleBox"><span class="Ctitle">대표자</span>현철호, 현광식</div>
+							</div>
+						</div>
+						<div class="FinfoBox1">
+							<div class="FinfoCallBox">
+								<div class="Finfoicon">
+									<img src="./실습9_files/icon_footer_4.svg" style="width:17px">
+								</div>
+								<div class="FinfoCallCenter">
+									<div class="CtitleBox">
+										<span class="Ctitle">고객센터</span>02-930-6665 
+									</div>
+									<div class="CtitleBox">
+										<span class="Ctitle">업무시간</span>09 ~ 18시 
+										<span class="Ctitle">/ 점심시간</span>12 ~ 13시 
+									</div>
+								</div>
+							</div>
+							<div class="FinfoCallBox" style="align-items: center;">
+								<div class="Finfoicon">
+									<img src="./실습9_files/icon_footer_5.svg" style="width:17px">
+								</div>
+								<div class="FinfoEmail">
+									cs@nenechicken.com 
+								</div>
+							</div>
+							<!-- QUSTIONALERT();-->
+							<div class="FinfoCallBox">
+								<span class="FQustion" onclick="LOADINGON(); location.href=&#39;/home_qustion.asp&#39;">1:1 문의</span>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		
+		<!--== 모바일 하단 고정메뉴 =================-->
+		<div class="footer_menu">
+			<div class="menuWrap">
+				<div class="fmenu" onclick="LOADINGON(); location.href=&#39;/home_menu.asp&#39;">
+					<span class="f_icon">
+						<img src="./실습9_files/footer_menu1.svg">
+					</span>
+					메뉴
+				</div>
+				<div class="fmenu" onclick="LOADINGON(); location.href=&#39;/daou/home_GiftCoupon.asp&#39;">
+					<span class="f_icon">
+						<img src="./실습9_files/footer_menu3_n.svg">
+					</span>
+					선물하기
+				</div>
+				<div class="fmenu" onclick="LOADINGON(); location.href=&#39;/home_shop.asp&#39;">
+					<span class="f_icon">
+						<img src="./실습9_files/footer_menu2.svg">
+					</span>
+					매장
+				</div>
+				
+					<div class="fmenu" onclick="LOADINGON(); location.href=&#39;/home_login.asp&#39;">
+				
+					<span class="f_icon">
+						<img src="./실습9_files/footer_menu4.svg">
+					</span>
+					나의네네
+				</div>
+				<div class="fmenu ADDMENU">
+					<span class="f_icon_add">
+						<img src="./실습9_files/footer_Addmenu.svg">
+					</span>
+				</div>
+			</div>
+		</div>
+		<!--== 주문하기 (배달,포장)선택 팝업 =================-->
+		<div id="OrderSpop_fiex" style="display: none;"></div>
+		<div class="OrderSpop" style="display: none;">
+			<div class="SelectWrap">
+				<div class="OSColse" onclick="OrderCOLSE();">
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="19px" viewBox="0 0 20 19">
+					<path fill-rule="evenodd" fill="rgb(69, 69, 69)" d="M19.166,14.724 L13.871,9.451 L19.252,4.092 C19.912,3.434 19.920,2.376 19.271,1.729 L18.094,0.557 C17.444,-0.090 16.382,-0.081 15.722,0.576 L10.341,5.935 L5.046,0.661 C4.397,0.014 3.334,0.022 2.674,0.680 L1.478,1.871 C0.818,2.528 0.810,3.586 1.459,4.234 L6.754,9.507 L1.374,14.866 C0.714,15.523 0.706,16.581 1.355,17.229 L2.532,18.401 C3.182,19.048 4.244,19.039 4.904,18.382 L10.284,13.023 L15.579,18.297 C16.229,18.944 17.292,18.935 17.952,18.278 L19.147,17.087 C19.807,16.429 19.816,15.371 19.166,14.724 Z"></path>
+					</svg>
+				</div>
+				<div class="titleBox">
+					<div class="mtxt">100% 국내산 닭고기 <br>맛있는 네네치킨</div>
+					<div class="stxt">배달/포장을 선택해주세요</div>
+				</div>
+				<div class="OrderType">
+					<div class="TypeBox" onclick="LOADINGON(); location.href=&#39;/home_order_Delivery.asp&#39;">
+						<div class="imgBox"><img src="./실습9_files/icon_delivery.svg"></div>
+						<div class="flexT">
+							<div class="OT_title">
+								<div class="tBox">
+									<div style="flex:1">
+										<span class="PStype">배달</span>주문
+									</div>
+									<span class="ticon"><img src="./실습9_files/icon_subLeft.svg" style="width:20px"></span>
+								</div>
+							</div>
+							<!--<div class="OT_Stitle">원하는 곳에서 받아 보세요</div>-->
+						</div>
+					</div>
+					<div class="TypeBox" onclick="LOADINGON(); location.href=&#39;/home_order_Takeout.asp&#39;">	
+						<div class="imgBox"><img src="./실습9_files/icon_takeout.svg"></div>
+						<div class="flexT">
+							<div class="OT_title">
+								<div class="tBox">
+									<div style="flex:1">
+										<span class="PStype">포장</span>주문
+									</div>
+									<span class="ticon"><img src="./실습9_files/icon_subLeft.svg" style="width:20px"></span>
+								</div>
+							</div>
+							<!--<div class="OT_Stitle">방문포장 <br>2,000원 할인!<span class="italic">!</span></div>-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--== 창업문의 floating=================-->
+		
+		<!--== 최상단 버튼 ========================-->
+		<div id="btnTop" style="display: none;">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6.5 3.79">
+			<path fill="#fff" d="M6.32,2.8L3.6.16c-.11-.11-.25-.16-.41-.16-.15,0-.3.06-.4.17L.17,2.8c-.22.23-.22.59,0,.82.23.23.59.22.82,0L3.15,1.45s.08-.03.11,0l2.26,2.19c.11.1.25.16.4.16h.02c.15,0,.29-.07.4-.18.11-.11.16-.26.16-.41,0-.16-.07-.3-.18-.41Z"></path>
+		</svg>
+		</div>
+		<!--== Popup Box ============================-->
+		<div id="Popup_fiex" style="display:none"></div>
+		<div class="PopupBox" style="display:none">
+		
+		</div>
+		<!--== Popup Sub Box ============================-->
+		<div id="Popup_fiex_sub" style="display:none"></div>
+		<div class="PopupBoxSub" style="display:none">
+		
+		</div>
+		<!--== Loding Bar ============================-->
+		<div id="loadingBox" style="display:none">
+			<div class="loading">
+				<img src="./실습9_files/homeloading_new.gif">
+			</div>
+		</div>
+		<!--=========================================-->
+		
+	 
+
+
+<script type="text/javascript">
+
+	$(document).ready(function(){
+		
+		console.log('35');
+
+		//== 모바일 Menu 열기 ============
+		$(".ADDMENU").click(function(){
+			$(".AddMenuBak").addClass("on");
+			$(".AddMenu").addClass("on");
+			$("body").addClass("fixed_m");
+
+		});
+
+		//== 모바일 Menu 닫기 ============
+		$(".AddmenuClose, .AddMenuBak").click(function(){
+			$(".AddMenu").removeClass("on");
+			$("body").removeClass("fixed_m");
+			$(".AddMenuBak").removeClass("on");
+			
+		});
+
+		//상단이동 버튼
+		$('#btnTop').click(function(){
+			$( 'html, body' ).animate( { scrollTop : 0 }, 400 );
+			return false;
+		});
+
+	});
+
+	//== resize Banner Swiper ===
+	 $(window).on('resize', function(){
+		$(".AddMenu").removeClass("on");
+		$("body").removeClass("fixed_m");
+		$(".AddMenuBak").removeClass("on");
+	 });    
+
+	//상단이동 버튼 노출
+	$( window ).scroll(function() {
+		var scrollTop = $(window).scrollTop();
+		if(scrollTop >= 100){
+			//alert('yes');
+			$('#btnTop').css('display','');
+			$("#CFloating").addClass('bottomC');
+		}else{
+			//alert('nono');
+			$('#btnTop').css('display','none');
+			$("#CFloating").removeClass('bottomC');
+		};	
+	});
+
+	function LOADINGON(){
+		$("#loadingBox").css('display','');
+		$("body").addClass('fixed');	
+	}
+
+	function LOADINGOFF(){
+		$("#loadingBox").css('display','none');
+		$("body").removeClass('fixed');
+	}
+	function FLOATINGCLOSE(){
+		$(".floating").hide();
+	}
+
+	// 모바일 푸터 사용안함 처리
+	function Footerdisplay(){	
+		var awidth = $(window).width();
+		if (awidth < 768){
+			$(".FooterWrap").addClass('Fdisplay');
+
+		}else{
+			$(".FooterWrap").removeClass('Fdisplay');
+		}
+	}	
+
+	// 모바일 상단 탭 사용안함 처리
+	function Motabdisplay(){	
+		var awidth = $(window).width();
+		if (awidth < 768){
+			$(".HMainBox").addClass('Tdisplay');
+
+		}else{
+			$(".HMainBox").removeClass('Tdisplay');
+		}
+	
+	}
+
+</script>
+</body></html>

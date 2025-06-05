@@ -1,0 +1,806 @@
+/*******************************************************
+				NENE HOMEPAGE MEDIA CSS
+********************************************************/
+/*=====  screen 1768px ======================*/
+@media screen and (max-width:1768px){
+
+}
+
+/*=====  screen 1768px ======================*/
+@media screen and (max-width:1600px){
+
+	/* Main Contents */
+	.MainmenuWrap {max-width: 1400px;}
+	.widget-prev.BP {left: 0;}
+	.widget-next.BN {right: 0;}
+}
+
+/*=====  screen 1200px ======================*/
+@media screen and (max-width:1200px){
+
+	html {font-size: 15px !important;}
+	
+}
+
+/*=====  screen 768px ======================*/
+@media screen and (max-width:768px){
+	
+	html {font-size: 16px !important; }
+	html{ height: 100%;}
+	body{min-height: 100%;}
+	/*= Header =============================*/
+	.Hcontainer {margin-bottom: 10px;min-height: calc(100vh - 113px - 12rem);}
+	.Hcontainer.homeapp{min-height: calc(100vh - 110px);}
+	.HeaderWrap .HMainBox {padding: 15px 15px 12px;justify-content: space-between;max-width: 100%;border-bottom: 1px solid #e7e7e7;}
+	.HeaderWrap .HMainBox .MainLogo img{width:80%}
+	.HeaderWrap .HMainBox .MenuWrap{display:none;}
+	.MoMenu{display: flex !important;flex: 1;}
+	.HeaderWrap .HeaderBox .HSubBox {padding:15px}
+	.HeaderWrap .HeaderBox .HSubBox .SubMenu {display: none;}
+	.HeaderWrap .HeaderBox .HSubBox .Deliverywrap{max-width:100%;flex: 1;padding: 5px 15px 5px 0;}
+	.HeaderWrap .HeaderBox .HSubBox .Deliverywrap.subD{display: none;}
+	.HeaderWrap .HeaderBox .HSubBox .Deliverywrap .DeliveryInfo {flex-direction: column;gap: 0.5rem;}	
+	.HeaderWrap .HeaderBox .HSubBox .Deliverywrap .iconB .moimg{display:block}
+	.HeaderWrap .HeaderBox .HSubBox .Deliverywrap .iconB .pcimg{display:none}
+	.HeaderWrap .HeaderBox .HSubBox .mo_header_flex{display: flex;}
+	.HeaderWrap .HeaderBox .HSubBox .MenuaddBtn {display: flex;}
+
+	.HeaderWrap .HMainBox .MainLogo{display: none;}
+	.HeaderWrap .HMainBox .MenuWrap .MainIcon{display: none;}
+	.SHeaderWrap .SHeaderbox .SHContents .SconWrap{display:none}
+	.SHeaderWrap .SHeaderbox .SHContents .SconWrap.Tab{display: block;padding: 0.9rem 1.5rem;}
+	.SHeaderWrap .SHeaderbox .SHTitleBox .Toptitle{text-align:right;}
+	.SHeaderWrap .SHeaderbox .SHTitleBox .Toptitle .moT{display:inline-block;}
+	.SHeaderWrap .SHeaderbox.Mnone{padding:0px;}
+	.SHeaderWrap .SHeaderbox {flex-direction: column;padding:15px 15px;}
+	.SHeaderWrap .SHeaderbox .SHTitleBox {width: 100%;display: none !important;}
+	.SHeaderWrap .SHeaderbox.Mnone .SHTitleBox{display:none}
+	.SHeaderWrap .SHeaderbox .SHTitleBox .Bottomtitle{display:none}
+	.SHeaderWrap .SHeaderbox .SHContents {width: 100%;}
+	.SHeaderWrap .SHeaderbox .SHContents.height{min-height:0}
+	.SHeaderWrap .SHeaderbox .SHContents .MdetailCategory .DCategory {width: 30%;}
+	
+	.AddMenu{display:block;}
+	.AddMenuBak.on{display:block;}
+
+	/*== Main =============================*/
+	.MainBn .swiper-slide img{width:100%;height:100%;}
+	.PC_widget{display:none}
+	.MO_widget{display:flex}
+	.SubBannerWrap {padding: 15px 15px;display:none}
+	.SubBanner .SbanBox {width:100%;height:auto;}
+	#Mo_SubBannerWrap{display:block}
+	.SubProcess .ProcessBox {flex-wrap: wrap;}
+	.SubProcess .ProcessBox .ProcessList {max-width: calc(50% - 0px);width: 50%;}
+	.SubProcess .ProcessBox .ProcessList.quick{padding: 1rem 0.3rem 1rem 1rem;}
+	.SubProcess .ProcessBox .ProcessList.quick .moquick { background: #ececec;border-radius: 12px;width: 100%;height: 100%;}
+	.SubProcess .ProcessBox .ProcessList .PS_title .tBox .ticon {right: -1rem;}
+	.SubProcess .ProcessBox .ProcessList .PS_Stitle{display:none}
+	.UserinfoWrap {padding: 2rem 0 16rem;}
+	.UInfoBox {flex-direction: column;align-items: normal;gap: 2rem;}
+	.UInfoBox .UInfo {width: 100%;padding: 0 20px;}
+	.UInfoBox .UInfo .UnameBox {margin-bottom: 15px;}
+	.UInfoBox .UInfo .Username {font-size: 1.8rem;}
+	.UInfoBox .UInfo.Ubox1 {width: 100%;display: flex;justify-content: space-between;}
+	.UInfoBox .UInfo .OrderListBtn_l{display:none}
+	.UInfoBox .UInfo .OrderListBtn{display:none;}
+	.UStoreBox {width: 100%;flex-direction: column;gap: 1rem;padding: 2rem 2rem 1.5rem;}
+	.UStoreBox.Monone{display:none;}
+	.UStoreBox.MBlock{display:flex;}
+	.MO_ICon{display:block; width: 130px;}
+	.USBox {width: 100%;}
+	.USBox .StoreTBox {margin-bottom: 20px;}
+	.USicon {width: 130px !important;height: 130px !important;}
+	.USicon.box1 {margin-right:0px;}
+	.NENEWrap {padding-bottom: 20rem;}
+	.TalkWrap{padding: 0 2rem;top: 27%;}
+	.TalkWrap.IdCheck{padding: 0 2rem;top:48%;}
+	.TalkWrap .TalkTitle {margin-bottom: 10px;display: flex;justify-content: space-between;align-items: flex-start;flex-direction: column;gap: 1rem;}
+	.TalkWrap .TalkTitle .SnsBox {position: unset;}
+	.TalkListBox {padding: 1.3rem 0rem !important;}
+	.moBrand{display:block; margin-top: 5rem;}
+	.widget-prev.Bprev {left: 2%;}
+	.widget-next.Bnext {right: 2%;}
+	.widget-prev.Tprev {left: 1%;}
+	.widget-next.Tnext {right: 1%;}
+    .widget-prev.Msubprev {left: 0;}
+	.widget-next.Msubnext{right: 0;}
+	.ContentsWrap{ padding-bottom:0px}
+
+
+	/*== SubPage ==========================*/
+	.Hcontainer {padding-top:120px;}
+	.SHeaderWrap{width: 100%;}
+	.ShTab {padding: 0px 0rem 0;gap:1rem;width: 100%; justify-content: space-between;}
+	.ShTab .tab {font-size: 1.1rem;}
+	.ShTab .tab.col-1{width: 45%;}
+	.ShTab .tab.col-2{width: 50%;}
+	.ShTab .tab.col-3{width: 33%;}
+	.ShTab .tab.col-4{width: 25%;}
+	
+	.ShTab .tab .on {font-size: 1.1rem;}
+
+	/*== 주문 -매장선택  =========================*/
+	.DeliveryWrap{max-width:100%;padding: 1rem 1rem;margin: 0 0;}
+	.AddressWrap .AddressBox .AddBox { padding:1.3rem;}
+	.AddressWrap .AddressBox .AddWrap .AddCon {padding: 0;}
+	.AddressWrap .AddressBox .AddWrap .AddCon .address .Stitle {font-size: 1rem;line-height: 19px;align-items: flex-start;flex-direction: column;}
+	.AddressWrap .AddBtnbox {justify-content: center;}
+	.AddressWrap .AddBtnbox .AddBtn {font-size: 1rem;}
+	.AddressInput input::placeholder {font-size:0.9rem;line-height:0px;}
+
+	.ShopWrap .StoreList .StoreBox{padding: 1rem 1rem;}
+	.ShopWrap .StoreList .StoreBox .StoreBrand{padding-right: 1rem;}
+	.ShopWrap .StoreList .StoreBox .Brandinfo {flex-direction: column;align-items: flex-end;}
+	.ShopWrap .StoreList .StoreBox .StoreBrand .img {width:80px;}
+	.Brandinfo .Storeinfo {margin-bottom: 5px;}
+	.Brandinfo .Storeinfo .storeName {font-size: 1.1rem;display: flex;flex-direction: column;}
+	.Brandinfo .Storeinfo .storeName .storePhone {font-size: 0.8rem;margin-left:0px}
+	.Brandinfo .Storeinfo .storeTime {font-size: 13px;}
+	.Openinfo {flex-direction: row;  gap:10px; }
+	.Openinfo .OpenIcon {font-size: 0.9rem;padding:5px 20px;}
+	.Openinfo .storeTime{ margin-bottom: 0px;}
+	.Openinfo .OrderTime {font-size: 0.7rem;padding-bottom: 2px;}
+	.brandIcon {font-size: 0.7rem;}
+	.AddressInput {padding:1rem 0rem;}
+	.TaeoutWrap {position: relative;flex-direction: column;}
+	.StoremapWrap{width:100%;z-index: 9;}
+	.StoremapWrap .Smap-header{position: absolute;width: 100%;top: 0;}
+	.StoremapWrap .Smap-header .SmpTab .Stab {padding: 15px;font-size: 1rem;}
+	.StoremapWrap .Smap-content{position: absolute;bottom: 0;height: 40%; z-index: 99999;background: #fff;width: 100%;transition: height 0.5s ease-in-out;}
+    .Moclose{display:none}
+	.SHeaderWrap .SHeaderbox .SHContents .SconWrap .SHTitleWrap {align-items: center;padding-bottom: 0px;}
+	.SHeaderWrap .SHeaderbox .SHContents .SconWrap .SHTitleWrap .SHDelivery {padding: 0;}
+	.ListNone svg{width:40px;height: 50px;}
+	.ListNone .Title {font-size: 1.2rem;}
+	.listLine{position: absolute;background: rgb(255,255,255);background: rgb(255,255,255);background: linear-gradient(0deg, rgba(255, 255, 255, 80%) 0%, rgb(255 255 255 / 0%) 100%);width: 100%;height: 20px;bottom: 40%;}
+
+	.OrderSpop{width:95%}
+	.OrderSpop .SelectWrap {padding: 5rem 2rem 3rem;}
+	.OrderType{gap: 1rem;flex-direction: column;}
+	.OrderSpop .SelectWrap .OSColse {top: 4%;}
+	.OrderType .TypeBox {width:100%;gap: 1rem;padding: 2rem;flex-direction: row;min-height: auto;}
+	.OrderType .TypeBox .imgBox img {width: 50px;}
+	.OrderType .TypeBox .OT_title {font-size: 1.5rem;margin: 8px 0 5px;}
+	.OrderType .TypeBox .OT_Stitle { font-size: 0.95rem;}
+	.OrderType .TypeBox .flexT{flex: 1;text-align: left;}
+	.OrderType .TypeBox .OT_Stitle  br{display:none !important;}
+
+	.DeliveryBak{}
+	.DeliverySelect {top: 100%;width: 100%}
+	/*.DeliverySelect{overflow: hidden;position: fixed;width: 90%;z-index: 99999;height: 80%;top: 50%;left: 50%;transform: translate(-50%, -50%);}*/
+
+	.InfoWindow{padding: 1rem;}
+	.InfoWindow .StoreIW .StoreN {font-size: 1rem;}
+	.InfoWindow .Addstxt {color: #646464;font-size: 0.9rem;}
+	.InfoWindow .OrderBtn{margin-top: 10px;padding: 10px 15px;}
+
+	/*== 메뉴 =============================*/
+	.bannerSubwrap{max-width:100%;padding: 1rem 1rem;}
+	.Cgwrap {max-width: 100%;}
+	.MoCategoryWrap{display:block}
+	.CategoryWrap{display:none}
+	.MoCategoryWrap .MenuCategory {justify-content: flex-start;flex-wrap: wrap;padding: 0px 0px;gap: 10px;}
+	.MoCategoryWrap .MenuCategory .Category .iconBox {width: 60px;height: 60px;}
+	.MoCategoryWrap .MenuCategory .Category .iconBox img {width: 35px;}
+	.MoCategoryWrap .MenuCategory .SubCategory {width: 40%;}
+	.NeneMenuWrap{max-width:100%}
+	.NeneMenuWrap .MenuInner {padding: 20px 0 1rem;}
+	.NeneMenuWrap .MenuInner .MTitle {font-size: 1.5rem;}
+	.NeneMenuWrap .MenuInner .MList{gap:20px 10px;padding: 0 10px;}
+	.NeneMenuWrap .MenuInner .MenuBox{display: flex;max-width: calc(100% - 0px);width:100%;gap: 1rem;}
+	.NeneMenuWrap .MenuInner .MenuBox .imgBox{width: 40%;order: 2;}
+	/*.NeneMenuWrap .MenuInner .MenuBox .imgBox img{position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);}*/
+	.NeneMenuWrap .MenuInner .MenuBox .MenuCon{width: 100%;display: flex;flex-direction: column;border-bottom: 1px solid #ededed;}
+	.NeneMenuWrap .MenuInner .MenuBox .MenuCon .MenuTitle {font-size: 1.3rem;display: flex;}
+	.NeneMenuWrap .MenuInner .MenuBox .MenuCon .MenuInfo .InfoTxt {width:100%;font-size: 1rem;line-height: 22px;min-height: 35px;}
+	.NeneMenuWrap .MenuInner .MenuBox .MenuCon .MenuInfo .Infoicon{display:flex;}
+	.NeneMenuWrap .MenuInner .MenuBox .MenuCon .MenuInfo .CartBtn{display:none}
+	.NeneMenuWrap .MenuInner .MenuBox .MenuCon .MenuInfo .CartBtn .txt{display:inline-block}
+	.NeneMenuWrap .MenuInner .MenuBox .MenuCon .MenuInfo .CartBtn svg{width: 14px;height:14px;margin-right:3px}
+	.NeneMenuWrap .MenuInner .MenuBox .MenuCon .Menuprice{order:3;margin-top: 10px;margin-bottom: 20px;}
+	.NeneMenuWrap .MenuInner .MenuBox .MenuCon .Menuprice .Price {font-size: 1.4rem;}
+
+	.MenuDetailWrap{max-width:100%}
+	.MenuDetailWrap .MDInner {flex-direction: column;padding: 4.7rem 0 15rem;}
+	.MenuDetailWrap .MDInner .MDImgBox{width: 100%;}
+	.MenuDetailWrap .MDInner .MDImgWrap{width: 100%;position:unset !important;}
+	.MenuDetailWrap .MDInner .MDInfoBox{width: 100%;padding: 1.5rem 1rem;}
+	.MenuRadioBox {padding: 15px 10px 10px;}
+	.MD_Select {position: relative;margin-top: 10px;}
+	.BottomCart{display:none}
+	.Originwrap {width: 95%;padding: 1rem;}
+	.OriginTab .Otab {font-size: 0.9rem;}
+	.OriginSTab .Ostab{font-size:1rem;}
+
+	.iconWrap{display:none}
+	.moiconWrap{display:flex;margin-right: 10px;gap: 5px;}
+	.MoMenuC {display: block !important;}
+
+
+	/*== 카트 =============================*/
+	.CartConWrap{max-width:100%;padding-left: 0;margin: 0;}
+	.CartConWrap .CartInner{padding-bottom:0px;}
+	.CartMenuBox {padding: 20px 15px;}
+	.CartAddress {padding: 20px 20px;}
+	.CartAddress .CAddBox .AddressC {font-size: 15px;}
+	.OrderTWrap {padding: 20px;}
+	.OrderTWrap .TheadBox .title { font-size: 18px;}
+	.OrderTWrap .TheadBox .title_l {font-size:18px;}
+	.OrderTWrap .TheadBox .Memberbtn {font-size: 13px;padding: 7px 10px;}
+	.Optionwrap {align-items: flex-end;flex-direction: column;gap: 10px;}
+	.Optionwrap .optionBox {width: 100%;padding-right: 0rem;}
+	.Optionwrap .ProBox {gap: 1rem;}
+	.Optionwrap .ProBox .productIcon{padding: 3px 10px;}
+	.CartMenuBox .Menuinfo .iconflex .moCoupon{font-size: 0.8rem;}
+	.CartMenuBox .Menuinfo .iconflex .SalCoupon{font-size: 0.8rem;}
+	.proCIcon {font-size: 0.8rem;}
+	.sold_out {font-size: 0.8rem;padding: 0rem 1rem;}
+	.CartMenuBox .Menuinfo {padding-left: 15px;}
+	.CartMenuList { padding-bottom: 0px;}
+	.cartObox .coList .coTitle {padding-right: 20px;font-size: 15px;}
+	.cartObox {width: 100%;padding: 10px 0 0;}
+	.cartTPbox {padding: 2px 0 5px;}
+	.countBox .cartCount {width: 90px;height: 38px;}
+	.countBox .cartCount input {width:38px;}
+	.RecommendBox {padding: 20px;margin: 0 10px;}
+	.RecommendBox .reMenuList {padding: 5px 0 20px;}
+	.RecommendBox .reMenuList .remenubox .menuImg {width: 90px;}
+	.RecommendBox .reMenuList .remenubox .Proname {font-size: 1rem;}
+	.RecommendADD .RAbtn {font-size: 0.9rem;padding: 10px 10px;}
+	.CouponWrap {display: flex;flex-direction: column;}
+	.CouponWrap .couponBox {width:100%;max-width: calc(100% - 10px);}
+	.CouponPOPwrap .GiftFlexbox{flex-direction: column;gap:10px}
+	.CouponPOPwrap .Giftreg {width: 100%;}
+	.AddMenuBtn {padding: 20px 0;font-size: 1rem;}
+	.quickBtn {padding: 17px 0;font-size: 1rem;margin: 0 10px 10px;}
+	.PayloadBtn{ margin: 0 10px;bottom:max(100px , calc(75px + env(safe-area-inset-bottom)));z-index: 9;}
+	/*.PayloadBtn {margin: 0rem 10px 2rem; padding: 1rem 3rem;}*/
+	.PayloadBtn svg{width: 12px;height: 17px;}
+	.MenuaddBox .menuaddImg {width: 65px;height: 65px;min-width: 65px;}
+	.MenuaddBox .menuInfo .Info{font-size: 12px;}
+	.AddTagBox .menutag {padding: 3px 15px;font-size: 0.8rem;}
+	.CouponPOPwrap {padding: 20px 0px;}
+	.RSelectWrap{width: 95%;}
+	.RSelectWrap .request_list {padding: 17px 0px;}
+	.CartAddPOP{left: 0;transform: translateX(-0%);}
+	.CDownPOP{left: 0;transform: translateX(-0%);}
+	.HCOUPONPOP{left: 0;transform: translateX(-0%);}
+	.PCOUPONPOP{left: 0;transform: translateX(-0%);}
+	.CJPOP{left: 0;transform: translateX(-0%);}
+	.R_SelectBox{left: 0;transform: translateX(-0%);}
+	.T_SelectBox{left: 0;transform: translateX(-0%);}
+
+	.Menucpop {width: 90%;padding: 1.5rem;}
+	.Menucpop .contents {font-size: 1.2rem;line-height: 24px;}
+
+	.PointWrap .PinputBox input {height: 40px;}
+	.PointWrap .PinputBox .PointRegBtn {height: 40px;}
+
+	
+	.MDCartBtn.FixedBtn{position: fixed;bottom: max(calc(env(safe-area-inset-bottom) + 75px) , 100px );left: 50%;width: 95%;z-index: 9;margin: 0;transform: translateX(-50%);}
+	.CouponPOPwrap .CouponNumberBox .CNumberInput .Coupon_btn {padding: 5px 0rem;}
+
+	/*== 장바구니 팝업 =============================*/
+	.CartPopwrap {width: 100%;padding: 1rem;height: 100%;min-width: auto;border-radius: 0;}
+	.CartPopwrap.addmenu{height:100%;}
+
+	/*== 주문완료 =============================*/
+	.OrderEndWrap{max-width:100%;}
+	.OrderEndWrap .OrderInner .OTitleBox {padding: 0rem 0;}
+	.OrderEndWrap .OrderInner .OTitleBox .OTitle1 {font-size: 1.5rem;padding: 1rem 0 0.5rem;}
+	.OrderEndWrap .OrderInner .OTitleBox .OTitle2 {font-size: 1rem;line-height: 17px;}
+	.OrderEndWrap .OrderInner .OTitleBox .orderStoreT .storeTable th.otitle {font-size: 1rem;}
+	.OrderEndWrap .OrderInner .OTitleBox .orderStoreT .storeTable td {font-size: 16px;}
+	.OrderEndWrap .OrderInner .OTitleBox .orderStoreT .storeTable .pickupTimeN {font-size: 18px;}
+	.OListBox .O_Storeinfo{margin: 0 0rem;flex-direction: column;gap: 1.5rem;padding: 1.5rem 2rem;}
+	.OListBox .O_Storeinfo .SCon{width:100%}
+	.OListBox .O_Storeinfo .SCon .Icon {width: 20px;}
+	.OListBox .O_Storeinfo .SCon .Icon1 {width: 20px;}
+	.OListBox .O_Storeinfo .SCon:last-child{padding-left:0;}
+	.OListBox .O_Storeinfo:after {display:none}
+	.OListBox .OList .listTP {font-size: 0.95rem;padding: 5px 10px;}
+	.OListBox .OList .listTP .Tbox {font-size:  0.95rem;}
+	.OListBox .OList .listTP .Cprice {font-size:  0.95rem;}
+	.cartEbox .coList .Icon {width: 120px;font-size: 12px;}
+	.cartEbox .coList .coTitle {font-size: 15px;}
+
+	/*== 모바일쿠폰 =============================*/
+	.ECouponWrap {width: 100%;}
+	.EInner {padding: 1rem 1rem 0 1rem; }
+	.EInner .title {display: flex;justify-content: space-between;padding:1rem 1rem 2rem;font-size: 1.5rem;}
+	.Ehicon {position: unset;}
+	.Ehicon img {width: 90px;}
+	.CouponSel .iconB {padding: 25px 20px;justify-content: center;gap:10px;flex-direction: column;}
+	.ENumberInput .Ecoupon_btn {font-size: 1rem;padding: 5px 0px;}
+	.ENumberInput input::placeholder {font-size: 16px;color: #000000;font-weight: 500}
+	.EinfoBox {flex-direction: column;padding: 3rem 1rem 0;gap:10px;}
+	.EcouponP{width:95% !Important;}
+	.CouponDetail .CouponImg {width:35%;}
+	.CouponDetail .CouponDInfo {padding: 10px 10px;}
+	.CouponDetail .CouponDInfo .MenuTitle {;margin-top: 10px;}
+	.CouponObtn {bottom: -76px;width: 100px;height: 100px;gap: 0px;font-size: 0.9rem;}
+
+	/*== 상품권주문 =============================*/
+	.GiftWrap{width: 100%;margin: 0 auto 0rem;}
+	.GFInfoWrap{width: 100%;flex-direction: column;padding: 1rem 2rem 2rem;gap: 5px;order: 2;}
+	.GFInfoWrap1{width: 100%;flex-direction: column;padding: 1rem 2rem 2rem;gap: 1rem;border: 0;}
+	.GFInfoicon{display:none}
+	.GFInfoamticon{display:none}
+	.GmenuWrap{padding: 0 10px;gap: 10px;}
+	.GmenuWrap .GMenu {width:50%;max-width: calc(50% - 5px);padding:0.5rem;}
+	.GmenuWrap .GMenu .GMInfocon .GMenuT{margin: 0px 0;font-size: 1.1rem;padding: 0 10px;}
+	.GmenuWrap .GMenu .GMInfocon .GMInfoTxt{font-size: 0.9rem;line-height: 17px;padding: 0 10px;}
+	.GmenuWrap .GMenu .GMInfocon .GMenuP .Price {font-size: 1.3rem;}
+	.GmenuWrap .GMenu .GMordercon .GcountBox {gap: 0px;}
+	.GmAmtWrap{padding: 0 10px;gap: 10px;}
+	.GmAmtWrap .GMenu_Amt {max-width: calc(50% - 5px);width: 50%;margin-bottom: 15px;}
+	.GmAmtWrap .GMenu_Amt .GAmtInfoB .GAmtInfo .GAmtT{font-size:1.2rem}
+	.GmAmtWrap .GMenu_Amt .GAmtIcon .GAmtInfo .Price {font-size: 1.5rem;}
+	.GmAmtWrap .GMenu_Amt .GAmtIcon {padding:1.2rem 1rem 1rem;flex-direction: column;background-position: 1.5rem -2px;}
+	.GmAmtWrap .GMenu_Amt .GAmtIcon .GAmtimg {width: 100%;padding: 0;text-align: left;}
+	.GmAmtWrap .GMenu_Amt .GAmtIcon .GAmtimg img{width:50%}
+	.GmAmtWrap .GMenu_Amt .GAmtIcon .GAmtline {display:none}
+	.GmAmtWrap .GMenu_Amt .GAmtIcon .GAmtInfo {flex: 1;width: 100%;}
+	.GmAmtWrap .GMenu_Amt .GAmtInfoB{padding:0.5rem;}
+	.GmAmtWrap .GMenu_Amt .GAmtordercon .GcountBox {gap: 0;}
+	.GiftMenuBox{padding: 20px 10px;}
+	.GiftMenuBox .ImgBox {width: 25%;}
+	.GiftMenuBox .ImgBox .Proimg {width: 100px;}
+	.GiftMenuBox .Menuinfo {padding-left: 10px;}
+	.GiftMenuBox .Menuinfo .GTitle {font-size: 0.98rem}
+
+	.GiftMenuBox .Menuinfo .Pricewrap {gap:0.8rem;align-items: flex-end;flex-direction: column;}
+	.GiftMenuBox .Menuinfo .Pricewrap .PriceBox {width:100%}
+
+
+	/*== LOGIN , JOIN , 아이디 비밀번호 찾기  =========================*/
+	.LoginWrap{width: 100%;padding: 0 0px;margin: 0rem auto 0rem;}
+	.loginType{padding: 0 15px;}
+	.LoginHtitle {display:none;padding: 0 0 2rem;}
+	.LoginHtitle .Htitle {font-size: 1.5rem;line-height: 2rem;}
+	.guestBox {padding: 2rem 0rem;}
+	.JoinWrap{width: 100%;padding: 10px 15px 0;margin: 0px auto 0rem;}
+	.JInner {width: 100%;}
+	.FindWrap{width: 100%;padding: 0 15px;}
+	.FindWrap .Findinner {width: 100%;}
+	.JTypeBox {flex-direction: column;gap: 0rem;}
+	.JTypeBox:before {width: 80%;height: 0.5px;top: 46%; left: 50%;transform: translate(-50%, -46%);}
+	.L_InputBox {padding: 1.3rem 0 0;}
+	.L_InputBox .LInputB {padding: 0.9rem 1rem;}
+	.loginfind {padding: 10px 0 10px;}
+	.login_line {border: 2px solid #F5F5F5;margin: 10px 0;}
+	.SNSlogin {padding: 0.5rem 0 0rem;}
+	.SNSlogin .title {font-size: 1.3rem;}
+	.SNSlogin .SNSBox {padding: 13px 0 5px;}
+	.SNSlogin .snsbtn {width: 55px;height: 55px;}
+	.sns_login_BN{width: 55px;height: 55px;}
+	.apple_bN{ background-size: 40px;}
+	.LoginTab .Ltab{padding: 1rem;font-size: 1rem;}	
+	.LoginTab .Ltab:first-child.active{border-left: 0;}
+	.LoginTab .Ltab:last-child.active{border-right: 0;}
+	.ID_Check {padding: 13px 10px 15px}
+
+
+	/*== 약관 =========================*/
+	.TermsWrap {width: 100%;}
+	.TermsBox {padding: 1rem 1rem;}
+	.TermsTable {padding-left:0rem;}
+	.Terms .Txt-terms {padding-left: 0rem;}
+	.Terms .Con-terms {padding-left: 0rem;}
+	.Terms .Con-terms.Sub-left {padding-left: 1rem;}
+	.P_TermsBox {padding: 0rem 0rem;}
+	.TermsSelect{padding:0rem 1rem 1rem;}
+
+	/*== 이벤트 =========================*/
+	.EvnetTitle {padding: 3rem 1rem 3rem;}
+	.EventCon {padding: 0 0rem 0rem;}
+	.EventWrap{max-width:100%; margin:  0 0 10rem;}
+	.EventWrap .eventInner {flex-direction: column;padding: 0 1rem;}
+	.EventWrap .eventInner .eventList {width:100%;max-width: calc(100% - 0px);}
+	.EventWrap .eventInner .eventList_win {width:100%;max-width: calc(100% - 0px);}
+	.EventDetail {padding: 0 0rem;}
+	.EventDetail .ETitleBox .title {font-size: 18px;padding:1rem 0 0;line-height: 25px;}
+	.EventDetail .ETitleBox .datetitle {font-size: 15px;}
+	.NoticeWrap{padding:1rem 1rem 0rem}
+	.table_list table thead {display: none;}     
+	.table_list table tr {display: flex;flex-wrap: wrap;border-bottom: 1px solid #ebebeb;padding: 1rem;}
+	.table_list table td {width: 100%;height: auto;border: 0;padding: 0.375rem 0;display: inline-flex;align-items: center;font-size: 0.95rem;color: #000000;}
+	.table_list table td.notitle{display:none}
+	.table_list table td.date{font-family: 'Poppins', sans-serif;color: #A7A7A7;}
+	.GE_contentsB {padding: 0 0rem;}
+	.EventInputBox {width: 100%;}
+	.EventInputBox .EcheckN {left: 1.4%;bottom: 33%;}
+	.EventInputBox .EcheckN input {width: 46px;height: 46px;}
+	.EcheckN input+.lbl {width: 46px}
+	.EcheckN input+.lbl i:before {height: 46px;width: 46px;}
+	.EcheckN input+.lbl i:after {width: 9px;height: 23px;border-right: 7px solid;border-top: 7px solid;top: 4px;left: 14px;border-color: transparent;}
+	#GEDESTINATION{width: 90%;}
+	.GE_Winner_privacy{width: 94%;}
+
+	/*== 쿠폰함 =========================*/
+	.MyConTitle {width:100%;}
+
+	/*== 주문내역 =========================*/
+	.MyinfoBox {padding: 1rem;}
+	.MyinfoBox .userTitle{flex-direction: column;font-size: 24px;}
+	.MyinfoBox .userTitle .User {font-size: 2rem;padding-right: 0;}
+	.MyinfoBox .userTitle .Userbtn {font-size: 0.9rem;}
+	.EtaTimetitle {font-size: 0.9rem;}
+	.EtaTimetitle .EtaTime {font-size: 1.2rem;}
+	.Myorder {padding:1rem;}
+	.Morderlist .shopName{align-items: flex-start;flex-direction: column;}
+	.Morderlist .orderTime {margin-left:0;}
+	.Morderlist .MO-con .menuT {padding-left: 13px;}
+	.Morderlist .MO-con .menuTP {padding-left: 13px;}
+	.P_line_color {font-size: 13px;}
+	.Morderlist .MO-con .menuT:before {width: 5px;height: 5px;}
+	.Morderlist .MO-con {padding: 20px 15px;justify-content: space-between;align-items: flex-start;flex-direction: column;}
+	.Morderlist .MO-con .totalOrder {font-size: 16px;}
+	.Morderlist .oState {padding: 2px 10px;margin-left: 10px;}
+
+	/*== 마이페이지  =========================*/
+	.MyinfoBox .PointBox {width: 100%;}
+	.MyinfoBox .myMenuList .MList .Micon {width: 110px;  height: 110px;}
+	.MyinfoBox .Mymenuwrap{flex-direction: column;}
+	.MyinfoBox .myMenuList {flex-wrap: wrap;padding: 2rem 1rem;gap: 1.5rem;}
+	.MyConWrap {max-width: 100%;margin: 0;}
+	.MyConWrap .MyInner {padding: 1rem 1rem ;}
+	.OrderCon .Morderlist {padding: 1rem;}
+	.Morderlist .MO-con {padding: 10px 0px;}
+    .dateTab .Tab{width:30%;}
+
+	/*== 내쿠폰함 =========================*/
+	.CouponDownWrap {padding: 20px 0rem;height: 100%;}
+	.CouponDownWrap .CDownflex {flex-direction: column;height: 100%;}
+	.CouponDownWrap .CDownflex .CouponDown {width:100%; height: 100%;}
+	.CouponDownWrap .CDownflex .CouponDown:first-child {border-bottom: 1px solid #ddd;border-right: 0;}
+	.CouponDownWrap .CDownflex .CDline{display:none}
+	.CouponDownWrap .Mycoupon {overflow: auto;}
+	.Downpop{overflow: auto;}
+
+	/*== 개인정보수정 =========================*/
+	.MyEditBox {padding: 0rem 1.5rem;}
+	.EditBox .InfoList .title {width:25%;font-size: 1.1rem; padding: 5px 0px 15px;}
+	.EditBox .InfoList .infotext {padding: 5px 15px 15px;font-size: 1rem;}
+	.Editpop {padding: 1rem 0.5rem;}
+	.Editpop .EpopBtn {padding: 10px 0}
+	.WithdrawCon .WCon {line-height: 20px;}
+
+	/*== 1:1문의 =========================*/
+	.QustionBox{flex-direction: column;padding: 0 1rem;}
+	.QustionBox .Title {width: 100%;}
+	.QinputWrap {padding: 1rem 0rem;}
+	.QinputBox{padding:1rem}
+	.QinputBox table th{width: 28%;font-size: 1.1rem;}
+	.QinputBox table td {padding: 5px 0px;}
+	.QinputBox table td .Qselect {font-size: 1rem;height: 45px;}
+	.QinputBox table td .Qinput {height: 45px;font-size: 1rem;}
+	.policy_box {padding: 1rem;}
+	.policy_box .contents {padding: 10px 10px;}
+	.QustionEndBox .title {font-size: 1.5rem;line-height: 0.5rem;}
+	.QustionEndBox .Stitle {font-size: 1.3rem;}
+
+	/*== 오시는길 =========================*/
+	.directionWrap .DmapCon {height: 40vh;}
+	.directionWrap .Direcinfo .List .infoTxt {font-size: 1rem;}
+	.directionWrap .Direcinfo .List .infoTxt1 {font-size: 1rem;flex-direction: column;row-gap: 1rem;}
+	
+	/*== 퀵오더 =========================*/
+	#QUICKLIST{padding:1rem 1rem}
+	.QuickBox{padding: 0 ;}
+	.QAddMenuBtn {margin: 1rem 1rem 0;}
+	.QTotalPrice {padding: 1rem 20px 5px;}
+	.TotalWrap {padding-bottom: 10px;}
+	.QuickSel {gap: 5px;padding:0 15px 15px;}
+	.QuickSel .iconB {padding: 10px;}
+
+	/*== 매장안내 =========================*/
+	.sub_warp{max-width: 100%;padding-top: 10px;}
+	.flexSB {flex-direction: column;}
+	.searchWrap .searchBox {padding: 0 0rem;flex-direction: column; gap: 1rem; }	
+	.searchWrap .inPutFlex {width: 100%;}
+	.searchWrap .searchBox .Selinput > * {font-size: 1rem;}
+	.searchWrap .searchBox .Selinput > * svg { width: 1.5rem;}
+	.searchWrap select {padding: 0 0rem 0 0.3rem;background: url(../images/icon_select_big.svg) no-repeat right 0rem center;background-size: 18px;}
+
+	.StoreList {padding: 0rem 0 7.5rem;}
+	.StoreList .storemap{display: none;height: 25rem;border-radius: 1rem 5px 5px 1rem;}
+	.StoreList .listbox {width: 100%;height: 100%;}
+	.StoreList .listbox .storeinfo .title .name {font-size: 1.1rem;}
+	.StoreList .listbox .storeinfo .title .tel {font-size: 0.9rem;}
+	.newstore {margin-top: 3rem;margin-bottom: 3rem;}
+	.newstore .NStit .title {align-items: center;}
+	.newstore .store_slider li {width: 50%;max-width: calc(50% - 8px);min-height: auto;}
+	.newstore .store_slider li .img_box {position: relative;}
+	.newstore .store_slider li .img_box .newicon {background: url(../images/icon_N.png) 0 center no-repeat;width: 25px;height: 25px;background-size: 100%;position: absolute;top: 10px;left: 10px;}
+	.newstore .store_slider li .txt_box {padding: 1.125rem 1.125rem;background: none;	}
+	.newstore .store_slider li .txt_box strong {font-size: 1rem;}
+	.newstore .store_slider::after {display: none;}
+
+	.global .global_warp {padding: 3rem 0;}
+	.global::before {display: none;}
+
+	.StoreDetail {flex-direction: column;}
+	.StoreNew{display:flex !important; flex-wrap: wrap;gap:8px;}
+	#ShopBox1 .swiper-navigation{display:none}
+	#ShopBox0{display:none}
+	#ShopBox1{display:none}
+	#ShopBox2{display:none}
+	#ShopBox0.on{display:flex}
+	#ShopBox1.on{display:flex}
+	#ShopBox2.on{display:block}
+	.MoMenu .MoList .on {padding: 0 10px 0px;font-weight: bold}
+
+	.MoStoreFlex{display: flex;flex-direction: column;height: calc(100vh - 70px - 90px - env(safe-area-inset-bottom));overflow: hidden;}
+	.Moflex{width:100%; box-sizing: border-box;flex: 1;height: 100%;overflow: hidden;padding-bottom:max( 10px , env(safe-area-inset-bottom));}
+    .Moheight{height: 100%;padding: 0 0 0px;}
+
+	.Moshoptype{display:flex;flex-direction: column;row-gap: 0.5rem;}
+
+	/*== 공통 POP =========================*/
+	#Pfiex_Ecoupon {left:0%}
+	.Popwrap {width: 95%;padding: 1rem;max-height: 85%;min-width: auto;}
+	.PopwrapSub {width: 95%;padding: 1rem;max-height: 85%;min-width: auto;}
+	.PagepopBox .PagepopWrap {width: 95%;}
+	.Pophead {padding: 10px 10px 20px;}
+	.Pophead.Mohead{padding-top:max( 10px , env(safe-area-inset-top));}
+	.loPopWrap {width: 100%;padding: 1rem;height: 100%;min-width: auto;border-radius: 0;}
+	.lomapbox {padding: 1rem 0 0;}
+	
+	/*== 공통 =========================*/
+	.form-control{height:42px;}
+	.p_bottom_5rem{padding-bottom:5rem !important;}
+	.p_bottom_10rem{padding-bottom:10rem !important;}
+	.originClose svg{width:15px;}
+	.RSelectWrap svg{width:15px;}
+	.OSColse svg{width:15px;}
+	
+
+	/*= Footer =========================*/
+	.FooterWrap .FooterBox {flex-direction: column;padding: 2rem 1rem 10rem;gap: 2rem;}
+	.FooterWrap .FooterBox .FBox1 {width:100%;gap: 30px;}
+	.Footerlogo{width:120px;margin-bottom:1rem;}
+	.FooterWrap .FooterBox .FBox2 {width:100%;display: none;}
+	.FooterWrap .FooterBox .FcopyTitle{display: none;}
+	.FooterMenuBox {flex-wrap: wrap;}
+	.FooterMenuBox .FMenuBox {margin-right: 0px;width: calc(50% - 3px);}
+	.FooterMenuBox .FMenuBox .FMenu {color: #b2afab;font-size: 0.8rem;padding: 15px 5px;}
+	.FooterWrap .FooterBox .LanguageBtn .Lgbtn .Lgtitle {font-size: 0.9rem;padding: 0 5px;}
+	.LanguageTitle .tit{display: none;}
+	#loadingBox .loading {width: 300px;height: 300px;}
+	.floating {display:none}
+	.FooterList:first-child{width: 50%;display: flex;flex-direction: column;}
+	.FooterList:last-child{width:100%}
+
+	#btnTop{z-index: 9;width:60px;height: 60px;}
+	#btnTop svg{width: 20px;}
+
+	#btnTop.top{bottom: calc(170px);top: unset;}
+	
+	.footer_menu{display:block;}
+	.conNone img{width:4.5rem}
+
+	/*== 점주님 공간 =========================*/	
+	.OwnerLogo{ display: flex !important;}
+	.OW_LoginWrap{width: 100%;padding: 3rem 1.3rem;}
+	.OwnerFlex .logo{display:none}
+	.OwnerBoard {padding:0 1rem;}
+	.O_writeBox {gap: 0rem;flex-direction: column;padding: 0 1rem;}
+	.O_writeBox .Title {padding: 4rem 2rem 1rem;}
+	.O_writeBox .Title .T_logo {display: none;}
+	.O_writeBox .OW_InputWrap {padding: 2rem 0rem;}
+	.O_writeBox .OW_InputWrap .InputBox {padding: 1rem;	}
+
+	.LogoBox{display:none}
+
+	/**/
+	.webPopup{position: fixed;width: 100%;top:0 !Important;left: 0 !Important;top: calc(env(safe-area-inset-top));height: 100%;background: #fff;border-radius: 0;z-index: 9999;}
+	.webPopup.app{height: 100vh;padding-bottom: max(60px, env(safe-area-inset-bottom));}
+	.webPopup .PopWrap {width: 100%;}
+	.webPopup .PopWrap .imgContent img {border-radius: 0 0;}
+	.popimgBox{width:100% !important;height:100% !important}
+	.webPopup .PopWrap .popFbtn {position: fixed;bottom: 0;width: 100%;z-index: 9;border-radius: 0 0 ;}
+
+	
+	.webPopup1{position: fixed;width: 100%;left: 0;top: calc(env(safe-area-inset-top));height: 100%;background: #fff;border-radius: 0;}
+	.webPopup1.app{height: 100vh;padding-bottom: max(5px, env(safe-area-inset-bottom));}
+	.webPopup1 .PopWrap .PopCon{width:100% !important;height:calc(100% - 65px) !important;padding: 3rem 1rem 1rem;display: flex;flex-direction: column;}
+	.webPopup1 .PopWrap .PopCon .Mconts {height:calc(100% - 85px) !important;padding:3rem 1rem;}
+	.webPopup1 .PopWrap .popFbtn {position: fixed;bottom: 0px;width: 100%;z-index: 9;border-radius: 0 0 ;background:#fff}
+	
+	/*===== 모바일상품권 ,금액권 등록  ========*/
+	.C_RegWrap{width: 100%;}
+	.C_RInner{padding: 1rem 1rem 0 1rem;}
+	.CrHeader {flex-direction: column;align-items: flex-end;gap: 1rem;padding: 1rem 0 2rem;}
+	.RegTab{width: 100%;order: 2;}
+	.RegTab .Tab {width: 33%;}
+
+	.RCouponWrap {padding: 10px;}
+	.RlistCon {flex-direction: column;}
+	.RCountBox {padding: 10px 15px 13px;}
+	.C_Regbox {max-width: calc(100% - 0px);width: 100%;}
+	.CRegpop {width: 90%;padding: 1.5rem;}
+	.CRegpop .contents {font-size: 1.2rem;line-height: 24px;}
+	.CRegpop .contents .CRNumberInput {padding: 0.7rem 0.9rem;}
+	.C_RinfoBox {flex-direction: column;gap:10px;padding:1rem 1rem 2rem;}
+
+	/*== 메인페이지 쿠폰 플로팅 배너 ====*/
+	#CFloating{display:block}
+}
+/*=====  screen 580px ======================*/
+@media screen and (max-width: 580px) {
+	html {font-size: 14px !important;}
+
+	.GmenuWrap .GMenu .GMordercon {justify-content: flex-end;gap: 15px;margin-bottom: 5px;}
+	.GmenuWrap .GMenu .GMordercon .GcountBox .GBtn {width:32px;height:32px;}
+	.GmenuWrap .GMenu .GMordercon .GiftB{width: 23%;font-size:0.9rem;}
+	.GmenuWrap .GMenu .GMordercon .GiftB .icon {width: 15px;height: 15px;}
+	.GmenuWrap .GMenu .GMordercon .GiftB .title{display:none}
+	.GmAmtWrap .GMenu_Amt .GAmtordercon{justify-content: flex-end;gap: 15px;}
+	.GmAmtWrap .GMenu_Amt .GAmtordercon .GAmtbtn {width: 23%;padding: 10px 10px}
+	.GmAmtWrap .GMenu_Amt .GAmtordercon .GAmtbtn .title{display:none}
+	.GmAmtWrap .GMenu_Amt .GAmtordercon .GcountBox .GBtn {width:32px;height: 32px;}
+	
+	.GmenuWrap .GMenu .GMInfocon .GMenuP {gap: 6px;padding: 0 10px;}
+	.GmenuWrap .GMenu .GMInfocon .GMenuP .Price {font-size: 1.2rem;}
+	
+	.SubProcess .ProcessBox .ProcessList .PS_title {width: 65%;}
+
+	/*== 마이페이지  =========================*/
+	.MyinfoBox .myMenuList {gap: 1rem;}
+	.MyinfoBox .myMenuList .MList .Micon {width: 100px;height: 100px;}
+	.MyinfoBox .myMenuList .MList .Micon img {width: 50px;}
+}
+
+/*=====  screen 414px ======================*/
+@media screen and (max-width:414px){   
+	
+	html {font-size:0.8rem !important; }
+	
+	/*= Header =============================*/
+	.ShTab .tab {font-size:  1rem;}
+	.ShTab .tab .on {font-size: 1rem;}
+	.SHeaderWrap .SHeaderbox .SHContents .SconWrap {padding: 1rem 1rem;}
+
+	/*== main  =========================*/
+    .UInfoBox .UInfo.Ubox1 {padding: 0 10px;}
+	.TalkWrap {padding: 0 1rem;}
+	.USicon {width: 130px !important;height: 130px !important;}
+	.Add-infoBox .AinfoBox .Finfoicon img {width: 15px;}
+	.Add-infoBox .FinfoCallBox .FinfoCallCenter {font-size: 0.8rem;}
+	.Add-infoBox .AinfoBox .FinfoCompany {font-size: 0.8rem;}
+
+	/*== 주문 -매장선택  =========================*/
+	.OrderType .TypeBox img {width: 85px;}
+	.BottomIcon img {width: 100px;}
+	.SHeaderWrap .SHeaderbox .SHsubTitleBox .DelSelect .Title {font-size: 1.5rem;}
+	
+	/*== 메뉴 =============================*/
+	.NeneMenuWrap .MenuInner .MenuBox .imgBox {width: 45%;}
+	.NeneMenuWrap .MenuInner .MenuBox .MenuCon .MenuInfo .CartBtn {padding: 10px 10px}
+	.MoCategoryWrap .MenuCategory .Category .iconBox {width: 50px;height:50px;}
+	.MoCategoryWrap .MenuCategory .Category .iconBox img {width: 30px;}
+	.MoCategoryWrap .MenuCategory .Category .Title {font-size:0.9rem;}
+
+
+	/*== 모바일쿠폰 =============================*/
+    .EInner .title {
+    font-size: 1.4rem;}
+    .Ehicon img {width: 65px;}
+	.ENumberInput svg{width:2rem}
+	.CouponSel .iconB svg{width:2.3rem}
+
+	/*== 상품권선물 =============================*/
+	.GmenuWrap .GMenu .GMordercon .GiftB{font-size:0.8rem;}
+	.GmAmtWrap .GMenu_Amt .GAmtordercon .GcountBox .GBtn {width:25px;height: 25px;}
+	.GmAmtWrap .GMenu_Amt .GAmtordercon .GcountBox input {width: 26px;}
+	.GmAmtWrap .GMenu_Amt .GAmtordercon .GAmtbtn{padding: 10px 8px;gap: 5px;font-size:0.8rem;}
+
+	.GFInfoicon {width: 150px;height: 150px;}
+	.GFInfoicon .IconTitle {font-size: 1rem;line-height: 23px;}
+	.GFInfoicon .IconTitle .saleT {font-size: 0.9rem;line-height: 15px;}
+	.GFInfoamticon{width: 150px;height: 150px;}
+	.GFInfoamticon .IconTitle {font-size: 1rem;line-height: 23px;}
+	.GFInfoamticon .IconTitle .saleT {font-size: 0.9rem;line-height: 15px;}
+	.GFInfoicon_l {width: 150px;height: 150px;}
+	.GFInfoicon_l .IconTitle {font-size: 1.1rem;line-height: 20px;}
+	.GFInfoicon_l .IconTitle .saleT {font-size: 0.9rem;line-height: 15px;}
+
+    .GiftMenuBox .ImgBox .Proimg {width: 80px;}
+
+	/*== 이벤트  =========================*/
+	.EventInputBox .EcheckN {left: 1.4%;bottom: 33%;}
+	.EventInputBox .EcheckN input {width: 38px;height: 38px;}
+	.EcheckN input+.lbl {width: 38px}
+	.EcheckN input+.lbl i:before {height:38px;width:38px;}
+	.EcheckN input+.lbl i:after {width: 7px;height: 17px;border-right:6px solid;border-top: 6px solid;top:5px;left: 13px;border-color: #ffffff;}
+
+	/*== 푸터  =========================*/
+	.Footerlogo {width:105px;}
+	.FooterWrap .FooterBox .LanguageBtn {padding: 8px 10px;}
+	.FooterWrap .FooterBox .LanguageBtn .Lgbtn .Lefticon{width:12px}
+    .FooterMenuBox .FMenuBox .FMenu {font-size: 0.8rem;padding: 15px 2px;}
+	
+	/*== 공통  =========================*/
+	#btnTop.top{bottom: calc(175px);top: unset;}
+	.O_Popwrap {min-width: 330px;}
+
+	/*== 마이페이지  =========================*/
+	.MO_BtnBox .mo_btn{height: 40px;font-size:0.95rem;}
+
+	/*===== 모바일상품권 ,금액권 등록  ========*/
+	.C_Regbox .C_RContents .C_Title {font-size: 1.1rem;}
+
+	/*== 메인페이지 쿠폰 플로팅 배너 ====*/
+	#CFloating.bottomC{right: 1%;}
+}
+/*=====  screen 375px ======================*/
+@media screen and (max-width:375px){
+	html {font-size: 13px !important; }
+	
+	.MoCategoryWrap .MenuCategory {gap: 7px;}
+	.MoCategoryWrap .MenuCategory .Category .iconBox {width: 47px;height: 47px;}
+	.MoCategoryWrap .MenuCategory .Category .iconBox img {width: 27px;}
+
+	.USicon {width: 120px !important;height: 120px !important;}
+
+	.Add-infoBox .AinfoBox .LanguageTitle .LanguageBtn {padding: 5px 10px;}
+
+	/*== 주문 -매장선택  =========================*/
+	.Openinfo .OrderTime {font-size: 0.66rem;padding-bottom: 2px;}
+	.Openinfo .storeTime .STicon {font-size: 0.7rem;padding: 0px 7px;}
+
+	/*== 메뉴 =============================*/
+	.NeneMenuWrap .MenuInner .MenuBox .imgBox {width: 55%;}
+	.ENumberInput {gap:10px;}  
+	.CouponSel .iconB {padding: 25px 15px;gap: 10px;}
+	.Add-infoBox .AinfoBox .FinfoAdss .MapBtn .Mbtn {padding: 3px 10px;}
+    .Add-infoBox .AinfoBox .FinfoAdss .MapBtn .Mbtn img{ width: 11px;}
+
+	/*== 쿠폰 사용하기 ==========================*/
+    .Ehicon img {width: 55px;}
+	
+	/*== 상품권선물 =============================*/
+	.GmenuWrap .GMenu .GMInfocon .GMenuT {min-height: 33px;}
+    .GmAmtWrap .GMenu_Amt .GAmtIcon{ background-size: 152px;}
+	.GmenuWrap .GMenu .GMInfocon .GMenuP {gap: 2px;}
+
+	/*== 카트 =============================*/
+	.Menucpop .contents {font-size: 1.1rem;line-height: 24px;padding: 2rem 0 1rem;}
+    .RecommendBox .reMenuList .remenubox .menuImg {width: 70px;}
+    .PayloadBtn svg {width: 10px;}
+
+	/*== 푸터  =========================*/
+	.Footerlogo {width:102px;}
+	.FooterMenuBox .FMenuBox .FMenu.font {font-size: 0.7rem;}
+
+	/*== 마이페이지  =========================*/
+	.MyinfoBox .myMenuList .MList .Micon {width: 90px;height: 90px;}
+	.MyinfoBox .myMenuList .MList .Micon img {width: 40px;}
+}
+
+
+/*=====  screen 360px ======================*/
+@media screen and (max-width:360px){
+	html {font-size: 12px !important; }
+
+	.MoCategoryWrap .MenuCategory {gap: 5px;}
+	.MoCategoryWrap .MenuCategory .Category .iconBox {width: 43px;height: 43px;}
+	.MoCategoryWrap .MenuCategory .Category .iconBox img {width: 25px;}
+
+	/*== 쿠폰 사용하기 ==========================*/
+    .EInner .title {font-size: 1.4rem;}
+
+	/*== 상품권선물 =============================*/
+	.GmenuWrap .GMenu .GMordercon .GcountBox .GBtn {width:27px;height:27px;}
+	.GmenuWrap .GMenu .GMordercon .GcountBox input {width: 26px;}
+	.GmenuWrap .GMenu .GMInfocon .GMenuP {gap: 7px;}
+	.GmenuWrap .GMenu .GMInfocon .GMenuP .Price {font-size: 1rem;}
+	.GmenuWrap .GMenu .GMInfocon .GMenuP .Original {margin-bottom: 0px;}
+}
+
+/*=====  screen 320px ======================*/
+@media screen and (max-width:320px){
+	html {font-size: 12px !important; }
+}

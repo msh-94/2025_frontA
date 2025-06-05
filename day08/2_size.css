@@ -1,0 +1,56 @@
+
+
+/* 1. siz : width , height */
+.box{
+    border: 1px solid red;
+    padding: 10px; margin-bottom: 100px;
+}
+.widthheight{
+    width: 200px; height: 200px;
+}
+.minwidth{
+    min-width: 600px; /* 최소 가로 사이즈 600px */
+    /* 최대 가로 사이즈는 설정이 없으므로 100%
+    즉] 화면이 600px보다 크면 100% 600px 작아지면 600px 고정 */
+}
+.maxwidth{
+    max-width: 600px; /* 최대 가로 사이즈 600px 설정 */
+    /* 최소 가로 사이즈는 설정이 없으므로 100%
+    즉] 화면이 600px보다 작으면 100% , 600px 크면 600px 고정 */ 
+}
+.minheight{
+    width: 200px;
+    min-height: 100px; /* 최소 세로 사이즈 100px 설정 */ 
+    /* 최대 세로 사이즈는 설정이 없으므로 100%
+    즉] 내용의 높이가 100px 보다 작으면 100px 고정 , 크면 100%*/      
+}
+.maxheight{
+    width: 200px;    
+    max-height: 100px; /* 최대 세로 사이즈 100px 설정 */
+     /* 최소 세로 사이즈는 설정이 없으므로 100%
+    즉] 내용의 높이가 100px 보다 커지면 100px 고정 , 작으면 100%*/
+}
+
+/* 2. overflow : 지정된요소보다 하위요소 크기가 더 커졌을때*/
+.overflow > div{
+    width: 200px; height: 100px;
+    background-color: beige;
+}
+
+/* (1) 내용이 넘치면 그대로 보여줌(기본값) */
+.overflow :nth-child(2){
+    overflow: visible; /* (기본값) 내용이 넘치면 그대로 보여줌 */
+}
+.overflow :nth-child(4){
+    overflow: hidden; /* 내용이 넘치면 잘라내고 숨김 */
+}
+.overflow :nth-child(6){
+    overflow: scroll; /* 항상 스크롤바 표시 */
+}
+.overflow :nth-child(8){
+    overflow: auto; /* 내용이 넘칠때만 스크롤바 표시 */
+}
+.overflow :nth-child(10){
+    overflow-x: scroll; /* x축 스크롤 */
+    overflow-y: hidden; /* y축 숨기기 */
+}

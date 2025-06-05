@@ -1,0 +1,1056 @@
+//############################## 메뉴리스트 ##########################################################
+function Menu_Load(SUBID,GUBUN,CUST_CODE){
+	
+	LOADINGON();
+
+	$.ajax({
+		type: "POST",
+		url: "/process/home_menu_list.fuse",
+		data:"SUBID=" + SUBID + "&GUBUN=" + GUBUN + "&CUST_CODE=" + CUST_CODE,
+		dataType: "HTML",
+		timeout: 10000,
+		success: function(msg){
+			$("#MENUVIEW").text("");
+			$("#MENUVIEW").append(msg);
+			LOADINGOFF();
+		} ,error: function(msg) {
+			//alert('인터넷 연결회선이 불안정합니다. 관리자에게 문의해 주세요.');
+			LOADINGOFF();
+		}
+	});
+}
+
+function Order_Menu_Load(SUBID,GUBUN,CUST_CODE){
+	LOADINGON();
+
+	$.ajax({
+		type: "POST",
+		url: "/process/home_order_menu_list.fuse",
+		data:"SUBID=" + SUBID + "&GUBUN=" + GUBUN + "&CUST_CODE=" + CUST_CODE,
+		dataType: "HTML",
+		timeout: 10000,
+		success: function(msg){
+			$("#MENUVIEW").text("");
+			$("#MENUVIEW").append(msg);
+			LOADINGOFF();
+		} ,error: function(msg) {
+			//alert('인터넷 연결회선이 불안정합니다. 관리자에게 문의해 주세요.');
+			LOADINGOFF();
+		}
+	});
+}
+//############################## 메뉴리스트 ##########################################################
+
+//############################## 메뉴 상세페이지 #######################################################
+function Menu_Detail_View(STOCK_ID,SUBID,CUST_CODE){
+	//location.href="/process/proceduree.fuse?STOCK_ID="+STOCK_ID+"&SUBID="+SUBID+"&pro_type=Menu_Detail_View";
+	//return;
+
+	LOADINGON();
+
+	$.ajax({
+		type: "POST", 
+		url: "/process/proceduree.fuse", 
+		data: "STOCK_ID="+STOCK_ID+"&SUBID="+SUBID+"&CUST_CODE="+CUST_CODE+"&pro_type=Menu_Detail_View", 
+		dataType: "text", 
+		success: function(responseText){
+			//alert(responseText);
+			var ap1_temp = responseText.split("||", responseText.length);
+			for(var u=0; u<ap1_temp.length; u++) {
+				if(u==0){var HTML_TEXT = ap1_temp.slice(u, u+1);}//
+				if(u==1){var STOCK_TYPE = ap1_temp.slice(u, u+1);}//
+				if(u==2){var STOCK_ID = ap1_temp.slice(u, u+1);}//
+				if(u==3){var SEL_CNT = ap1_temp.slice(u, u+1);}//
+				if(u==4){var STOCK_NAME_M = ap1_temp.slice(u, u+1);}//
+			}
+
+			if(HTML_TEXT != ""){
+				$("#Menu_detail_view").text("");
+				$("#Menu_detail_view").append(HTML_TEXT);
+				document.getElementById("STOCK_TYPE").value = STOCK_TYPE;
+				document.getElementById("STOCK_ID").value = STOCK_ID;
+				document.getElementById("SEL_CNT").value = SEL_CNT;
+
+				$(".Menu_name").text(STOCK_NAME_M);
+			}else{
+				// 리턴 메세지 처리------------------------------
+				//alert('인터넷 연결회선이 불안정합니다. 관리자에게 문의해 주세요.');
+				location.href = "/";
+				// 리턴 메세지 처리------------------------------
+			}
+
+			LOADINGOFF();
+
+		},error: function(response){
+			// 리턴 메세지 처리------------------------------
+			//alert('인터넷 연결회선이 불안정합니다. 관리자에게 문의해 주세요.');
+			location.href = "/";
+			// 리턴 메세지 처리------------------------------
+
+			LOADINGOFF();
+		}
+	});
+}
+//############################## 메뉴 상세페이지 #######################################################
+
+//############################## 회원가입-인증번호발송      ###########################################################
+function SMSSEND(gubun){
+
+	var mobile = document.Frm.mobile1.value + document.Frm.mobile2.value + document.Frm.mobile3.value;
+	var msg = "";
+	var mobileOk = /^[0-9]*$/;
+
+	if ($("#smsmsgOk").val() == "1"){
+		msg = "이미 인증이 완료되었습니다."
+		alert(msg);
+		return false;
+	}
+
+	if(document.Frm.phone_ok.value==""){
+		if (mobile.length < 11 ){
+			msg = "휴대폰번호를 입력하세요."
+			alert(msg);
+			return false;
+		}else{
+			if (mobileOk.test(mobile) == false) {
+				msg = "휴대폰번호는 숫자로만 입력해 주시기 바랍니다."
+				alert(msg);
+				return false;
+			}
+/*
+			if(mobile.substr(0,3) != "010"){
+				msg = "휴대폰번호의 앞자리는 010 입니다."
+				alert(msg);
+				return false;
+			}
+*/			
+			if (mobile.length != 11) {
+				msg = "휴대폰번호는 11자리로 입력해 주시기 바랍니다."
+				alert(msg);
+				return false;
+			}else{
+
+				//location.href="/process/sms_Check.fuse?mobile_ck="+mobile+"&gubun="+gubun;
+				//return;
+
+				$.ajax({
+					type: "POST", 
+					url: "/process/sms_Check.fuse", 
+					data: "mobile_ck="+mobile+"&gubun="+gubun, 
+					dataType: "text", 
+					success: function(responseText){
+						if (responseText != ""){
+							var temp1 = responseText.split("||")
+
+							if (temp1[1] == "Y"){
+								document.Frm.phone_ok.value="Y";
+								document.Frm.smsmsg.value = temp1[0];
+								msg = "휴대폰으로 인증번호가 전송되었습니다!"
+
+								$("#sms_tr1").css('display', '');
+								$("#sms_tr2").css('display', '');
+
+								$("select[name=mobile1]").attr('onChange', 'this.selectedIndex = this.initialSelect;');
+								document.Frm.mobile2.readOnly = true;
+								document.Frm.mobile3.readOnly = true;
+
+								Time1();
+								alert(msg);
+								return false;
+							}else{
+								msg = temp1[0];
+								alert(msg);
+								return false;
+							}
+
+						}
+					},
+					error: function(response){
+						// 리턴 메세지 처리------------------------------
+						alert("통신에 실패하였습니다!");
+						//location.href = "/";
+						return;
+						// 리턴 메세지 처리------------------------------
+					}
+				});
+			}
+		}
+		return false;
+	}else{
+		alert("이미 인증번호가 전송되었습니다.");
+		return true;
+	}
+}
+
+//인증시간 계산을 위한 타이머
+function Time1(){ 
+	var mobile = document.Frm.mobile1.value + document.Frm.mobile2.value + document.Frm.mobile3.value;
+
+	if(mobile == ""){
+
+	}else{
+		var minn = 90
+
+		var time1= new Date(); 
+		hours1= time1.getHours(); 
+		mins1= time1.getMinutes(); 
+		secs1= time1.getSeconds(); 
+		closeTime1=hours1*3600+mins1*60+secs1; 
+		closeTime1+=1;  // This number is how long the window stays open 
+		Timer1();
+		Timer2(minn); 
+	}
+} 
+
+function Timer1(){ 
+	var time1= new Date(); 
+	hours1= time1.getHours(); 
+	mins1= time1.getMinutes(); 
+	secs1= time1.getSeconds(); 
+	curTime1=hours1*3600+mins1*60+secs1 
+
+	if (document.Frm.phone_ok.value == ""){
+		$("#timer_value").text("01:30");
+		return;
+	}
+
+	if (curTime1>=closeTime1 && $("#smsmsgOk").val() != 1){ 
+		document.Frm.smsmsg.value = "";
+		document.Frm.phone_ok.value="";
+		var msg = "입력시간이 지났습니다.\n인증버튼을 다시 클릭해 주세요!"
+		alert(msg);
+
+		$("#sms_tr1").css('display', 'none');
+		$("#sms_tr2").css('display', 'none');
+
+		$("select[name=mobile1]").attr('onChange', '');
+		document.Frm.mobile2.readOnly = false;
+		document.Frm.mobile3.readOnly = false;
+	}else{ 
+		//시간
+		window.setTimeout("Timer1();",90000)
+	} 
+}
+
+function Timer2(minn){ 
+	if ($("#smsmsgOk").val() == 1){
+		$("#timer_value").text(minnn + "(인증 완료)");
+		document.Frm.phone_areOK.readOnly = true;
+		return;
+	}
+
+	if (document.Frm.phone_ok.value == ""){
+		$("#timer_value").text("01:30");
+		return;
+	}
+
+	if(minn == 0){
+		$("#timer_value").text("01:30(인증시간 만료)");
+	}else {
+		//시간
+		minn = parseInt(minn) - 1
+		if(minn < 60 && minn > 9){ minnn = "00:"+parseInt(minn) }
+		if(minn < 10){ minnn = "00:0"+parseInt(minn) }
+		if(minn > 59 && minn < 70){minnn = "01:0"+(parseInt(minn)-60)}
+		if(minn > 69){minnn = "01:"+(parseInt(minn)-60)}
+		$("#timer_value").text(minnn);
+		window.setTimeout("Timer2('"+minn+"');",1000)
+	}
+}
+//############################## 회원가입-인증번호발송      ###########################################################
+
+//############################## 회원가입-인증번호확인      ###########################################################
+function SMSCHECK(){
+	if ($("#smsmsg").val() == "") {
+		var msg = "연락처 인증을 먼저 진행해 주시기 바랍니다.";
+		alert(msg);
+		return false;
+	}else if($("#phone_areOK").val()== ""){
+		var msg = "인증번호를 입력해 주시기 바랍니다.";
+		alert(msg);
+		return false;
+	}
+
+	var mobile = document.Frm.mobile1.value + document.Frm.mobile2.value + document.Frm.mobile3.value;
+	var imkey = document.Frm.smsmsg.value;
+	var smsmsg = document.Frm.phone_areOK.value;
+
+	$.ajax({
+		type: "POST", 
+		url: "/process/smsmsg_Check.fuse", 
+		data: "smsmsg="+smsmsg+"&mobile="+mobile+"&imkey="+imkey,
+		dataType: "text", 
+		success: function(responseText){
+			if (responseText== "Y"){
+				var msg = "연락처 인증이 정상적으로 완료되었습니다.";
+				alert(msg);
+				$("#phone_areOK").focus(); 
+				$("#smsmsgOk").val('1');
+
+				$("#smstitle").text("인증완료");
+				$("#sms_tr1").css('display', 'none');
+				$("#sms_tr2").css('display', 'none');
+
+				return true;
+			}else{
+				msg = "인증번호가 틀립니다 다시 입력바랍니다."
+				alert(msg);
+				return false;
+			}
+		},
+		error: function(response){
+			// 리턴 메세지 처리------------------------------
+			alert("통신에 실패하였습니다!");
+			//location.href = "/";
+			return;
+			// 리턴 메세지 처리------------------------------
+		}
+	});
+}
+//############################## 회원가입-인증번호확인      ###########################################################
+
+//############################## 회원가입-아이디체크      ###########################################################
+function IDCHECK(){
+	$.ajax({
+		type: "POST", 
+		url: "/process/join_IdCheck.fuse", 
+		data: "userID=" + $("#userID").val(), 
+		dataType: "text", 
+		success: function(responseText){
+			if($("#userID").val() == ""){
+				var msg = "아이디를 입력해 주시기 바랍니다."
+				$("#IdChk_msg").text(msg);
+				return false;
+			}else {
+				if ($("#userID").val().length < 6){
+				var msg = "아이디는 6자리 이상 입력해 주시기 바랍니다."
+				$("#IdChk_msg").text(msg);
+				return false;
+			}
+
+			var idReg = /^[a-z]+[a-z0-9]{4,15}/g;
+
+			if ( !idReg.test( $("input[name=userID]").val() ) ) {
+				var msg = "아이디는 영문자로 시작하는 5~15자 영문자 또는 숫자이어야 합니다."
+				$("#IdChk_msg").text(msg);
+				return false;
+			}
+
+			if (responseText == "NEW"){
+				var msg = "사용 가능한 아이디입니다."
+				$("#IdChk_msg").text(msg);
+				document.Frm.userId_ok.value="Y";
+				return false;
+			}else if (responseText == "USING"){
+				var msg = "사용 중인 아이디 입니다."
+				$("#IdChk_msg").text(msg);
+				return false;
+			}else{
+				var msg = "보안 상 사용할수 없는 문자가 포함되어 있습니다.";
+				$("#IdChk_msg").text(msg);
+				return false;
+			}
+		}
+		},error: function(response){
+			("#IdChk_msg").text('error\n\n' + response.responseText);
+			return false;
+		}
+	});
+}
+//############################## 회원가입-아이디체크      ###########################################################
+
+//############################## 회원가입-패스워드체크      ##########################################################
+function PWCHECK(){
+	let id = $("#userID").val();
+	let pw = $("#pass").val();
+	let number = pw.search(/[0-9]/g);
+	let english = pw.search(/[a-z]/ig);
+	let spece = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+	let reg = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+
+	if (pw.length < 8 || pw.length > 20) {
+		var msg = "8자리 ~ 20자리 이내로 입력해주세요.";
+		$("#PwChk_msg").text(msg);
+		return false;
+
+	} else if (pw.search(/\s/) != -1) {
+		var msg = "비밀번호는 공백 없이 입력해주세요.";
+		$("#PwChk_msg").text(msg);
+		return false;
+
+	} else if (number < 0 || english < 0 || spece < 0) {
+		var msg = "영문,숫자,특수문자를 혼합하여 입력해주세요.";
+		$("#PwChk_msg").text(msg);
+		return false;
+
+	} else if ((number < 0 && english < 0) || (english < 0 && spece < 0) || (spece < 0 && number < 0)) {
+		var msg = "영문,숫자, 특수문자 중 2가지 이상을 혼합하여 입력해주세요.";
+		$("#PwChk_msg").text(msg);
+		return false;
+
+	} else {
+		//var msg = "비밀번호가 정상적으로 입력되었습니다.";
+		$("#PwChk_msg").text("");
+		return true;
+	}
+}
+//############################## 회원가입-패스워드체크      ##########################################################
+
+//############################## 회원가입-패스워드재입력체크      ######################################################
+function REPWCHECK(){
+	if ($("#re_pass").val().replace(/\s/g, "").length == 0){
+		var msg = "비밀번호를 한번 더 입력해주세요.";
+		$("#RePwChk_msg").text(msg);
+		return false;
+	}else{
+		if ($("#re_pass").val().replace(/\s/g, "") != $("#pass").val().replace(/\s/g, "")) {
+			var msg = "비밀번호가 일치하지 않습니다."
+			$("#RePwChk_msg").text(msg);
+			return false;
+		}else{
+			$("#RePwChk_msg").text("");
+			return true;
+		}
+	}
+}
+//############################## 회원가입-패스워드재입력체크      ######################################################
+
+//############################## Cart - 모바일상품권 메뉴 변경 #######################################################
+function C_Menu_Load(SUBID,CUST_CODE){
+	LOADINGON();
+
+	$.ajax({
+		type: "POST",
+		url: "/process/cart_menu_list.fuse",
+		data:"SUBID=" + SUBID + "&CUST_CODE=" + CUST_CODE,
+		dataType: "HTML",
+		timeout: 10000,
+		success: function(msg){
+			$("#MENUVIEW").text("");
+			$("#MENUVIEW").append(msg);
+			LOADINGOFF();
+		} ,error: function(msg) {
+			//alert('인터넷 연결회선이 불안정합니다. 관리자에게 문의해 주세요.');
+			LOADINGOFF();
+		}
+	});
+}
+//############################## Cart - 모바일상품권 메뉴 변경 ########################################################
+
+//############################## Cart - 모바일상품권 메뉴 상세페이지 ####################################################
+function C_Menu_Detail_View(STOCK_ID,SUBID,CUST_CODE){
+	//location.href="/f_hidden/proceduree.fuse?STOCK_ID="+STOCK_ID+"&SUBID="+SUBID+"&pro_type=Menu_Detail_View";
+	//return;
+	LOADINGON();
+
+	$.ajax({
+		type: "POST", 
+		url: "/process/proceduree.fuse", 
+		data: "STOCK_ID="+STOCK_ID+"&SUBID="+SUBID+"&CUST_CODE="+CUST_CODE+"&pro_type=C_Menu_Detail_View", 
+		dataType: "text", 
+		success: function(responseText){
+			//alert(responseText);
+			var ap1_temp = responseText.split("||", responseText.length);
+			for(var u=0; u<ap1_temp.length; u++) {
+				if(u==0){var HTML_TEXT = ap1_temp.slice(u, u+1);}//
+				if(u==1){var STOCK_TYPE = ap1_temp.slice(u, u+1);}//
+				if(u==2){var STOCK_ID = ap1_temp.slice(u, u+1);}//
+				if(u==3){var SEL_CNT = ap1_temp.slice(u, u+1);}//
+				if(u==4){var STOCK_NAME_M = ap1_temp.slice(u, u+1);}//
+
+			}
+
+			if(HTML_TEXT != ""){
+				$("#C_Menu_detail_view").text("");
+				$("#C_Menu_detail_view").append(HTML_TEXT);
+				document.getElementById("STOCK_TYPE").value = STOCK_TYPE;
+				document.getElementById("STOCK_ID").value = STOCK_ID;
+				document.getElementById("SEL_CNT").value = SEL_CNT;
+				
+				$(".Menu_name").text(STOCK_NAME_M);
+			}else{
+				// 리턴 메세지 처리------------------------------
+				//alert('인터넷 연결회선이 불안정합니다. 관리자에게 문의해 주세요.');
+				location.href = "/";
+				// 리턴 메세지 처리------------------------------
+			}
+
+			LOADINGOFF();
+		},error: function(response){
+			// 리턴 메세지 처리------------------------------
+			//alert('인터넷 연결회선이 불안정합니다. 관리자에게 문의해 주세요.');
+			location.href = "/";
+			// 리턴 메세지 처리------------------------------
+
+			LOADINGOFF();
+		}
+	});
+}
+//############################## Cart - 모바일상품권 메뉴 상세페이지 ####################################################
+
+function pay_load_try(userID,personUid,e_cnt,MINORDER_AMT){
+	//pay_check();
+	if(document.Frm.PG_NM.value == "KICC" && document.Frm.mmid.value == "" && (document.Frm.paytype.value == "card" || document.Frm.paytype.value == "hp")){
+		alert("해당 매장은 현재 전자지급결제대행(PG)사\n전환 작업중입니다. “현장결제”를 이용해주세요.");
+		$("#loadingBox").css('display','none');
+		$("body").removeClass('fixed');
+		$('#PayloadBtn').css('display', '');
+		return;
+	}
+
+	if(personUid == ""){
+		var msg = "정상적인 접근이 아닙니다!\n처음부터 다시 진행해주세요!"
+		alert(msg);
+		location.href = "/";
+		return;
+	}
+
+	if(document.Frm.settlePrice.value == "none"){
+		var msg = "선택하신 상품이 없습니다!\n처음부터 다시 진행해주세요!"
+		alert(msg);
+		location.href = "/";
+		return;
+	}
+
+	if(document.Frm.cart_id_sum.value == "" && document.Frm.cart_ea_sum.value == ""){
+		var msg = "장바구니에 담긴 상품이 없습니다!"
+		alert(msg);
+		$("#loadingBox").css('display','none');
+		$("body").removeClass('fixed');
+		$('#PayloadBtn').css('display', '');
+		return;
+	}
+
+	if(document.Frm.DISPLAYNONE.value == "Y"){
+		var msg = "장바구니에 품절상품이 있습니다!"
+		alert(msg);
+		$("#loadingBox").css('display','none');
+		$("body").removeClass('fixed');
+		$('#PayloadBtn').css('display', '');
+		return;
+	}
+	
+	if (document.Frm.MYCOUPON_IDX.value == ""){
+		if(parseInt(document.Frm.totalOrderPrice.value) < parseInt(MINORDER_AMT) && document.Frm.E_CNT.value == 0 && document.Frm.ECNT.value == 0){
+			var msg = "결제 최소금액은 "+parseInt(MINORDER_AMT).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원입니다!\n메뉴를 추가로 선택하세요!"
+			alert(msg);
+			$("#loadingBox").css('display','none');
+			$("body").removeClass('fixed');
+			$('#PayloadBtn').css('display', '');
+			return;
+		}else if(parseInt(document.Frm.orgSettlePrice.value) < parseInt(MINORDER_AMT) && document.Frm.E_CNT.value != 0 && document.Frm.ECNT.value == 0){
+			var msg = "결제 최소금액은 "+parseInt(MINORDER_AMT).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원입니다!\n메뉴를 추가로 선택하세요!"
+			alert(msg);
+			$("#loadingBox").css('display','none');
+			$("body").removeClass('fixed');
+			$('#PayloadBtn').css('display', '');
+			return;
+		}
+	}
+
+	if(parseInt(document.Frm.totalOrderPrice.value) < 0 && document.Frm.E_CNT.value != 0){
+		var msg = "E-쿠폰 금액보다 주문금액이 적습니다!\n메뉴를 추가로 선택하세요!"
+		alert(msg);
+		$("#loadingBox").css('display','none');
+		$("body").removeClass('fixed');
+		$('#PayloadBtn').css('display', '');
+		return;
+	}
+
+	if (document.Frm.reser_type.value == ""){
+		var msg = "주문타입을 선택하세요!"
+		alert(msg);
+		$("#loadingBox").css('display','none');
+		$("body").removeClass('fixed');
+		$('#PayloadBtn').css('display', '');
+		return;
+   }
+
+	if (document.Frm.reser_type.value == "2"){
+		if(document.Frm.rest1.value == "" || document.Frm.rest2.value == ""){
+			var msg = "예약시간을 선택하세요!"
+			alert(msg);
+			$("#loadingBox").css('display','none');
+			$("body").removeClass('fixed');
+			$('#PayloadBtn').css('display', '');
+			return;		
+		}
+	}
+
+	if (document.Frm.paytype.value == ""){
+		var msg = "결제수단을 선택하세요!"
+		alert(msg);
+		$("#loadingBox").css('display','none');
+		$("body").removeClass('fixed');
+		$('#PayloadBtn').css('display', '');
+		return;
+	}
+
+	var CashRequest = document.Frm.CashRequest.checked;
+
+	if (CashRequest == true){
+		CashRequest = "Y"
+	}else{
+		CashRequest = "N"
+	}
+
+	//alert(CashRequest);
+	//return;
+	
+	var mmid = document.Frm.mmid.value;
+
+	var CASH_AUTH_TYPE = document.Frm.CASH_AUTH_TYPE.value;
+
+	if (CashRequest == "Y"){
+		if (CASH_AUTH_TYPE == ""){
+			alert("현금영수증 발급구분을 선택하세요");
+			$("#loadingBox").css('display','none');
+			$("body").removeClass('fixed');
+			$('#PayloadBtn').css('display', '');
+			return;
+		}
+
+		if (CASH_AUTH_TYPE == "1"){
+			if (document.Frm.Cash_mobile1.value.toString().length != 3){
+				alert("현금영수증 발급번호 앞자리 자릿수가 맞지 않습니다.");
+				$("#loadingBox").css('display','none');
+				$("body").removeClass('fixed');
+				$('#PayloadBtn').css('display', '');
+				return;
+			}
+
+			if (document.Frm.Cash_mobile2.value.toString().length != 4){
+				alert("현금영수증 발급번호 앞자리 자릿수가 맞지 않습니다.");
+				$("#loadingBox").css('display','none');
+				$("body").removeClass('fixed');	
+				$('#PayloadBtn').css('display', '');
+				return;
+			}
+
+			if (document.Frm.Cash_mobile3.value.toString().length != 4){
+				alert("현금영수증 발급번호 앞자리 자릿수가 맞지 않습니다.");
+				$("#loadingBox").css('display','none');
+				$("body").removeClass('fixed');
+				$('#PayloadBtn').css('display', '');
+				return;
+			}
+
+			if (document.Frm.Cash_mobile1.value == "" || document.Frm.Cash_mobile2.value == "" || document.Frm.Cash_mobile3.value == ""){
+				alert("현금영수증 발급번호를 입력하세요.");
+				$("#loadingBox").css('display','none');
+				$("body").removeClass('fixed');
+				$('#PayloadBtn').css('display', '');
+				return;
+			}
+
+		}else if (CASH_AUTH_TYPE == "2"){
+			if (document.Frm.Cash_TaxNo1.value.toString().length != 3){
+				alert("현금영수증 발급번호 앞자리 자릿수가 맞지 않습니다.");
+				$("#loadingBox").css('display','none');
+				$("body").removeClass('fixed');
+				$('#PayloadBtn').css('display', '');
+				return;
+			}
+
+			if (document.Frm.Cash_TaxNo2.value.toString().length != 2){
+				alert("현금영수증 발급번호 가운데 자릿수가 맞지 않습니다.");
+				$("#loadingBox").css('display','none');
+				$("body").removeClass('fixed');
+				$('#PayloadBtn').css('display', '');
+				return;
+			}
+
+			if (document.Frm.Cash_TaxNo3.value.toString().length != 5){
+				alert("현금영수증 발급번호 끝자리 자릿수가 맞지 않습니다.");
+				$("#loadingBox").css('display','none');
+				$("body").removeClass('fixed');
+				$('#PayloadBtn').css('display', '');
+				return;
+			}
+
+			if (document.Frm.Cash_TaxNo1.value == "" || document.Frm.Cash_TaxNo2.value == "" || document.Frm.Cash_TaxNo3.value == ""){
+				alert("현금영수증 발급번호를 입력하세요.");
+				$("#loadingBox").css('display','none');
+				$("body").removeClass('fixed');
+				$('#PayloadBtn').css('display', '');
+				return;
+			}
+		}
+	}
+
+	if (CASH_AUTH_TYPE == "1"){
+		var Cash_mobile1 = document.Frm.Cash_mobile1.value;
+		var Cash_mobile2 = document.Frm.Cash_mobile2.value;
+		var Cash_mobile3 = document.Frm.Cash_mobile3.value;
+		var Cash_mobile = Cash_mobile1 + "-" + Cash_mobile2 + "-" + Cash_mobile3
+	}else if (CASH_AUTH_TYPE == "2"){
+		var Cash_mobile1 = document.Frm.Cash_TaxNo1.value;
+		var Cash_mobile2 = document.Frm.Cash_TaxNo2.value;
+		var Cash_mobile3 = document.Frm.Cash_TaxNo3.value;
+		var Cash_mobile = Cash_mobile1 + "-" + Cash_mobile2 + "-" + Cash_mobile3
+	}
+
+	if (document.Frm.orderchks.value != "ok"){
+		document.Frm.orderchks.value = "ok"
+
+		var msg = "주문정보를 저장중입니다!"
+		//F_loadingbar(msg);
+
+		var cjone_yn = document.Frm.CJONE_YN.value;
+		var cjone_expectation_point = document.Frm.CJONE_EXPECTATION_POINT.value;
+		var CJONE_USEYN = document.Frm.CJONE_USEYN.value;
+
+		if (CJONE_USEYN == "Y"){
+			var TotalDeliveryFee = document.Frm.totalDeliveryFee.value.replace(",", "");
+			var TotalOrderPrice = document.Frm.settlePrice.value;
+		}else{
+			var TotalDeliveryFee = document.Frm.settlePrice.value.replace(",", "");
+			var TotalOrderPrice = document.Frm.totalOrderPrice.value;
+		}
+
+		var totalOptionPrice = document.Frm.totalOptionPrice.value;
+		var totalUserDiscountPrice = document.Frm.totalUserDiscountPrice.value;
+		var userDiscountUnit = document.Frm.userDiscountUnit.value;
+		var userCouponUnit = document.Frm.userCouponUnit.value;
+		var uid_sub = document.Frm_giftcard_search.uid_sub.value;
+
+		/*지류상품권*/
+		var userCouponJUnit = document.Frm.userCouponJUnit.value;
+		var juid = document.Frm.JUID.value;
+		/*지류상품권*/
+
+		/*E쿠폰(금액권)*/
+		var userCouponEUnit = document.Frm.userCouponEUnit.value;
+		/*E쿠폰(금액권)*/
+
+		var request_etc = document.Frm.request_etc.value;
+		var self_request_etc = document.Frm.self_request_etc.value;
+		var disposable = document.Frm.disposable.checked;
+		if (disposable == true){
+			disposable = "N"
+		}else{
+			disposable = "Y"
+		}
+
+		var disposable2 = document.Frm.disposable2.checked;
+		if (disposable2 == true){
+			disposable2 = "N"
+		}else{
+			disposable2 = "Y"
+		}
+
+		var disposable3 = document.Frm.disposable3.checked;
+		if (disposable3 == true){
+			disposable3 = "N"
+		}else{
+			disposable3 = "Y"
+		}
+
+		var request_etc2 = document.Frm.request_etc2.value;
+
+		var mobile = document.Frm.mobile.value;
+		var totalOptionPrice2 = document.Frm.totalOptionPrice2.value;
+		var OFF_TYPE = "";
+
+		if (document.Frm.paytype.value == "card"){
+			var PayMethod = "신용카드";
+		}else if (document.Frm.paytype.value == "hp"){
+			var PayMethod = "휴대폰결제";
+		}else if (document.Frm.paytype.value == "npay"){
+			var PayMethod = "네이버페이";
+		}else if (document.Frm.paytype.value == "kakaopay"){
+			var PayMethod = "카카오페이";
+		}else if (document.Frm.paytype.value == "payco"){
+			var PayMethod = "페이코";
+		}else if (document.Frm.paytype.value == "konai"){
+			var PayMethod = "코나카드";
+		}else if (document.Frm.paytype.value == "card2"){
+			var PayMethod = "후불";
+			OFF_TYPE = "2"
+		}else if (document.Frm.paytype.value == "cash"){
+			var PayMethod = "후불";
+			OFF_TYPE = "1";
+		}else if (document.Frm.paytype.value == "ecoupon"){
+			var PayMethod = "E-쿠폰";
+		}else if (document.Frm.paytype.value == "ecoupon2"){
+			var PayMethod = "시식권";
+		}else if (document.Frm.paytype.value == "ecoupon3"){
+			var PayMethod = "E-쿠폰(금액권)";
+		}else if (document.Frm.paytype.value == "ecoupon4"){
+			var PayMethod = "내쿠폰(교환권)";
+		}
+
+		if(document.Frm.reser_type.value == "1"){
+			var reser_type = "1";
+			var rest1 = "";
+			var rest2 = "";
+		}else{
+			var reser_type = "2";
+			var rest1 = document.Frm.rest1.value;
+			var rest2 = document.Frm.rest2.value;
+		}
+
+		var cart_id_sum = document.Frm.cart_id_sum.value;
+		var cart_ea_sum = document.Frm.cart_ea_sum.value;
+		var cust_code = document.Frm.cust_code.value;
+	
+
+
+		REQ = newXMLHttpRequest();//req 객체반환
+		var handlerFunction = processReqList12_try;
+		REQ.onreadystatechange = handlerFunction;
+
+		REQ.open("POST", "/process/proceduree.fuse", true);
+		REQ.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		REQ.send("userID="+userID+"&pro_type=pay_load_try&personUid="+personUid+"&TotalOrderPrice="+TotalOrderPrice+"&totalOptionPrice="+totalOptionPrice+"&TotalDeliveryFee="+TotalDeliveryFee+"&totalUserDiscountPrice="+totalUserDiscountPrice+"&userDiscountUnit="+userDiscountUnit+"&uid_sub="+uid_sub+"&reser_type="+reser_type+"&rest1="+rest1+"&rest2="+rest2+"&request_etc="+request_etc+"&mobile="+mobile+"&PayMethod="+PayMethod+"&OFF_TYPE="+OFF_TYPE+"&cart_id_sum="+cart_id_sum+"&cart_ea_sum="+cart_ea_sum+"&cust_code="+cust_code+"&e_cnt="+document.Frm.E_CNT.value+"&self_request_etc="+self_request_etc+"&userCouponUnit="+userCouponUnit+"&totalOptionPrice2="+totalOptionPrice2+"&disposable="+disposable+"&userCouponJUnit="+userCouponJUnit+"&juid="+juid+"&userCouponEUnit="+userCouponEUnit+"&request_etc2="+request_etc2+"&CashRequest="+CashRequest+"&Cash_mobile="+Cash_mobile+"&CASH_AUTH_TYPE="+CASH_AUTH_TYPE+"&mmid="+mmid+"&disposable2="+disposable2+"&disposable3="+disposable3+"&cjone_yn="+cjone_yn+"&cjone_expectation_point="+cjone_expectation_point+"&CJONE_USEYN="+CJONE_USEYN);
+
+		//location.href="/process/proceduree.fuse?userID="+userID+"&pro_type=pay_load_try&personUid="+personUid+"&TotalOrderPrice="+TotalOrderPrice+"&totalOptionPrice="+totalOptionPrice+"&TotalDeliveryFee="+TotalDeliveryFee+"&totalUserDiscountPrice="+totalUserDiscountPrice+"&userDiscountUnit="+userDiscountUnit+"&uid_sub="+uid_sub+"&reser_type="+reser_type+"&rest1="+rest1+"&rest2="+rest2+"&request_etc="+request_etc+"&mobile="+mobile+"&PayMethod="+PayMethod+"&OFF_TYPE="+OFF_TYPE+"&cart_id_sum="+cart_id_sum+"&cart_ea_sum="+cart_ea_sum+"&cust_code="+cust_code+"&e_cnt="+e_cnt+"&self_request_etc="+self_request_etc+"&userCouponUnit="+userCouponUnit+"&totalOptionPrice2="+totalOptionPrice2+"&disposable="+disposable+"&userCouponJUnit="+userCouponJUnit+"&juid="+juid+"&userCouponEUnit="+userCouponEUnit+"&request_etc2="+request_etc2+"&CashRequest="+CashRequest+"&Cash_mobile="+Cash_mobile+"&CASH_AUTH_TYPE="+CASH_AUTH_TYPE+"&mmid="+mmid+"&disposable2="+disposable2+"&disposable3="+disposable3+"&cjone_yn="+cjone_yn+"&cjone_expectation_point="+cjone_expectation_point+"&CJONE_USEYN="+CJONE_USEYN;
+		//return;
+
+	}else{				
+		var msg = "이미 요청하셨습니다.!"
+		alert(msg);
+		$("#loadingBox").css('display','none');
+		$("body").removeClass('fixed');
+		return;
+	}
+}
+
+function processReqList12_try() {
+	// only if req shows "loaded"
+	if (REQ.readyState == 4) {
+		// only if "OK"
+		if (REQ.status == 200) {
+			//F_loadingbar_stop();
+			printList12_try();
+		} else {
+			alert("정상적인 접근이 아닙니다!");
+			location.href = "/";
+			return;
+		}
+	}//if
+}
+
+function printList12_try() {
+	var lists = REQ.responseXML.getElementsByTagName("lists")[0]; //응답받은 XML에서 리스트내용을 전달
+	var f = document.Frm;
+	var items = lists.getElementsByTagName("item"); //XML에서 표시할 게시물을 배열로 받는다.
+
+	for(var i=0; i<items.length; i++){//게시물 건수만큼 루프
+		var item = items[i];
+		var seq        = item.getAttribute("seq");//오픈 응답
+		var orderTryUid      = item.getElementsByTagName("aname1")[0].firstChild.nodeValue;//UID
+		var order_error      = item.getElementsByTagName("aname2")[0].firstChild.nodeValue;//UID
+		var error_ck      = item.getElementsByTagName("aname3")[0].firstChild.nodeValue;//UID
+		var personUid      = item.getElementsByTagName("aname4")[0].firstChild.nodeValue;//UID
+		var cross_error      = item.getElementsByTagName("aname5")[0].firstChild.nodeValue;//UID
+		var addr_error      = item.getElementsByTagName("aname6")[0].firstChild.nodeValue;//UID
+		var BADALTIP_CK      = item.getElementsByTagName("aname7")[0].firstChild.nodeValue;//UID
+		var KONA_CK      = item.getElementsByTagName("aname8")[0].firstChild.nodeValue;//UID
+
+		if(cross_error == "true"){
+			alert("중복접속으로 상품갯수가 변경 되었습니다!\n다시 시도하세요!");
+			location.href = "/home_cart.asp";
+			return;
+		}
+
+		if(addr_error == "true"){
+			alert("중복접속으로 배송매장이 변경 되었습니다!\n다시 시도하세요!");
+			location.href = "/home_cart.asp";
+			return;
+		}
+
+		if(error_ck == "true"){
+			alert("배송지 및 장바구니 오류입니다!\n다시 시도하세요!");
+			location.href = "/";
+			return;
+		}
+
+		if(order_error == "check"){
+			alert("주문금액이 잘못 되었습니다. 처음부터 다시 진행해 주세요!");
+			location.href = "/home_cart.asp";
+			return;
+		}
+
+		//if (BADALTIP_CK == "NO"){
+		//	alert("주문금액이 잘못 되었습니다. 처음부터 다시 진행해 주세요!");
+		//	location.href = "/home_cart.asp";
+		//	return;
+		//}
+
+		if (KONA_CK == "true"){
+			alert("코나카드결제 사용이 불가한 매장입니다!\n다시 시도하세요!");
+			location.href = "/home_cart.asp";
+			return;
+		}
+
+		if(orderTryUid == "none"){
+			alert("정상적인 접근이 아닙니다!");
+			location.href = "/";
+			return;
+		}
+
+		document.Frm.orderTry.value = orderTryUid;
+		document.Frm.p_uid.value = personUid;
+	}
+	orderChk();
+}
+
+// # 주문 : 시작 ######################################################################
+function orderChk() {
+	var f = document.Frm;
+
+	//주문정보 체크
+	if(document.Frm.orderTry.value == "" || document.Frm.p_uid.value == ""){
+		var msg = "주문정보가 누락 되었습니다!\n처음부터 다시 진행해주세요!"
+		alert(msg);
+		location.href = "/";
+		return;
+	}
+
+	if (f.Divice_type.value == 'pc'){
+
+		if(document.Frm.paytype.value == "card"){
+			if (document.Frm.PG_NM.value == "KICC"){
+				//kicc
+				f.action = "/easypay80_webpay/web/normal/order.asp";
+				document.Frm.PAYTYPE_KICC.value = "11";
+			}
+		}else if(document.Frm.paytype.value == "hp"){
+			if (document.Frm.PG_NM.value == "KICC"){
+				//kicc
+				f.action = "/easypay80_webpay/web/normal/order.asp";
+				document.Frm.PAYTYPE_KICC.value = "31";
+			}
+		}else if(document.Frm.paytype.value == "card2" || document.Frm.paytype.value == "cash"){
+			//alert("PC/후불");		
+			f.action = "/process/off_order.fuse";
+		}
+
+		//포장 E-쿠폰
+		if (document.Frm.paytype.value == "ecoupon" && f.t_money2.value == 0){
+			f.action = "/process/ecoupon_order.fuse";
+		}
+
+		if (document.Frm.paytype.value == "ecoupon2" && f.t_money2.value == 0){
+			f.action = "/process/paper_coupon_order.fuse";
+		}
+
+		if (document.Frm.paytype.value == "ecoupon3" && f.t_money2.value == 0){
+			f.action = "/process/ecouponAmt_order.fuse";
+		}
+
+		if (document.Frm.paytype.value == "ecoupon4" && f.t_money2.value == 0){
+			f.action = "/process/mycoupon_order.fuse";
+		}
+
+		if (document.Frm.paytype.value == "cjonepoint" && f.t_money2.value == 0){
+			f.action = "/process/cjone_point_order.fuse";
+		}
+	}else{
+		if(document.Frm.paytype.value == "card"){			
+			if (document.Frm.PG_NM.value == "KICC"){
+				//kicc
+				f.action = "/easypay80_webpay_mobile/mobile/mobile/order.asp";
+				document.Frm.PAYTYPE_KICC.value = "11";
+			}
+		}else if(document.Frm.paytype.value == "hp"){	
+			if (document.Frm.PG_NM.value == "KICC"){
+				//kicc
+				f.action = "/easypay80_webpay_mobile/mobile/mobile/order.asp";
+				document.Frm.PAYTYPE_KICC.value = "31";
+			}
+		}else if(document.Frm.paytype.value == "card2" || document.Frm.paytype.value == "cash"){				
+			f.action = "/process/off_order.fuse";
+		}
+
+		//포장 E-쿠폰
+		if (document.Frm.paytype.value == "ecoupon" && f.t_money2.value == 0){
+			f.action = "/process/ecoupon_order.fuse";
+		}
+
+		if (document.Frm.paytype.value == "ecoupon2" && f.t_money2.value == 0){
+			f.action = "/process/paper_coupon_order.fuse";
+		}
+
+		if (document.Frm.paytype.value == "ecoupon3" && f.t_money2.value == 0){
+			f.action = "/process/ecouponAmt_order.fuse";
+		}
+
+		if (document.Frm.paytype.value == "ecoupon4" && f.t_money2.value == 0){
+			f.action = "/process/mycoupon_order.fuse";
+		}
+
+		if (document.Frm.paytype.value == "cjonepoint" && f.t_money2.value == 0){
+			f.action = "/process/cjone_point_order.fuse";
+		}
+	}
+
+	f.target = "_self";
+	f.submit(); 
+	return;
+}
+// # 주문 : 시작 ######################################################################
+
+// # 장바구니 카운트 ######################################################################
+function cart_cnt(personUid){
+
+	//location.href="/process/cart_cnt.fuse?personUid="+personUid;
+	//return;
+
+	$.ajax({
+		type: "POST",
+		url: "/process/cart_cnt.fuse?personUid="+personUid,
+		dataType: "TEXT",
+		contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+		error: function(){	
+			//alert("인터넷 회선이 불안합니다. 다시 시도해 주세요.\n같은증상이 계속 반복될시 관리자에게 문의 바랍니다.");
+		},
+		success: function(data){
+			if (data != "0"){
+				$("#cart_count").css('display','');
+				$("#cart_count").html(data);
+				$("#mo_cart_count").css('display','');
+				$("#mo_cart_count").html(data);
+			}else	if (data == "0"){
+				$("#cart_count").css('display','none');
+				$("#cart_count").html(data);
+				$("#mo_cart_count").css('display','none');
+				$("#mo_cart_count").html(data);
+			}
+		}
+	});
+}
+// # 장바구니 카운트 ######################################################################
+
+// # 상품권 장바구니 카운트 ##################################################################
+function cpn_cart_cnt(personUid){
+
+	//location.href="/process/cart_cnt.fuse?personUid="+personUid;
+	//return;
+
+	$.ajax({
+		type: "POST",
+		url: "/process/cpn_cart_cnt.fuse?personUid="+personUid,
+		dataType: "TEXT",
+		contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+		error: function(){	
+			//alert("인터넷 회선이 불안합니다. 다시 시도해 주세요.\n같은증상이 계속 반복될시 관리자에게 문의 바랍니다.");
+		},
+		success: function(data){
+			if (data != "0"){
+				$("#cpn_cart_count").css('display','');
+				$("#cpn_cart_count").html(data);
+				$("#mo_cpn_cart_count").css('display','');
+				$("#mo_cpn_cart_count").html(data);
+			}else	if (data == "0"){
+				$("#cpn_cart_count").css('display','none');
+				$("#cpn_cart_count").html(data);
+
+				$("#mo_cpn_cart_count").css('display','none');
+				$("#mo_cpn_cart_count").html(data);
+			}
+		}
+	});
+}
+// # 상품권 장바구니 카운트 ##################################################################
