@@ -20,7 +20,7 @@ align-items: center; }
 #mainRight{
     width: 350px; text-align: center;
     display: flex; flex-direction: column;
-    align-items: center; height: 407px;
+    align-items: center; 
 }
 #mainRight h1{
     font-size: 50px; font-family: 궁서체;
