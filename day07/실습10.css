@@ -14,7 +14,6 @@ align-items: center; padding: 200px 0px; height: 830px;
 }
 #footer{width: 100%;}
 /*=========================1.본문=================*/
-
 #main-img>img{
     width: 552px; height: 450px;
 }
@@ -24,42 +23,47 @@ align-items: center; padding: 200px 0px; height: 830px;
     align-items: center; 
 }
 .log-Main{padding: 10px 0px; margin: 0px 0px 10px;
-    display: flex; flex-direction: column; justify-content: center;
+    display: flex; flex-direction: column; 
+    justify-content: center; align-items: center;
 }
-.log{ margin: 24px 0px 0px;}
+.log{ margin: 24px 0px 0px;
+    width: 350px; height: 223px
+}
 .title{
     background-image: url(https://static.cdninstagram.com/rsrc.php/v4/yB/r/E7m8ZCMOFDS.png);
     background-position: 0px -52px;
     background-size: auto;
     width: 175px; height: 51px;
-    background-repeat: no-repeat;
-    margin-left: 35px;
+    background-repeat: no-repeat;    
 }
 
 #mainRight .box {    
-    width: 100%; align-items: center; 
+     align-items: center; 
     border: 1px solid rgba(219, 219, 219, 1); 
-    border-radius: 3px;   margin: 10px 0px;
+    border-radius: 3px;   margin: 6px 40px;
     
       
 }
 #mainRight .box > input{
     background-color: #fff;
     padding: 9px 8px 7px 8px;
-     height: 36px; width: 250px;
+     height: 36px; width: 100%;
     border: 0px; flex: 1 0 auto;
     outline: none; 
 }
-.loginbox{ margin: 8px 40px; padding: 5px 0px;     
+.loginbox{ 
+    margin: 8px 40px; padding: 5px 0px;
+    align-items: stretch; margin-left: 40px;
+    margin-right: 40px;    
 }
-#mainRight .loginbox>input{
+#mainRight .loginbox>button{
     font-size: 14px;
-    background-color: #5e47de;    
-    font-weight: bold;
+    background-color: rgba(0, 149, 246, 1);    
+    font-weight: bold; opacity: 7;
     color: white;
     width: 100%;
     border-radius: 10px;
-    padding: 5px 50px;
+    padding: 7px 16px;
     border: none;
 }
 
@@ -80,7 +84,7 @@ align-items: center; padding: 200px 0px; height: 830px;
     top: 6.3px; content: ""; width: 100%;
 }
 .facelogin{color: #3579EA; font-size: 14px; align-items: center; }
-.password-color>a{font-size: 14px; color: #4150F7;}
+.password-color>a{font-size: 14px; color: rgba(0, 55, 107, 1);}
 .still{ font-size: 14px;}
 .still>a{font-size: 14px; color: #4150F7;}
 .face{width: 20px; height: 20px;}
