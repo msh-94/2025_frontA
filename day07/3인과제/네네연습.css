@@ -1,0 +1,202 @@
+/*========================= 공통 CSS =====================*/
+*{
+    padding: 0px; margin: 0;
+    box-sizing: border-box; font-size: inherit;
+    
+}
+li{ list-style-type: none;}
+a{ color: black; text-decoration: none;}
+/*=========================== 헤더 CSS ====================*/
+#headerwrap{
+    width: 100%; border-bottom: 1px solid #f2f2f2;    
+    position: fixed; top: 0; right: 0; left: 0;
+    z-index: 30;  background-color: #fff;
+}
+#header-top{
+    width: 100%;  
+    border-top: 1px solid #f2f2f2; 
+    border-bottom: 1px solid #f2f2f2;
+    display: flex; justify-content: space-between;   
+}
+.headerTsub{
+    max-width: 1280px; display: flex;
+    justify-content: space-between; align-items: center;
+    margin: 0 auto;
+}
+.hTLeft{
+    display: flex;  color: #f2f2f2;
+    font-size: 13.6px;   
+}
+.hTLeft>a{ padding: 20px;}
+.hTLeft-color{
+    background-color: #f2f2f2; color:#4f2e0c;
+    font-weight: bold;
+}
+.hTCenter{padding: 0px 350px;}
+.hTCenter>img{ width: 20px;}
+.hTCenter>span{
+    color:#4f2e0c; font-weight: bold; font-size: 18px;
+}
+.hTRight>a{font-size: 16px; padding: 20px;}
+#header-bottom{
+    display: flex; align-items: center;
+    justify-content: space-between; max-width: 1280px;
+    padding: 30px 0px; margin: 0 auto;
+}
+.hBMain{
+    font-size: 20px; font-weight: 500;
+    justify-content: space-between; display: flex;
+}
+.hBMain>a{
+    padding: 0 30px;
+}
+.hBRight{ display: flex; justify-content: space-between;
+    width: 150px;
+}
+.hBRight>.hBRight-img>img{width: 30px;}
+.hBRight>.hBRight>img{padding: 0 20px;}
+/*==============================본문 CSS==================*/
+#mainwrap{ width: 1280px; padding-top: 200px; margin: 0 auto;}
+#main-top{
+    width: 100%; display: flex;
+    justify-content: space-between; 
+    padding: 20px 0px;
+}
+#mainTop-color{
+    background-color: #FED100; border-radius: 21px 5px 21px 55px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    width: 18%; padding: 24px 40px 24px 24px;
+}
+.mTc-top{
+    font-size: 22.5px; font-weight: bold;     
+}
+.mTc-bottom{ 
+    font-size: 30px; font-weight: 500;
+    text-align: right; 
+}
+#mainTop-banner{
+    min-height: 200px; width: 80%;    
+}
+.mt-b_top>span{font-size: 23px; font-weight: 500;}
+.mt-b_top{
+    background-color: #f8f8f8; padding: 15px 0;
+}
+.mt-b_top>img{padding-left: 20px;}
+#main-log{
+    display: flex; justify-content: center;
+    flex-direction: column; margin: 0 auto;
+    padding-left: 40px;
+}
+.mLog-top>p{
+    font-size: 28px; font-weight: 500;
+    text-align: center; margin-top: -155px;
+    line-height: 700%; padding-left: 40px;
+}
+.mLog-bottom{
+    display: flex; flex-direction: column;
+    justify-content: center; width: 700px;
+    margin: 0 auto; padding-left: 40px;
+}
+.mLogB-t{ width: 100%;}
+.log-title{
+    display: flex;  padding-bottom: 20px;
+    align-items: center;  width: 100%;
+}
+.log-Tap{
+    border: 1px solid black; 
+    border-bottom: hidden; padding: 20px;
+    font-size: 18px; width: 50%;
+    padding: 19px; text-align: center;
+}
+.log-Tap1{
+    border-bottom: 1px solid black;
+    background-color: #f5f5f5;
+    color: #888888; width: 50%;
+    text-align: center; padding: 19px;
+    font-size: 18px;
+}
+#log-wrap{
+    display: flex; justify-content: center; 
+    align-items: center; padding-top: 10px;
+    }
+.LogTap{
+    border: 0.5px solid black; position: relative;
+    padding: 20px; margin-bottom: 10px;
+    border-radius: 5px;
+}
+.LogT-ID{
+    position: absolute; top: -12px;
+    padding: 0 10px; color: #efba00;
+    background-color: #fff;
+}
+.IDbox{ display: flex; align-items: center;}
+.input-box{
+    padding-left: 10px;  border: none;
+}
+.auto-log{ display: flex; align-items: center;
+    justify-content: flex-end; padding: 20px 0;
+}
+.auto-bt{padding-left: 15px;}
+.log-Bt{ 
+    display: flex; padding: 20px;
+}
+.lBt-login{
+    width: 60%; background-color: #efba00;
+    border-radius: 50px; text-align: center;
+    padding: 10px 20px; font-weight: 500;
+    display: flex; justify-content: center;
+    align-items: center; margin-right: 20px;
+}
+.lBt-login>a{ font-size: 20px; color: white;}
+.lBt-login1{
+    width: 40%; background-color: white;
+    border: 0.5px solid #e8e8e8; border-radius: 50px;
+    text-align: center; font-size: 20px;
+    font-weight: 400; display: flex;
+    justify-content: center; align-items: center;
+}
+.find{
+    padding: 10px 0;
+}
+.find-log{
+    display: flex; justify-content: center;
+    align-items: center; margin: 10px 0;
+}
+.find-line{
+    padding: 0 20px; color: #e0e0e0;    
+}
+.Log-line{
+    border: 5px solid #f5f5f5; 
+    margin: 30px 0;    
+}
+.mLogB-b{
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    font-size: 25px; font-weight: bold;
+}
+.mLogB-b>p{ margin-bottom: 20px;}
+.snsIcon{
+    display: flex; justify-content: center;
+    
+}
+.icon-box{
+    background-color: #FED100;
+    width: 65px; height: 65px;
+    border-radius: 50%;  position: relative; 
+    margin: 20px; 
+}
+.icon-box1{
+    background-color: #03cf5d;
+    width: 65px; height: 65px;
+    border-radius: 50%; position: relative;
+    margin: 20px;
+}
+.icon-box2{
+    background-color: black;
+    width: 65px; height: 65px;
+    border-radius: 50%; position: relative;
+    margin: 20px;
+}
+.icon-img{
+    position: absolute; top: 22px; left: 22px;
+}
