@@ -27,7 +27,7 @@ a{ color: black; text-decoration: none;}
     display: flex;  color: #f2f2f2;
     font-size: 13.6px;   
 }
-.hTLeft>a{ padding: 20px;}
+.hTLeft>a{ padding: 15px 24px;}
 .hTLeft-color{
     background-color: #f2f2f2; color:#4f2e0c;
     font-weight: bold;
@@ -50,10 +50,11 @@ a{ color: black; text-decoration: none;}
 .hBMain>a{
     padding: 0 30px;
 }
-.hBRight{ display: flex; justify-content: space-between;
+.hBRight{ display: flex; 
     width: 150px;
 }
-.hBRight>.hBRight-img>img{width: 30px;}
+.hBRight-img{padding: 0 15px;}
+.hBRight>.hBRight-img>img{width: 30px;} 
 .hBRight>.hBRight>img{padding: 0 20px;}
 /*==============================본문 CSS==================*/
 #mainwrap{ width: 1280px; padding-top: 200px; margin: 0 auto;}
@@ -207,7 +208,7 @@ a{ color: black; text-decoration: none;}
 #footerWrap{
     display: flex; justify-content: space-between;
     max-width: 1280px; 
-    margin: 0 auto;
+    margin: 0 auto; padding: 10px 0 120px;
 }
 .footerLeft{
     width: 500px; display: flex;
@@ -231,7 +232,7 @@ a{ color: black; text-decoration: none;}
     color: #9f7549; padding-right: 20px;
 }
 .footer-language{    
-    border: 1px solid white; font-size: 14px;
+    border: 1px solid rgba(255, 255, 255, 30%); font-size: 14px;
     padding: 0 10px; border-radius: 20px;
     font-weight: 500;
 }
@@ -246,20 +247,60 @@ a{ color: black; text-decoration: none;}
 }
 .footerL-right span , .footerLr-Right span{
     color: white; width: 170px;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid rgba(255, 255, 255, 30%);
     padding: 10px 10px;
 }
 .footerRight{
     display: flex; padding-top: 90px;
-    padding-bottom: 50px; color: white;
+    padding-bottom: 50px; color: white;  
+    justify-content: space-between;  
 }
 .footerR-left{
     padding: 0 30px;    
 }
-.footerRL-top{ display: flex;}  
+.footerRL-top{ display: flex; font-size: 14px;} 
+.Add>p{padding-left: 5px; } 
+.roadwrap{margin-top: 10px;}
 .road{
-    border: 0.5px solid white;
-    border-radius: 10px;
+    border: 0.5px solid rgba(255, 255, 255, 30%);
+    border-radius: 15px;
     text-align: center;
     width: 110px; padding: 3px 7px;
+           
+}
+.footerRL-bottom{display: flex; margin-top: 30px;}
+.footer-C{ 
+    padding-left: 5px; font-size: 14px;
+    margin-bottom: 10px;
+}
+.C-color{
+    color: #9f7549; margin-right: 10px;
+}
+.footerR-Right{ padding: 0 30px; }
+.footer-Tel{
+    border: 1px solid rgba(255, 255, 255, 30%); border-radius: 15px;
+    padding: 5px 20px; width: 200px;
+}
+.Tel-N{ 
+    font-size: 30px;
+    color: #fed100;
+    font-weight: 800;
+}
+.footer-Time{
+    display: flex; margin-top: 30px;
+    margin-bottom: 20px;
+}
+.img-position{ position: relative; margin-left: 10px;}
+.footer-Time img{ position: absolute; top: 5px; right: 0px;}
+.Time-line{ margin-left: 10px; margin-bottom: 8px;}
+.Time-color{ color: #9f7549; margin-right: 10px;}
+.footer-Email{display: flex;}
+.Email-color{color: #fed100; margin-left: 10px; font-size: 15px;}
+.footer-Email img{position: absolute; top: 5px; right: 0px;}
+.question-box{
+    margin-top: 20px; margin-left: 20px;
+}
+.question-text{
+    border: 1px solid rgba(255, 255, 255, 30%);
+    border-radius: 15px; padding: 2px 20px;
 }
