@@ -48,7 +48,7 @@ a{ color: black; text-decoration: none;}
     justify-content: space-between; display: flex;
 }
 .hBMain>a{
-    padding: 0 30px;
+    padding: 0 45px;
 }
 .hBRight{ display: flex; 
     width: 150px;
@@ -78,11 +78,18 @@ a{ color: black; text-decoration: none;}
 #mainTop-banner{
     min-height: 200px; width: 80%;    
 }
-.mt-b_top>span{font-size: 23px; font-weight: 500;}
+.mt-b_top>span{
+    font-size: 23px; font-weight: 500;
+    position: absolute;
+}
 .mt-b_top{
     background-color: #f8f8f8; padding: 15px 0;
+    position: relative;
 }
-.mt-b_top>img{padding-left: 20px;}
+.mt-b_top>img{
+    padding-left: 20px; padding-top: 5px;
+
+}
 #main-log{
     display: flex; justify-content: center;
     flex-direction: column; margin: 0 auto;
@@ -92,6 +99,7 @@ a{ color: black; text-decoration: none;}
     font-size: 28px; font-weight: 500;
     text-align: center; margin-top: -155px;
     line-height: 700%; padding-left: 40px;
+    letter-spacing: -2px;
 }
 .mLog-bottom{
     display: flex; flex-direction: column;
@@ -139,7 +147,7 @@ a{ color: black; text-decoration: none;}
 }
 .auto-bt{padding-left: 15px;}
 .log-Bt{ 
-    display: flex; padding: 20px;
+    display: flex; padding: 20px 0px;
 }
 .lBt-login{
     width: 60%; background-color: #efba00;
@@ -201,6 +209,9 @@ a{ color: black; text-decoration: none;}
 .icon-img{
     position: absolute; top: 22px; left: 22px;
 }
+.icon-box2 img{
+    position: absolute; top: 17px; left: 21px;
+}
 /*======================푸터 CSS==================*/
 #footer-color{
     background-color: #40362b;
@@ -218,7 +229,7 @@ a{ color: black; text-decoration: none;}
 }
 .footerL-left{width: 300px;}
 .footerL-text{
-    padding: 20px 0;
+    padding: 20px 0; margin-left: 15px;
     font-size: 11px; font-weight: 500;
 }
 .footerL-text>ul>li>span{
@@ -233,7 +244,7 @@ a{ color: black; text-decoration: none;}
 }
 .footer-language{    
     border: 1px solid rgba(255, 255, 255, 30%); font-size: 14px;
-    padding: 0 10px; border-radius: 20px;
+    padding: 3px 15px; border-radius: 20px;
     font-weight: 500;
 }
 .footer-language>span{padding: 0 5px;}
@@ -245,7 +256,12 @@ a{ color: black; text-decoration: none;}
     display: flex; padding: 5px 15px;
     align-items: center; flex-direction: column;
 }
-.footerL-right span , .footerLr-Right span{
+.footerL-right span{
+    width: 140px; color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 30%);
+    padding: 10px 10px;
+}
+.footerLr-Right span{
     color: white; width: 170px;
     border-bottom: 1px solid rgba(255, 255, 255, 30%);
     padding: 10px 10px;
@@ -253,7 +269,8 @@ a{ color: black; text-decoration: none;}
 .footerRight{
     display: flex; padding-top: 90px;
     padding-bottom: 50px; color: white;  
-    justify-content: space-between;  
+    justify-content: space-between;  width: 700px;
+    padding-left: 50px;
 }
 .footerR-left{
     padding: 0 30px;    
