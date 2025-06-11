@@ -12,42 +12,45 @@
 
 <body>
     <div id="headerwrap"><!-- 헤더 wrap fixed -->
-        <div id="header-top">
-            <div class="headerTsub">
-                <div class="hTLeft">
-                    <a href="http://192.168.40.6:5500/%EA%B3%BC%EC%A0%9C/%EB%84%A4%EB%84%A4%EC%B9%98%ED%82%A8/%EB%84%A4%EB%84%A4%EC%B9%98%ED%82%A8.html" class="hTLeft-color">홈</a>
-                    <a href="#">창업</a>
-                    <a href="#">브랜드소개</a>
-                </div>
-                <div class="hTCenter">
-                    <img src="./실습9_files/탑헤더.png" />
+        <div id="header">
+            <div id="topMenu">
+                <ul class="menu-left">
+                    <li class="point"><a
+                            href="http://192.168.40.6:5500/%EA%B3%BC%EC%A0%9C/%EB%84%A4%EB%84%A4%EC%B9%98%ED%82%A8/%EB%84%A4%EB%84%A4%EC%B9%98%ED%82%A8.html">홈</a>
+                    </li>
+                    <li class=""><a href="#">창업</a></li>
+                    <li><a href="#">브랜드소개</a></li>
+                </ul>
+
+                <div class="location-wrap">
+                    <img src="./실습9_files/pngegg.png">
                     <span>어디로 배달해 드릴까요?</span>
                 </div>
-                <div class="hTRight">
-                    <a href="http://192.168.40.197:5500/day07/3인과제/3인과제.html">로그인</a>
+
+                <ul class="menu-right">
+                    <li><a
+                            href="http://192.168.40.197:5500/day07/3%EC%9D%B8%EA%B3%BC%EC%A0%9C/3%EC%9D%B8%EA%B3%BC%EC%A0%9C.html">로그인</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="mainMenu">
+                <a href="http://192.168.40.6:5500/%EA%B3%BC%EC%A0%9C/%EB%84%A4%EB%84%A4%EC%B9%98%ED%82%A8/%EB%84%A4%EB%84%A4%EC%B9%98%ED%82%A8.html">
+                    <img class="logo" src="./실습9_files/네네치킨로고.png"></a>
+                <ul>
+                    <li><a href="#">주문</a></li>
+                    <li><a href="http://192.168.40.192:5500/day08/%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80.html">메뉴</a></li>
+                    <li><a href="#">쿠폰사용하기</a></li>
+                    <li><a href="#">선물하기</a></li>
+                    <li><a href="#">매장안내</a></li>
+                    <li><a href="#">이벤트/공지</a></li>
+                </ul>
+                <div class="mainMenu_left">
+                    <a href="#"><img class="mypage" src="./실습9_files/마이페이지.png"></a>
+                    <a href="#"><img class="cart" src="./실습9_files/장바구니.png"></a>
                 </div>
             </div>
-        </div>
-        <div id="header-bottom">
-            <div class="hBLeft-img">
-                <a href="http://192.168.40.6:5500/%EA%B3%BC%EC%A0%9C/%EB%84%A4%EB%84%A4%EC%B9%98%ED%82%A8/%EB%84%A4%EB%84%A4%EC%B9%98%ED%82%A8.html"><img src="./실습9_files/NENE_Logo.svg" /></a>
-            </div>
-            <div class="hBMain">
-                <a href="#">주문</a>
-                <a href="http://192.168.40.192:5500/day08/%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80.html">메뉴</a>                
-                <a href="#">쿠폰 사용하기</a>
-                <a href="#">선물하기</a>
-                <a href="#">매장안내</a>
-                <a href="#">이벤트/공지</a>
-            </div>
-            <div class="hBRight">
-                <div class="hBRight-img">
-                    <img src="./실습9_files/icon_user.svg" />
-                </div>
-                <div class="hBRight-img">
-                    <img src="./실습9_files/icon_cart.svg" />
-                </div>
-            </div>
+
         </div>
     </div>
     <div id="mainwrap"> <!-- 본문 wrap -->
@@ -135,110 +138,64 @@
             </div>
         </div>
     </div>
-    <div id="footer-color"> <!-- 푸터 wrap -->
-        <div id="footerWrap">
-            <div class="footerLeft">
-                <div class="footerL-left">
-                    <div class="ftL-img">
-                        <img src="./실습9_files/NENE_Logo_w.svg" />
-                    </div>
-                    <div class="footerL-text">
-                        <ul>
-                            <li>COPYRIGHT 2024 BY <span>NENECHICKEN</span>.</li>
-                            <li>ALL RIGHTS RESERVED.</li>
-                        </ul>
-                    </div>
-                    <div class="footer-company">
-                        <span>회사소개</span>
-                        <div class="footer-language">
-                            KOR<span>|</span>ENG
-                        </div>
+    <div id="footer"> <!-- 푸터 -->
+        <div class="footer-container">
+            <div class="footer-left">
+                <div class="lefttitle">
+                    <img src="./실습9_files/NENE_Logo_w.svg" class="footer-logo">
+                    <p class="copytitle">COPYRIGHT 2024 BY <span class="color">NENECHICKEN.</span><br>ALL RIGHTS
+                        RESERVED.</p>
+                    <div class="lang">
+                        <p>회사소개</p>
+                        <div class="Lgbox"> KOR | ENG </div>
                     </div>
                 </div>
-                <div class="footerL-right">
-                    <div class="footerLr-Left">
-                        <span>이용약관</span>
-                        <span>위치정보이용약관</span>
-                    </div>
-                    <div class="footerLr-Right">
-                        <span>개인정보처리방침</span>
-                        <span>이메일무단수집거부</span>
-                    </div>
+                <div class="footerbox">
+                    <ul class="fbox">
+                        <li><a href="#">이용약관</a></li>
+                        <li><a href="#">위치정보이용약관</a></li>
+                    </ul>
+                    <ul class="fbox">
+                        <li><a href="#">개인정보처리방침</a></li>
+                        <li><a href="#">이메일무단수집거부</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="footerRight">
-                <div class="footerR-left">
-                    <div class="footerRL-top">
+
+
+            <div class="footer-info">
+                <div class="ft-info1">
+                    <div class="info1box">
+                        <img src="./실습9_files/icon_footer_1.svg">
                         <div>
-                            <img src="./실습9_files/icon_footer_1.svg" style="width: 20px;" />
-                        </div>
-                        <div class="Add">
-                            <p>서울특별시 도봉구 노해로 391</p>
-                            <p>네네빌딩 (우) 01415</p>
-                            <div class="roadwrap">
-                                <div class="road">
-                                    <span>오시는길</span>
-                                    <img src="./실습9_files/icon_subLeft_w.svg" style="width: 13px;" />
-                                </div>
-                            </div>
+                            서울특별시 도봉구 노해로 391<br />네네빌딩 (우) 01415
                         </div>
                     </div>
-                    <div class="footerRL-bottom">
-                        <div>
-                            <img src="./실습9_files/icon_footer_3.svg" style="width: 20px;" />
-                        </div>
-                        <div>
-                            <ul>
-                                <li class="footer-C"><span class="C-color">상호명</span>더조은컴퓨터학원</li>
-                                <li class="footer-C"><span class="C-color">사업자등록번호</span>123-12-12345</li>
-                                <li class="footer-C"><span class="C-color">대표자</span>송지훈, 민성호, 정은주</li>
-                            </ul>
-                        </div>
-                    </div>
+                    <button> 오시는길 > </button>
                 </div>
-                <div class="footerR-right">
-                    <div class="footer-Tel">
-                        <p>전화주문</p>
-                        <p class="Tel-N">1599-4479</p>
-                    </div>
+
+                <div class="ft-info2">
+                    <img src="./실습9_files/icon_footer_3.svg">
                     <div>
-                        <div class="footer-Time">
-                            <div class="img-position">
-                                <img src="./실습9_files/icon_footer_4.svg" style="width: 17px;" />
-                            </div>
-                            <div>
-                                <ul>
-                                    <li class="Time-line"><span class="Time-color">고객센터</span>032-123-1234</li>
-                                    <li class="Time-line"><span class="Time-color">업무시간</span>09 ~ 18시
-                                        <span class="Time-color">/ 점심시간</span> 12 ~ 13시
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="footer-Email">
-                            <div class="img-position">
-                                <img src="./실습9_files/icon_footer_5.svg" style="width: 17px;" />
-                            </div>
-                            <div>
-                                <span class="Email-color">cs@nenechicken.com</span>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="question-box">
-                                <span class="question-text">1:1 문의</span>
-                            </div>
-                        </div>
+                        <p><span class="info2_box">상호명</span> (주)혜인식품</p>
+                        <p><span class="info2_box">사업자등록번호</span> 127-81-96998</p>
+                        <p><span class="info2_box">대표자</span> 현철호, 현광식</p>
                     </div>
                 </div>
             </div>
-            
-        </div>
-    </div>
-    <div id="popup">
-        <div class="popupBox">
-            <span class="imgBox">
-                <img src="./실습9_files/맨위로.png" style="width: 25px; height: 14.5px;"/>
-            </span>
+
+            <div class="footer-tel">
+                <div class="tel-box">
+                    <p>전화주문</p>
+                    <p class="tel-number">1599-4479</p>
+                </div>
+                <div class="cs">
+                    <p> <img src="./실습9_files/icon_footer_4.svg"><span>고객센터</span> 02-930-6665</p>
+                    <p>업무시간 09 ~ 18시 / 점심시간 12 ~ 13시</p>
+                    <p class="email"> <img src="./실습9_files/icon_footer_5.svg">cs@nenenchicken.com</p>
+                    <button>1:1 문의</button>
+                </div>
+            </div>
         </div>
     </div>
 </body>

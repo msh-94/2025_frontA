@@ -6,57 +6,88 @@
 }
 li{ list-style-type: none;}
 a{ color: black; text-decoration: none;}
-body { position: relative;}
 /*=========================== 헤더 CSS ====================*/
 #headerwrap{
     width: 100%; border-bottom: 1px solid #f2f2f2;    
     position: fixed; top: 0; right: 0; left: 0;
     z-index: 30;  background-color: #fff;
 }
-#header-top{
-    width: 100%;  
-    border-top: 1px solid #f2f2f2; 
-    border-bottom: 1px solid #f2f2f2;
-    display: flex; justify-content: space-between;   
+#topMenu{
+    width: 1920px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12.75px;
+    color: #797979;
+    border-bottom: 1px solid #dbdbdb;
+    padding: 0 308px;
 }
-.headerTsub{
-    max-width: 1280px; display: flex;
-    justify-content: space-between; align-items: center;
+
+
+.menu-left, .menu-right{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.menu-left li, .menu-right li {
+    margin-right: 20px;
+}
+
+.location-wrap {
+    position: relative;
+    max-width: 40%;
+    display: flex;
+    align-items: center;
+    padding: 15px 15px;
+    color: #4f2e0c;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+
+}
+
+.location-wrap img {
+    width: 25px;
+    margin-right: 15px;
+}
+
+.point{
+    background-color: #f2f2f2;
+    font-weight: bold;
+    padding: 19px 25px;
+}
+
+#mainMenu{
+    max-width: 1280px;
     margin: 0 auto;
-}
-.hTLeft{
-    display: flex;  color: #f2f2f2;
-    font-size: 13.6px;   
-}
-.hTLeft>a{ padding: 15px 24px;}
-.hTLeft-color{
-    background-color: #f2f2f2; color:#4f2e0c;
+    display: flex;
+    padding: 30px 0px;
+    align-items: center;
     font-weight: bold;
 }
-.hTCenter{padding: 0px 350px;}
-.hTCenter>img{ width: 20px;}
-.hTCenter>span{
-    color:#4f2e0c; font-weight: bold; font-size: 18px;
+
+#mainMenu > ul{ 
+    display: flex; 
+    width: 80%; 
+    justify-content: space-between;
+    padding-right: 20px;
+    font-size: 18.75px; 
 }
-.hTRight>a{font-size: 16px; padding: 20px;}
-#header-bottom{
-    display: flex; align-items: center;
-    justify-content: space-between; max-width: 1280px;
-    padding: 30px 0px; margin: 0 auto;
+    
+#mainMenu > ul > li{
+    height: 80px; width: 130px;
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
+    align-items: center;
 }
-.hBMain{
-    font-size: 20px; font-weight: 500;
-    justify-content: space-between; display: flex;
+
+.mainMenu_left{
+    display: flex; justify-content: space-between; width: 90px;
 }
-.hBMain>a{
-    padding: 0 45px;
-}
-.hBRight{ display: flex; 
-    width: 150px;
-}
-.hBRight-img{padding: 0 15px;}
-.hBRight>.hBRight-img>img{width: 30px;} 
-.hBRight>.hBRight>img{padding: 0 20px;}
+#mainMenu .logo{width: 150px;}
+#mainMenu .mypage{width: 30px; }
+#mainMenu .cart{width: 30px; cursor: pointer;}
 /*==============================본문 CSS==================*/
 #mainwrap{
     width: 1280px; padding-top: 200px; 
@@ -145,11 +176,14 @@ body { position: relative;}
 .IDbox{ display: flex; align-items: center;}
 .input-box{
     padding-left: 10px;  border: none;
+    outline: none;
 }
 .auto-log{ display: flex; align-items: center;
     justify-content: flex-end; padding: 20px 0;
 }
+
 .auto-bt{padding-left: 15px;}
+.auto-bt>span{padding-right: 7px;}
 .log-Bt{ 
     display: flex; padding: 20px 0px;
 }
@@ -217,128 +251,169 @@ body { position: relative;}
     position: absolute; top: 17px; left: 21px;
 }
 /*======================푸터 CSS==================*/
-#footer-color{
+#footer {
     background-color: #40362b;
 }
-#footerWrap{
-    display: flex; justify-content: space-between;
-    max-width: 1280px; 
-    margin: 0 auto; padding: 20px 0 120px;
-    position: relative;
-}
-.footerLeft{
-    width: 500px; display: flex;
+
+.footer-container {
+    display: flex;
     justify-content: space-between;
-    padding: 60px 10px; color: white;
-    margin-top: 20px;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 60px 0px;
+    color: white
 }
-.footerL-left{width: 300px;}
-.footerL-text{
-    padding: 20px 0; margin-left: 15px;
-    font-size: 11px; font-weight: 500;
+
+.footer-left {
+    width: 48%;
+    display: flex;
+    gap: 3rem;
 }
-.footerL-text>ul>li>span{
-    color: #efba00;
-}
-.footer-company{
-    display: flex;  
-    align-items: center; 
-}
-.footer-company>span{
-    color: #9f7549; padding-right: 20px;
-}
-.footer-language{    
-    border: 1px solid rgba(255, 255, 255, 30%); font-size: 14px;
-    padding: 3px 15px; border-radius: 20px;
-    font-weight: 500;
-}
-.footer-language>span{padding: 0 5px;}
-.footerL-right{
-    display: flex; justify-content: space-between; 
-    width: 250px;   
-}
-.footerLr-Left , .footerLr-Right{
-    display: flex; padding: 5px 15px;
-    align-items: center; flex-direction: column;
-}
-.footerL-right span{
-    width: 140px; color: white;
-    border-bottom: 1px solid rgba(255, 255, 255, 30%);
-    padding: 10px 10px;
-}
-.footerLr-Right span{
-    color: white; width: 170px;
-    border-bottom: 1px solid rgba(255, 255, 255, 30%);
-    padding: 10px 10px;
-}
-.footerRight{
-    display: flex; padding-top: 90px;
-    padding-bottom: 50px; color: white;  
-    justify-content: space-between;  width: 700px;
-    padding-left: 50px;
-}
-.footerR-left{
-    padding: 0 30px;    
-}
-.footerRL-top{ display: flex; font-size: 14px;} 
-.Add>p{padding-left: 5px; } 
-.roadwrap{margin-top: 10px;}
-.road{
-    border: 0.5px solid rgba(255, 255, 255, 30%);
-    border-radius: 15px;
-    text-align: center;
-    width: 110px; padding: 3px 7px;
-           
-}
-.footerRL-bottom{display: flex; margin-top: 30px;}
-.footer-C{ 
-    padding-left: 5px; font-size: 14px;
+
+.footer-logo {
+    width: 150px;
     margin-bottom: 10px;
 }
-.C-color{
-    color: #9f7549; margin-right: 10px;
+
+.copytitle{color: #fff;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 14px;
+    padding: 35px 15px 20px;
 }
-.footerR-Right{ padding: 0 30px; }
-.footer-Tel{
-    border: 1px solid rgba(255, 255, 255, 30%); border-radius: 15px;
-    padding: 5px 20px; width: 200px;
-}
-.Tel-N{ 
-    font-size: 30px;
+
+.color {
     color: #fed100;
-    font-weight: 800;
+    font-weight: bold;
 }
-.footer-Time{
-    display: flex; margin-top: 30px;
-    margin-bottom: 20px;
+
+.lang{
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: #9f754b;
+    font-size: 13.5px;
 }
-.img-position{ position: relative; margin-left: 10px;}
-.footer-Time img{ position: absolute; top: 5px; right: 0px;}
-.Time-line{ margin-left: 10px; margin-bottom: 8px;}
-.Time-color{ color: #9f7549; margin-right: 10px;}
-.footer-Email{display: flex;}
-.Email-color{color: #fed100; margin-left: 10px; font-size: 15px;}
-.footer-Email img{position: absolute; top: 5px; right: 0px;}
-.question-box{
-    margin-top: 20px; margin-left: 20px;
+
+.Lgbox{
+    color: #fff;
+    border: 1px solid rgb(255 255 255 / 30%);
+    border-radius: 50px;
+    padding: 5px 15px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 13.5px;
 }
-.question-text{
-    border: 1px solid rgba(255, 255, 255, 30%);
-    border-radius: 15px; padding: 2px 20px;
+
+.footerbox{
+    display: flex;
+    margin-right: 20px;
 }
-#popup{
-    display: flex; position: relative;
+
+.fbox > li{
+    border-bottom: 1px solid gray;
+    padding: 10px 10px;
+    margin-right: 15px;
+    font-size: 14px;
+    font-weight: bold;
 }
-/*팝업CSS*/
-.popupBox{
-    background-color: #584c3e;
-    width: 65px; height: 65px;
-    border-radius: 50%;
-    position:fixed; 
-    bottom: 100px;
-    right: 100px;  z-index: 99;
+.fbox a{ color: white;}
+.info1box img{
+    width: 25px;
+    margin: 0px 5px 25px 0px
+  
 }
-.imgBox{
-    position: absolute; top: 20px;
-    right: 20px;
+
+.ft-info1 p{
+    color: #fff;
+    padding: 3px;
+    font-size: 15.5px;
+    text-align: center;
+}
+
+.info1box{
+    display: flex;
+    font-size: 15px;
+}
+
+.ft-info1 button{
+    width: 50%;
+    border: 1px solid rgb(255 255 255 / 30%);
+    border-radius: 50px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #40362b;
+    margin: 0px 30px;
+    padding: 2px;
+    font-size: 15px;
+    }
+
+
+.ft-info2{
+    display: flex;
+    padding-top: 20px;
+}
+
+.ft-info2 img{
+    width: 20px;
+    margin-bottom: 50px;
+}
+
+.info2_box{
+    color: #996f48;
+    margin: 10px;;
+}
+.footer-tel {
+    width: 21%;
+    padding-right: 20px;
+}
+
+.tel-box {
+    width: 190px;
+    border: 1px solid gray;
+    border-radius: 15px;
+    padding: 10px 15px;
+    margin-left: 0px;
+
+
+}
+
+.tel-number {
+    font-size: 25px;
+    font-weight: bold;
+    color: #fed100;
+}
+
+.cs {
+    width: 300px;
+    padding: 15px 0px;
+    font-size: 14px;
+}
+
+.cs p{
+    margin-bottom: 10px;
+}
+
+.cs img{
+    width: 20px;
+    margin : 7px 5px 0px 0px;
+}
+.cs span{
+    color :#996f48;
+}
+
+.email{
+    color: #fed100;
+    font-size: 15px;
+}
+.cs button {
+    margin: 10px;
+    padding: 5px 15px;
+    border: 1px solid gray;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 15px;
+    background-color: #40362b;
+    color: white;
 }
