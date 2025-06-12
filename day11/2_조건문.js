@@ -68,14 +68,13 @@ let seatList = [ 'O', 'X', 'O' ];
 */
 /*
 let seatList = [ 'O', 'X', 'O' ];
-let 예약좌석 = Number(prompt("예약할 좌석의 번호:"));
-if( 예약좌석 == 0 ){
-    console.log("예약 불가");
-}else if( 예약좌석 == 1 ){
+let 예약좌석 = prompt("예약할 좌석의 번호:");
+if( seatList[예약좌석] == 'X' ){
     console.log("예약 성공");
+    seatList[예약좌석] = 'O'
 }else{
-    console.log("예약 불가");
-}   */
+    console.log("예약 불가");     
+} */  
 
 /*
 문제 6: 점수에 따른 상품 지급
