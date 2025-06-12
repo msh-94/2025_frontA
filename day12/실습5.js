@@ -81,7 +81,7 @@
 // 출력 예시: '2024년은 윤년입니다.' 또는 '2023년은 평년입니다.'
 
 // let year = Number(prompt('연도:'));
-// if( (4 % year == 0 && 100 % year != 0) || 400 % year == 0 ){
+// if( ( year % 4 == 0 && year % 100 != 0) || year % 400 == 0 ){
 //     {console.log(`${year}년은 윤년입니다.`);}     
 // }else{ console.log(`${year}년은 평년입니다.`);}
 
@@ -166,7 +166,38 @@
 // 주차 위치 목록: let locationArray = [ 'A1', 'B3', 'C2' ];
 // 사용자로부터 차량 번호를 입력받아, carArray에서 해당 차량을 찾은 뒤 locationArray에 있는 그 차량의 주차 위치를 찾아 출력하는 프로그램을 작성하시오. 만약 해당하는 차량 번호가 없다면 '차량이 존재하지 않습니다.'를 출력하시오.
 
+// let carArray = [ '250어7142', '142가7415', '888호8888' ];
+// let locationArray = [ 'A1', 'B3', 'C2' ];
+// let car = prompt('차량번호:');
+// if( car == '0' ){
+//     console.log(carArray[0]);
+//     console.log(locationArray[0]);
+// }else if( car == '1'){
+//     console.log(carArray[1]);
+//     console.log(locationArray[1]);
+// }else if( car == '2'){
+//     console.log(carArray[2]);
+//     console.log(locationArray[2]);
+// }else{ console.log('차량이 존재하지 않습니다.')}
+
 // 문제 10: 수강 신청 목록에서 과목 제외하기
 // 현재 수강 신청한 과목 목록이 배열로 주어져 있습니다.
 // let courseList = ['수학', '영어', '과학', '국어'];
 // 사용자로부터 제외하고 싶은 과목명을 입력받아, courseList에 해당 과목이 존재하면 목록에서 삭제한 뒤 변경된 배열 전체를 출력하세요. 만약 존재하지 않는 과목이면 '해당 과목은 신청 목록에 없습니다.'를 출력하는 프로그램을 작성하시오.
+
+// let courseList = ['수학', '영어', '과학', '국어'];
+// let course = prompt('과목:')
+// if( course == courseList[0] ){
+//     courseList.splice(0,1);
+//     console.log(courseList);
+// }else if( course == courseList[1] ){
+//     courseList.splice(1,1);
+//     console.log(courseList);
+// }else if( course == courseList[2] ){
+//     courseList.splice(2,1);
+//     console.log(courseList);
+// }else if( course == courseList[3] ){
+//     courseList.splice(3,1);
+//     console.log(courseList);
+// }else { console.log('해당 과목은 신청 목록에 없습니다.');}
+
