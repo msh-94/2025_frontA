@@ -160,14 +160,8 @@ if( 점수 >= 90 ){
 /*
 let drinkNames = ['콜라', '사이다', '커피'];
 let drinkPrices = [1000, 1000, 1500];
-let 음료 = prompt("음료번호:");
-let 음료이름 = drinkNames[음료];
-let 음료가격 = drinkPrices[음료];
-if( 음료 == 0 ){
-    console.log(`선택하신 음료는 ${음료이름}입니다. 가격은 ${음료가격}원입니다.`);
-}else if( 음료 == 1 ){
-    console.log(`선택하신 음료는 ${음료이름}입니다. 가격은 ${음료가격}원입니다.`);
-}else if( 음료 == 2 ){
-    console.log(`선택하신 음료는 ${음료이름}입니다. 가격은 ${음료가격}원입니다.`);
+let 음료 = Number(prompt("음료번호:"));
+if( 음료 >= 0 && 음료<= 2){
+    console.log(`선택하신 음료는 ${drinkNames[음료]}입니다. 가격은 ${drinkPrice[음료]원입니다.}`);
 }else{ console.log("없는 상품입니다.");}
 */
