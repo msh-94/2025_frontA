@@ -1,7 +1,14 @@
 // [ 실습6 ]
 // 문제 1: 배열에서 최댓값 찾기
 // 주어진 숫자 배열에서 가장 큰 값을 찾아 콘솔에 출력하는 프로그램을 작성하시오. (단, Math.max() 함수 사용 금지)
-let numbers = [23, 5, 67, 12, 88, 34];
+// let numbers = [23, 5, 67, 12, 88, 34];
+// let maxnum = 0;   // 최저점수를 임의로 대입 시작
+// for( let i = 0; i <= numbers.length-1; i++){    // index는 0부터 마지막인덱스 이하까지 1씩 증가.      
+//     if( numbers[i] > maxnum){   // 만약에 max보다 index번째 요소값이 더크면 max에 index번째 요소값을 대입한다.
+//         maxnum = numbers[i]        
+//     }   
+// } // for end
+// console.log(maxnum);
 
 
 // 문제 2: 별 찍기 (기본 역삼각형)
@@ -11,6 +18,14 @@ let numbers = [23, 5, 67, 12, 88, 34];
 // ***
 // **
 // *
+// let output = "";
+// for( let line = 1; line <= 5; line++){
+//     for( let star = 1; star <= 5-line+1; star++ ){
+//         output += "*";        
+//     }   // for2 end
+//     output += "\n"
+// }   // for1 end
+// console.log( output );
 
 // 문제 3: 배열에서 특정 문자 찾기 (break 활용)
 // 다음 사용자 이름 배열에서 이름에 '솔' 이라는 글자가 들어간 첫 번째 사용자를 찾으면, 해당 사용자의 이름을 출력하고 반복문을 종료하시오.
