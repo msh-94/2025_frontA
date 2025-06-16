@@ -135,6 +135,18 @@
 // 위키드          ★★★★☆☆☆☆☆☆
 // 글래디에이터2   ★★★★★★★☆☆☆
 // 청설            ★★★★★★☆☆☆☆
+// let output = ""
+// for( let i = 0; i <= movieNames.length-1; i++){
+//     let name = movieNames[i]
+//     let ratings = movieRatings[i]
+//     output += `<div> ${name}`;
+//     for( let star = 1; star <= 10; star++){
+//         if( star <= ratings ){ output+= ` <span>★</span>` }
+//         else{ output+= ` <span>☆</span>` }
+//     }output += `</div>`
+// }
+// document.write( output );
+
 
 // 문제 9: 좌석 예약 상태 표시하기
 // 총 6개의 좌석 상태 정보가 담긴 배열을 이용하여, 좌석 배치도와 상태를 HTML에 출력하는 프로그램을 작성하시오.
@@ -190,16 +202,15 @@ let usageMinutes = [65, 30, 140, 420];
 // 기본 시간(30분)을 초과한 시간을 계산하고, parseInt() 함수를 사용하여 10분 단위로 버림 처리하면 추가 요금 단위를 쉽게 계산할 수 있습니다.
 // 추가 요금 단위 계산식:parseInt( (총 주차시간 - 30) / 10 )
 // 계산 예시:65분 주차 시 parseInt( (65 - 30) / 10 )는 parseInt(3.5)가 되어 결과는 3이 됩니다. 따라서 추가 요금은 3 * 500원으로 계산됩니다.
-for( let i = 0; i <= carNumbers-1; i++){
-    let 차량번호 = carNumbers.indexOf(i)
-    for( let j = 0; j <= usageMinutes-1; j++){
-        let 주차시간 = usageMinutes.indexOf(j)
-        if( i == j ){
-            let 추가요금 = parseInt((usageMinutes.indexOf(j)-30)/10)
-            document.write(`<div>${ 차량번호 }: ${주차시간}분 주차, 최종요금: ${(추가요금*500)+1000}원입니다.<div>`)               
-            if( 추가요금 > 38 ){                
-                document.write(`<div>${ 차량번호 }: ${주차시간}분 주차, 최종요금: ${20000}원입니다.<div>`)
+for( let i = 0; i <= carNumbers.length-1; i++){
+    let 차량번호 = carNumbers[i]
+    let 주차시간 = usageMinutes[i]          
+    if( i == j ){
+        let 추가요금 = parseInt((usageMinutes[j]-30)/10)
+        document.write(`<div>${ 차량번호 }: ${주차시간}분 주차, 최종요금: ${(추가요금*500)+1000}원입니다.<div>`)               
+        if( (추가요금*500)+1000 >= 20000 ){                
+            document.write(`<div>${ 차량번호 }: ${주차시간}분 주차, 최종요금: ${20000}원입니다.<div>`)
             }
         }
-    }
+    
 }
