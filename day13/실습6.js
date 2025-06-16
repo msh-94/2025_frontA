@@ -139,7 +139,7 @@
 // for( let i = 0; i <= movieNames.length-1; i++){
 //     let name = movieNames[i]
 //     let ratings = movieRatings[i]
-//     output += `<div> ${name}`;
+//     output += `<div> <span> ${name} <span>`;
 //     for( let star = 1; star <= 10; star++){
 //         if( star <= ratings ){ output+= ` <span>★</span>` }
 //         else{ output+= ` <span>☆</span>` }
@@ -182,8 +182,8 @@
 // 차량별 주차 시간 데이터가 주어졌을 때, 아래의 요금 규정에 따라 각 차량이 지불해야 할 최종 주차 요금을 계산하여 HTML에 출력하는 프로그램을 작성하시오.
 // (1). 초기 데이터
 // 차량 번호와 주차 시간(분)은 두 배열의 동일한 인덱스를 사용합니다.
-let carNumbers = ['210어7125', '142가7415', '888호8888', '931나8234'];
-let usageMinutes = [65, 30, 140, 420];
+// let carNumbers = ['210어7125', '142가7415', '888호8888', '931나8234'];
+// let usageMinutes = [65, 30, 140, 420];
 // (2). 요금 규정
 // 기본 요금: 최초 30분까지 1,000원
 // 추가 요금: 30분 초과 시, 매 10분마다 500원씩 추가
@@ -202,15 +202,14 @@ let usageMinutes = [65, 30, 140, 420];
 // 기본 시간(30분)을 초과한 시간을 계산하고, parseInt() 함수를 사용하여 10분 단위로 버림 처리하면 추가 요금 단위를 쉽게 계산할 수 있습니다.
 // 추가 요금 단위 계산식:parseInt( (총 주차시간 - 30) / 10 )
 // 계산 예시:65분 주차 시 parseInt( (65 - 30) / 10 )는 parseInt(3.5)가 되어 결과는 3이 됩니다. 따라서 추가 요금은 3 * 500원으로 계산됩니다.
-for( let i = 0; i <= carNumbers.length-1; i++){
-    let 차량번호 = carNumbers[i]
-    let 주차시간 = usageMinutes[i]          
-    if( i == j ){
-        let 추가요금 = parseInt((usageMinutes[j]-30)/10)
-        document.write(`<div>${ 차량번호 }: ${주차시간}분 주차, 최종요금: ${(추가요금*500)+1000}원입니다.<div>`)               
-        if( (추가요금*500)+1000 >= 20000 ){                
-            document.write(`<div>${ 차량번호 }: ${주차시간}분 주차, 최종요금: ${20000}원입니다.<div>`)
-            }
-        }
+// for( let i = 0; i <= carNumbers.length-1; i++){
+//     let 차량번호 = carNumbers[i]
+//     let 주차시간 = usageMinutes[i] 
+//     let 추가요금 = parseInt((usageMinutes[i]-30)/10)         
+//     if( (추가요금*500)+1000 < 20000 ){        
+//         document.write(`<div>${ 차량번호 }: ${주차시간}분 주차, 최종요금: ${(추가요금*500)+1000}원입니다.<div>`)   
+//     }else{                
+//             document.write(`<div>${ 차량번호 }: ${주차시간}분 주차, 최종요금: ${20000}원입니다.<div>`)
+//         }
     
-}
+// }
