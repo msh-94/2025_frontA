@@ -16,28 +16,50 @@ const members = [ { id: 'user1', password: 'pass1', name: '사용자1' }, { id: 
 let 아이디 = prompt('아이디 : ');
 let 비밀번호 = prompt('비밀번호 : ');
 let 이름 = prompt('이름 : ');
-let member = { 'id' : 아이디 , 'password' :비밀번호 , 'name' : 이름 };
-let result = members.id
-if( result != member.아이디 ){
-    members.push( member );    
-    console.log(members);
-}else{ console.log('존재하는 아이디 입니다.')}
-
-
+let member = { 'id' : 아이디 , 'password' :비밀번호 , 'name' : 이름 }; 
+let idCheck = false;  
+for( let i = 0; i <= members.length-1; i++){
+    let a = members[i];     // i번째의 member 객체 꺼내기(조회)
+    if( a.id == 아이디 ){    // i번쨰의 a 객체내 id속성값이 입력받은 id와 같으면
+        idCheck = true; // 중복 체크!!!
+        break; // 반복문 종료
+    } // if end
+    else{ // 같지 않으면 
+        
+    } // * 아직 모두 조회된 상태가 아니므로 for문 안에서 배열에 저장 하지 않는다.
+} // for end
+if( idCheck == false ){ members.push(member);}
+else{ console.log( '존재하는 아이디 입니다. '); }
 
 
 // 문제 3: 객체 배열의 속성 값 평균 구하기
 // scores 배열에 담긴 모든 학생의 수학(math) 점수 평균을 계산하여 콘솔에 출력하시오.
 // const scores = [ { name: 'A', math: 80, science: 92 }, { name: 'B', math: 95, science: 88 }, { name: 'C', math: 76, science: 78 } ];
+// const 합 = scores[0].math + scores[1].math + scores[2].math;
+// const 평균 = 합/3;
+// console.log(평균);
 
 // 문제 4: 특정 조건을 만족하는 객체 찾기
 // products 배열에서 id가 3인 상품 객체를 찾아, 해당 객체 전체를 콘솔에 출력하시오. 일치하는 객체가 없으면 "상품을 찾을 수 없습니다."를 출력합니다.
 // const products = [ { id: 1, name: '사과' }, { id: 2, name: '바나나' }, { id: 3, name: '포도' }, { id: 4, name: '딸기' } ];
+// for( let i = 0; i <= products.length-1; i++){
+//     let 아이디 = products[i].id;
+//     if( 아이디 == 3 ){
+//         console.log(products[i]);
+//     }else{ console.log('상품을 찾을 수 없습니다.');}
+// }
 
 // 문제 5: 객체 배열 필터링하기
 // users 배열에서 isActive가 true인 사용자들만으로 구성된 새로운 배열 activeUsers를 만들고, 이 배열을 콘솔에 출력하시오.
 // const users = [ { id: 1, name: '유저1', isActive: true }, { id: 2, name: '유저2', isActive: false }, { id: 3, name: '유저3', isActive: true },
 //   { id: 4, name: '유저4', isActive: false } ];
+// for( let i = 0; i <= users.length-1; i++){
+//     let active = users[i].isActive
+//     if( active == true ){
+//        let activeUsers = [users[i].name]
+//        console.log( activeUsers);
+//     }
+// }
 
 // 문제 6: 객체 배열 데이터 변환하기
 // movies 배열에 있는 각 영화 객체에서 title 속성만 추출하여, 영화 제목들로만 이루어진 새로운 배열 movieTitles를 만들고 콘솔에 출력하시오.
