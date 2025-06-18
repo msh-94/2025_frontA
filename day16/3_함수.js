@@ -83,18 +83,40 @@
 // (1) 매개변수     : [이름 , 이름 , 이름] 
 // (2) 반환값       : x
 // (3) 처리할명령어 : 입력받은 이름을 for반복문을 사용하여 모든요소를 콘솔에 출력 console.log()
-function printFruits( [name1 , name2 , name3]){
-    for( let i = 0; i <= printFruits.length-1; i++){
-        console.log(printFruits[i])
-    }
-}
-printFruits(['유재석' , '강호동' , '신동엽']);
+// function printFruits( name ){
+//     for( let i = 0; i <= name.length-1; i++){        
+//         console.log(name[i])
+//     }
+// }
+// const nameList = ['유재석' , '강호동' , '신동엽'];
+// printFruits( nameList );
 
 
 
 // 예제 8: Boolean 값 반환하기
 // 임의의 숫자 하나를 매개변수로 받아, 그 숫자가 0보다 크면 true를, 그렇지 않으면 false를 반환하는 isPositive 함수를 만들어 보세요.
+// (1) 매개변수     : 숫자
+// (2) 반환값       :
+// (3) 처리할명령어 : 입력받은 숫자가 0보다 크면 true 아니면 false
+// function isPositive(숫자){
+//     if( 숫자 > 0 ){
+//         console.log(true);
+//     }else{ console.log(false); }
+// }
+// isPositive(5);
 
 // 예제 9: 전역 변수와 지역 변수
 // let globalText = '전역'; 변수를 선언하세요. printLocal 함수 안에서는 let localText = '지역'; 변수를 선언하고, 
 // 두 변수를 모두 콘솔에 출력해 보세요. 함수 바깥에서는 globalText만 출력되는 것을 확인하세요.
+// (1) 매개변수     : x
+// (2) 반환값       : x
+// (3) 처리할명령어 :  globalText 전역변수 선언 printLocal 함수 안에서는 localText 지역변수 선언하고 두변수를 모두 콘솔에 출력 console.log();
+// let globalText = '전역';
+// function printLocal(){
+//     let localText = '지역';
+//     console.log(localText);
+//     console.log(globalText);
+// }
+// printLocal();
+// console.log(globalText);
+// console.log(localText);
