@@ -26,7 +26,7 @@ for( let index = 0; index <= students.length-1; index++){
     for( let j = 0; j <= enrollments.length-1; j++){
         const enrollment = enrollments[j]
         if( student.studentId == enrollment.studentId ){ // 내가 수강중인 내역
-            document.write( `<h4> --> ${ enrollment.courseId} </h4>` )
+            // document.write( `<h4> --> ${ enrollment.courseId} </h4>` )
             // == 3. 과목코드 대신에 과목명이 필요 ==
             for( let k = 0; k <= courses.length-1; k++){
                 const course = courses[k];
