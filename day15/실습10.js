@@ -25,7 +25,7 @@ const 수강신청내역정보 = [
 ];
 
     
-    let html = `<h1> 학생별 성적 대시보드</h1> <hr/>`
+    let html = `<h1> 학생별 성적 대시보드</h1>`
     
 // for (let i = 0; i <= 학생정보.length - 1 ; i++){
 //     let check = false
@@ -72,30 +72,32 @@ for (let i = 0; i <= 학생정보.length - 1 ; i++){
     let 코드 = -1;
     let 이수여부 = '';
 
-    html += `<h3> ${ 학생.이름 } </h3>`
+    html += `<hr/><h2> ${ 학생.이름 } </h2>`
     // console.log (학생)
     for (let j = 0; j <= 수강신청내역정보.length - 1 ; j++){
         let 수강 = 수강신청내역정보[j]
         // console.log(수강)
+        if (수강.성적 == 'F'){이수여부 = 'fail'}
+        else{이수여부 = 'pass'}
         if(학생.학번 == 수강.학번){
             check = true
             성적 = 수강.성적
             // console.log(성적)
             코드 = 수강.과목코드
-            if (수강.성적 == 'F'){이수여부 = fail}
-            else{이수여부 = pass}
+            
             
             if( check == true){
                 for (let a = 0; a <= 과목정보.length - 1 ; a++ ){
-                    let 과목 = 과목정보[a]
-                    if( 코드 == 과목.과목코드 ){
-                        html += `<h5>${과목.과목명}(${과목.교수자명})</h5>
-                        <ul><li>성적 :${수강.성적}</li><li>이수 여부 :${이수여부}</li></ul>`
+                    let 과목 = 과목정보[a]                    
+                        if( 코드 == 과목.과목코드 ){
+                        html += `<h3 style = "padding-left : 10px;">${과목.과목명}(${과목.교수자명})</h3>
+                        <ul><li>성적 :${수강.성적}</li><li>이수 여부 : ${이수여부}</li></ul>`
+                            
                         }
                     // console.log (과목)        
                     }
                 }
-            }
+        }
     }
 }
 document.write(html)
