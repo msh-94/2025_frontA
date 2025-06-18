@@ -83,9 +83,7 @@ for (let i = 0; i <= 학생정보.length - 1 ; i++){
             check = true
             성적 = 수강.성적
             // console.log(성적)
-            코드 = 수강.과목코드
-            
-            
+            코드 = 수강.과목코드             
             if( check == true){
                 for (let a = 0; a <= 과목정보.length - 1 ; a++ ){
                     let 과목 = 과목정보[a]                    
