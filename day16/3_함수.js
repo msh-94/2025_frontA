@@ -71,7 +71,7 @@
 // (3) 처리할명령어 : userList 배열에 push
 // let userList = [];
 // function addUser( name ){     
-//     userList.push(name)
+//     userList.push(name);
 // }
 // let name = prompt('이름 : ')
 // addUser( name );
