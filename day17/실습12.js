@@ -77,7 +77,7 @@ function 등록함수(){ console.log('---등록함수 exe ---'); // 2. 함수 on
 
 // 2. 전체조회 함수 정의 , 실행조건 : 1. JS열렸을떄 (최초1번) 2. 등록 성공했을때
 전체조회함수(); // JS가 그냥 1번 출력함수 호출한다.
-function 전체조회함수(){ console.log('---전체조회함수 exe---')
+function 전체조회함수(){ console.log('---전체조회함수 exe---');
     // *** 배열내 객체 1개당 <tr> 1개 ***
     // 3. 어디에 , <tbody id = "contnetBody">
     const contentBody = document.querySelector('#contentBody');  console.log(contentBody);
@@ -85,12 +85,12 @@ function 전체조회함수(){ console.log('---전체조회함수 exe---')
         // (1) 배열내 모든(for) 객체의 정보를
     let html = '';
     for( let i = 0; i <= 가계부목록.length-1; i++ ){    
-        const obj = 가계부목록[i]   // i번째 객체 호출
+        const obj = 가계부목록[i];   // i번째 객체 호출
         html +=  `<tr>
                     <th>${obj.날짜} </th> 
                     <th> ${obj.항목명} </th> 
                     <th> ${obj.금액} </th>
-                 </tr>`
+                 </tr>`;
     }// for end
     // 5. 출력 , innerhtml
     contentBody.innerHTML = html; // 반복문 이용하여 객체를 

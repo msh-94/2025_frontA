@@ -160,6 +160,6 @@
 //         html += `<span> ${val} , </span>`
 //     } // for end
 //     // 7. 배열정보를 HTML 구성한 문자열을 innerHTML에 대입한다.
-//     array.innerHTML = html
+//     array.innerHTML = html;
 // } // func end
 
