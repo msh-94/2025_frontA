@@ -138,6 +138,22 @@
 // (2) 사용할 내장 속성/메소드 : let (전역배열), .value, .push(), .textContent
 // (3) 처리할 내용      : 버튼 클릭 시 input 값을 배열에 추가하고, 현재 배열의 상태를 div에 출력
 // 1. 전역배열 선언
-let 전역배열 = [];
-
+// let 전역배열 = [];
+// function func9(){
+//     console.log('-- func9 exe --');
+//     // 1. input에서 입력받은 값 불러올 id불러오기
+//     let input = document.querySelector('#itemInput');
+//     console.log(input);
+//     // 2. input에서 입력받은 값 가져오기
+//     let value = input.value;
+//     console.log(value);
+//     // 3. 입력받은값 전역배열에 저장하기
+//     전역배열.push( value );
+//     console.log(전역배열);
+//     // 4. 저장된 배열을 출력할 id불러오기
+//     const array = document.querySelector('#arrayStatus');
+//     console.log(array);
+//     // 5. 불러온 id안 div에서 현재 배열상태 출력하기
+//     array.textContent = 전역배열;
+// }
 
