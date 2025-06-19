@@ -61,11 +61,14 @@
 // 실습 5: 최고 점수 학생 찾기
 // 전역변수 students 배열 데이터를 이용하여 , 가장 높은 점수(score)를 가진 학생의 이름을 찾아 반환하는 findTopStudent 함수를 만드세요.
 // const students = [ { name: '김철수', score: 85 }, { name: '이영희', score: 92 }, { name: '박민준', score: 78 } ];
+// 1. 매개변수 : x
+// 2. 리턴값 : 가장높은점수
+// 3. 로직 :  가장 높은 점수(score)를 가진 학생의 이름을 찾는 로직
 // let max = 0;
 // let name = '';
-// function findTopStudent(student){
-//     for( let i = 0; i <= student.length-1; i++){
-//         let 학생 = student[i];            
+// function findTopStudent(){
+//     for( let i = 0; i <= students.length-1; i++){
+//         let 학생 = students[i];            
 //         if( max < 학생.score ){ 
 //             max = 학생.score;
 //             name = 학생.name;                      
@@ -73,20 +76,20 @@
 //     }
 //     return name;
 // }
-// let 이름 = findTopStudent(students); 
+// let 이름 = findTopStudent(); 
 // console.log(이름);
 
 // 실습 6: 상품 목록 페이지 만들기 (참고: 예제 6, 7, 8, 12)
 // 전역변수 products 배열 데이터를 이용하여, 각 상품을 소개하는 HTML 요소를 동적으로 만들어 페이지에 표시하는 renderProducts 함수를 만드세요.
 // 각 상품은 이름(<h4>), 가격(<p>), 재고(<p>)를 포함한 div로 묶여야 합니다.
 // const products = [{ name: '노트북', price: 1200000, stock: 5 },{ name: '모니터', price: 350000, stock: 12 },{ name: '키보드', price: 80000, stock: 25 }];
-// function renderProducts(상품){
-//     for( let i = 0; i <= 상품.length-1; i++){
-//         let 재고 = 상품[i];
+// function renderProducts(){
+//     for( let i = 0; i <= products.length-1; i++){
+//         let 재고 = products[i];
 //         document.write(`<div><h4>${재고.name}</h4> <p>${재고.price}</p> <p>${재고.stock}</p></div>`)
 //     }
 // }
-// renderProducts(products);
+// renderProducts();
 
 
 // 실습 7: 간단한 계산기
@@ -110,13 +113,13 @@
 // renderList() 함수를 정의하시오. 이 함수는 todoList 배열을 순회하며 <li>할 일 내용</li> 형태의 HTML 문자열을 만듭니다.
 // 최종적으로 이 문자열을 HTML <ul> 태그로 표현하여 리스트를 화면에 그리시오.
 // let todoList = ['장보기', '운동하기']
-// function rendList(목록){
-//     for( let i = 0; i <= 목록.length-1; i++){
-//         let 할일 = 목록[i];
+// function rendList(){
+//     for( let i = 0; i <= todoList.length-1; i++){
+//         let 할일 = todoList[i];
 //         document.write(` <ul><li>${할일}</li></ul>`)
 //     }
 // }
-// rendList(todoList);
+// rendList();
 
 
 // 실습 9: 입장료 계산 함수
