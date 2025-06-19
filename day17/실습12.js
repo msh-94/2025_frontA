@@ -25,10 +25,73 @@
     [ 작업순서 ]
         1. (프)화면구성(HTML/CSS)
         2. (백)데이터모델링
-        const 등록 = [{ date : 2025-06-19 , menu : 커피 , pay : 3000 } , 
-                        { date : 2025-06-19 , menu : 김밥 , pay : 2500 },
-                        { date : 2025-06-21 , menu : 콜라 , pay : 1500 } ]
+            (1) 저장할 자료들을 모두 찾기
+                - 날짜 , 항목명 , 금액
+            (2) 저장할 자료들의 분리( 중복 배제 ) 1:n ( 하나가 여러개를 참조/관계 )
+            (3) 분리된 자료들끼리 연관관게 (x)
+            * 테이블(배열) , 테이블내 행/가로 단위(객체)            
         3. (백)함수(기능) 설계
+            (1) '등록' 함수
+                함수명      : '등록함수'
+                매개변수    : x 
+                반환값      : x
+                로직        : 1. input으로부터 입력받은 값 저장
+                              2. 입력값 3개를 객체{} 로 구성
+                              3. 구성된 객체를 가계부목록(배열)에 저장
+                실행조건 : '등록버튼' 클릭(onclick) 했을때
+            (2) '조회' 함수
+                함수명      : '전체조회함수'
+                매개변수    : x         , 반환값 : x
+                로직        : 1. 특정한 구역(table)에 배열내 모든 정보를 HTML형식으로 출력한다.
+                실행조건    : 1. 페이지 열렸을때(최초1번)  2. 등록 성공했을때(새로고침)
         4. (백)로직
         5. (프/백)화면 <---> 기능 연동
 */
+// [2] 데이터모델링
+const 가계부목록 = [{ 코드 : 1 , 날짜 : '2025-06-19' , 항목명 : '커피' , 금액 : 3000 }, 
+                    { 코드 : 2 , 날짜 : '2025-06-20' , 항목명 : '김밥' , 금액 : 2500 } ]
+let 마지막인덱스 = 가계부목록.length-1;
+let 코드자동번호 = 가계부목록[ 마지막인덱스 ].코드  // 현재 초기 배열의 마지막객체의 코드번호;
+
+
+// [3] 기능(함수단위) 구역
+// 1. 등록함수 정의 , 실행 : 등록버튼onclick 했을때 -> <button onclick="등록함수()"> 등록버튼 </button>
+function 등록함수(){ console.log('---등록함수 exe ---'); // 2. 함수 onclick 확인
+    // 3. input으로부터 입력받은 값 저장
+    const dateInput = document.querySelector('#dateInput');          console.log(dateInput);
+    const contentInput = document.querySelector('#contentInput');    console.log(contentInput);
+    const moneyInput = document.querySelector('#moneyInput');         console.log(moneyInput);
+    // 4. 각 마크업 객체에서 입력값 가져오기
+    const date = dateInput.value;               console.log(date);
+    const content = contentInput.value;         console.log(content);
+    const money = moneyInput.value;             console.log(money);
+    // 5. 원하는 속성구성으로 객체 만들기 , 설계 { 코드 : , 날짜 : , 항목명 : , 금액 : }
+        // * 코드자동번호 에 1증가 한 후에 대입한다. < 실무x > 
+        코드자동번호++;
+    const obj = { 코드: 코드자동번호 , 날짜 : date , 항목명 : content , 금액 : money };            console.log(obj)
+    // 6. 구성된 객체를 전역(배열)변수에 저장한다.
+    가계부목록.push( obj );         console.log( 가계부목록 );
+    // 7. 새로고침 , 출력함수 재호출
+    전체조회함수();
+} // func end
+
+// 2. 전체조회 함수 정의 , 실행조건 : 1. JS열렸을떄 (최초1번) 2. 등록 성공했을때
+전체조회함수(); // JS가 그냥 1번 출력함수 호출한다.
+function 전체조회함수(){ console.log('---전체조회함수 exe---')
+    // *** 배열내 객체 1개당 <tr> 1개 ***
+    // 3. 어디에 , <tbody id = "contnetBody">
+    const contentBody = document.querySelector('#contentBody');  console.log(contentBody);
+    // 4. 무엇을 , 배열내 객체정보 -> html 형식표현
+        // (1) 배열내 모든(for) 객체의 정보를
+    let html = '';
+    for( let i = 0; i <= 가계부목록.length-1; i++ ){    
+        const obj = 가계부목록[i]   // i번째 객체 호출
+        html +=  `<tr>
+                    <th>${obj.날짜} </th> 
+                    <th> ${obj.항목명} </th> 
+                    <th> ${obj.금액} </th>
+                 </tr>`
+    }// for end
+    // 5. 출력 , innerhtml
+    contentBody.innerHTML = html; // 반복문 이용하여 객체를 
+} // func end

@@ -7,10 +7,10 @@
     <h1> 실습 12 : 미니 가계부 </h1>
     <div>
         <h3>등록 구역</h3>
-        날짜입력 : <input type="date"/><br/>
-        항목입력 : <input type="text"/><br/>
-        금액입력 : <input type="number"/><br/>
-        <button> 등록버튼 </button> 
+        날짜입력 : <input id="dateInput" type="date"/><br/>
+        항목입력 : <input id="contentInput" type="text"/><br/>
+        금액입력 : <input id="moneyInput" type="number"/><br/>
+        <button onclick="등록함수()" > 등록버튼 </button> 
     </div>
     <div>
         <h3>목록 구역</h3>
@@ -20,7 +20,7 @@
                     <th> 날짜 </th> <th> 항목 </th> <th> 금액 </th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="contentBody">
                 <tr>
                     <th> 2025-06-19 </th> <th> 콜라구매 </th> <th> 1000 </th>
                 </tr>
