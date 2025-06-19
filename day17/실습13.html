@@ -4,23 +4,23 @@
     <meta charset='utf-8'>
 </head>
 <body>
-    <h1> 실습 13 전화번호부 </h1>
+    <h1 style="align-items: center;"> 실습 13 전화번호부 </h1>    
     <div>
-        <h3> 등록 구역 </h3>
-        이름 입력 : <input id="nameInput" type="text"/><br/>
-        전화번호 입력: <input id="numberInput" type="tel"/><br/>
-        메모 입력 : <input id="memoInput" type="text"/><br/>
-        <button onclick="등록함수()"> 등록버튼 </button>
-    </div>
-    <div>
+        <h3 style="border-top: 1px solid black; padding-top: 15px;"> 등록 구역 </h3>
+        이름 입력 : <input id="nameInput" type="text" style="border-radius: 5px; margin-bottom: 10px; padding: 5px 0;"/><br/>
+        전화번호 입력: <input id="numberInput" type="tel" style="border-radius: 5px; margin-bottom: 10px; padding: 5px 0;"/><br/>
+        메모 입력 : <input id="memoInput" type="text" style="border-radius: 5px; margin-bottom: 10px; padding: 5px 0;"/><br/>
+        <button onclick="등록함수()" style="cursor: pointer;"> 등록버튼 </button>
+    </div><br/>
+    <div style="border-top: 1px solid black;">        
         <h3> 목록구역 </h3>
         <table border="1">
-            <thead>
+            <thead style="background-color: yellow;">
                 <tr>
                     <th> 이름 </th> <th> 전화번호 </th> <th> 메모 </th>
                 </tr>    
             </thead>
-            <tbody>
+            <tbody id="contentBody">
                 <tr>
                     <td> 유재석 </td> <td> 010-1234-5678 </td> <td> 국민MC </td>
                 </tr>

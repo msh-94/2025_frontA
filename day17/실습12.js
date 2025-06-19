@@ -90,7 +90,7 @@ function 전체조회함수(){ console.log('---전체조회함수 exe---');
                     <th>${obj.날짜} </th> 
                     <th> ${obj.항목명} </th> 
                     <th> ${obj.금액} </th>
-                 </tr>`;
+                 </tr>`
     }// for end
     // 5. 출력 , innerhtml
     contentBody.innerHTML = html; // 반복문 이용하여 객체를 

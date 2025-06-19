@@ -154,10 +154,12 @@
 //     const array = document.querySelector('#arrayStatus');
 //     console.log(array);
 //     // 6. 배열내  모든요소를 HTML(문자열) 형식 구성
+//     array.textContent = 전역배열;      
+       // vs
 //     let html = '';
 //     for( let i = 0; i <= 전역배열.length-1; i++){
-//         const val = 전역배열[i]
-//         html += `<span> ${val} , </span>`
+//              const val = 전역배열[i]
+//              html += `<span> ${val} , </span>`
 //     } // for end
 //     // 7. 배열정보를 HTML 구성한 문자열을 innerHTML에 대입한다.
 //     array.innerHTML = html;
