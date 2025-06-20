@@ -18,21 +18,21 @@
                 <tbody id="tOutput">
                     <tr>
                         <td> 개발팀 </td>
-                        <td> <button> 삭제 </button> <button> 수정 </button></td>
+                        <td> <button onclick="t삭제함수()"> 삭제 </button> <button onclick="t수정함수()"> 수정 </button></td>
                     </tr>
                 </tbody>
             </table>
         </div>
         <div>
             <h3> 사원 관리 영역</h3>
-            <input type="text" placeholder="이름을 입력해주세요"/>
-            <input type="text" placeholder="직급을 입력해주세요"/>
-            <select id="">
+            <input id="cnameInput" type="text" placeholder="이름을 입력해주세요"/>
+            <input id="cclassInput" type="text" placeholder="직급을 입력해주세요"/>
+            <select id="ccategoryInput">
                 <option value="" disabled selected > 부서를 선택하세요. </option>
                 <option value="1"> 개발팀 </option>   <option value="2"> 인사팀 </option> <option value="3"> 기획팀 </option>
             </select>
-            <input type="file" accept="image/* "/>
-            <button> 등록 </button>
+            <input id="cimgInput" type="file" accept="image/* "/>
+            <button class="btnMemory" onclick="c등록함수()"> 등록 </button>
             <table>
                 <thead>
                     <tr>
@@ -40,9 +40,11 @@
                         <th> 직급 </th> <th> 관리 </th>
                     </tr>
                 </thead>
-                <tbody>
-                    <td> <img src="https://placehold.co/100x100" /> </td> <td> 유재석 </td>
-                    <td> 부서 </td> <td> 직급 </td> <td> <button> 삭제 </button> <button> 수정 </button></td>
+                <tbody id="cOutput">
+                    <tr>
+                        <td> <img src="https://placehold.co/100x100" /> </td> <td> 유재석 </td>
+                        <td> 부서 </td> <td> 직급 </td> <td> <button onclick="c삭제함수()"> 삭제 </button> <button onclick="c수정함수()"> 수정 </button></td>
+                    </tr>
                 </tbody>
             </table>
         </div>

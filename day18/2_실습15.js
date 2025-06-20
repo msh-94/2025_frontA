@@ -59,9 +59,9 @@
 
 // 데이터모델링
 const 부서관리 = [{팀코드 : 1 , 부서 : '개발팀' } , {팀코드 : 2 , 부서 : '인사팀' } , {팀코드 : 3 , 부서 : '기획팀' }];
-const 사원관리 = [{팀코드 : 1 , 사원코드 : 1 , 이름 : '유재석' , 직급 : '신입' , 사진 : 'https://placehold.co/100x100' },
-                    {팀코드 : 2 , 사원코드 : 2 , 이름 : '신동엽' , 직급 : '대리' , 사진 : 'https://placehold.co/100x100' },
-                    {팀코드 : 3 , 사원코드 : 3 , 이름 : '강호동' , 직급 : '과장' , 사진 : 'https://placehold.co/100x100' }];
+const 사원관리 = [{팀코드 : 1 , 사원코드 : 1 , 부서 : '개발팀' , 이름 : '유재석' , 직급 : '신입' , 사진 : 'https://placehold.co/100x100' },
+                    {팀코드 : 2 , 사원코드 : 2 , 부서 : '인사팀' , 이름 : '신동엽' , 직급 : '대리' , 사진 : 'https://placehold.co/100x100' },
+                    {팀코드 : 3 , 사원코드 : 3 , 부서 : '기획팀' , 이름 : '강호동' , 직급 : '과장' , 사진 : 'https://placehold.co/100x100' }];
 const 휴가관리 = [{팀코드 : 1 , 사원코드 : 1 , 휴가시작일 : '2025-06-12' , 휴가종료일 : '2025-06-15' , 사유 : '병가'},
                     {팀코드 : 2 , 사원코드 : 2 , 휴가시작일 : '2025-06-17' , 휴가종료일 : '2025-06-20' , 사유 : '연차'},
                     {팀코드 : 3 , 사원코드 : 3 , 휴가시작일 : '2025-06-21' , 휴가종료일 : '2025-06-25' , 사유 : '경조사'}];
@@ -92,6 +92,7 @@ function t등록함수(){ console.log('--등록함수--');
     const team = { 팀코드 : ++current팀코드 , 부서 : name };        //console.log( team );
     // 4. 만든 객체 배열에 추가하기
     부서관리.push( team );                                          //console.log(부서관리);
+    t출력함수();
 }// func end 부서관리 등록함수 끝
 
 // 2. 부서관리 출력함수
@@ -105,21 +106,82 @@ function t출력함수(){ //console.log('--t출력함수--')
         let obj1 = 부서관리[i];                                     //console.log(obj1);
         html += `<tr>
                     <td> ${obj1.부서}</td>
-                    <td></td>
+                    <td><button onclick="t삭제함수(${obj1.팀코드})"> 삭제 </button> <button onclick="t수정함수(${obj1.팀코드})"> 수정 </button></td>
                 </tr>`
     } // for end
     // 3. 출력
-    tOutput.innerHTML = html;                                      // console.log(html);
+    tOutput.innerHTML = html;                                       //console.log(html);
 } // func end 부서관리 출력함수 끝
 
 // 3. 부서관리 삭제함수
-t삭제함수();
-function t삭제함수(팀코드){                                         console.log('===t삭제함수===')
+function t삭제함수(팀코드){                                         //console.log('===t삭제함수==='); console.log(팀코드);
     for( let i = 0; i <= 부서관리.length-1; i++){
-        if( 부서관리[i].팀코드 == 팀코드 ){                         console.log( 팀코드 );
+        if( 부서관리[i].팀코드 == 팀코드 ){                        
             부서관리.splice( i , 1 );
             alert('[성공] 항목 삭제')
-            return;
+            t출력함수();
+            return;                                                     
         }//if end
     }// for end
 } // func end t삭제함수 끝
+
+// 4. 부서관리 수정함수
+function t수정함수(팀코드){                                     console.log('t수정함수'); console.log(팀코드);
+    for( let i = 0; i <= 부서관리.length-1; i++){
+        if( 부서관리[i].팀코드 == 팀코드 ){
+            const 부서명 = prompt('부서명 : ');                 console.log(부서명);
+            부서관리[i].부서 = 부서명;
+            alert('[성공] 항목 수정')
+            t출력함수();
+            return;
+        } // if end
+    } // for end
+} // func end
+
+// 5. 사원관리 등록함수
+function c등록함수(){       console.log('--c등록함수--');
+    // 1. 어디에
+    const btnMemory = document.querySelector('.btnMemory');         console.log( btnMemory); 
+    // 2. 무엇을
+    const cnameInput = document.querySelector('#cnameInput');           console.log(cnameInput);
+    const cclassInput = document.querySelector('#cclassInput');         console.log(cclassInput);
+    const ccategoryInput = document.querySelector('#ccategoryInput');   console.log(ccategoryInput);
+    const cimgInput = document.querySelector('#cimgInput');             console.log(cimgInput);
+    // 3. 불러온 자료 value값구하기
+    const cname = cnameInput.value;                                     console.log(cname);
+    const cclass = cclassInput.value;                                   console.log(cclass);
+    const ccategory = ccategoryInput.value;                             console.log(ccategory);    
+    const cimg = cimgInput.files[0];                                    console.log(cimg);
+    // 4. 입력받은 값 객체만들기
+    const obj2 = {  팀코드 : ++current팀코드,
+                    사원코드 : ++current사원코드,
+                    이름 : cname ,
+                    직급 : cclass ,
+                    부서 : ccategory ,
+                    사진 : cimg ? URL.createObjectURL(cimg) : 'https://placehold.co/100x100',};      console.log(obj2);
+    // 5. 만든 객체 배열에 push하기
+    사원관리.push( obj2 );          console.log(사원관리);
+    c출력함수();
+    cnameInput.value = '';
+    cclassInput.value = '';
+    ccategoryInput.value = '';
+}// func end 사원관리 등록함수 끝
+
+// 6. 사원관리 출력함수
+c출력함수();
+function c출력함수(){           console.log('===c출력함수===');
+    // 1. 어디에
+    const cOutput = document.querySelector('#cOutput');         console.log(cOutput);
+    // 2. 무엇을
+    let html = '';
+    for( let i = 0; i <= 사원관리.length-1; i++){
+        let obj3 = 사원관리[i]
+        html += ` <tr>
+                        <td> <img src="${obj3.사진}}" /> </td> <td> ${obj3.이름} </td>
+                        <td> ${obj3.부서} </td> <td> ${obj3.직급}
+                        </td> <td> <button onclick="c삭제함수()"> 삭제 </button> <button onclick="c수정함수()"> 수정 </button></td>
+                  </tr>`
+    }// if end
+    cOutput.innerHTML = html;           console.log(html);
+
+} // func end 사원관리 출력함수 끝
