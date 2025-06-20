@@ -79,6 +79,7 @@ const 휴가관리 = [{팀코드 : 1 , 사원코드 : 1 , 휴가시작일 : '202
 // 11. 휴가관리 취소함수
 // 12. 팀코드를 이용한 다른 배열 대입 함수
 // 13. 드롭다운 함수
+
 let current팀코드 = 3;
 let current사원코드 = 3;
 // 1. 부서관리 등록함수
@@ -93,6 +94,7 @@ function t등록함수(){ console.log('--등록함수--');
     // 4. 만든 객체 배열에 추가하기
     부서관리.push( team );                                          //console.log(부서관리);
     t출력함수();
+    categoryPlint();
 }// func end 부서관리 등록함수 끝
 
 // 2. 부서관리 출력함수
@@ -126,10 +128,10 @@ function t삭제함수(팀코드){                                         //con
 } // func end t삭제함수 끝
 
 // 4. 부서관리 수정함수
-function t수정함수(팀코드){                                     console.log('t수정함수'); console.log(팀코드);
+function t수정함수(팀코드){                                     //console.log('t수정함수'); console.log(팀코드);
     for( let i = 0; i <= 부서관리.length-1; i++){
         if( 부서관리[i].팀코드 == 팀코드 ){
-            const 부서명 = prompt('부서명 : ');                 console.log(부서명);
+            const 부서명 = prompt('부서명 : ');                 //console.log(부서명);
             부서관리[i].부서 = 부서명;
             alert('[성공] 항목 수정')
             t출력함수();
@@ -141,47 +143,92 @@ function t수정함수(팀코드){                                     console.l
 // 5. 사원관리 등록함수
 function c등록함수(){       console.log('--c등록함수--');
     // 1. 어디에
-    const btnMemory = document.querySelector('.btnMemory');         console.log( btnMemory); 
+    const btnMemory = document.querySelector('.btnMemory');         //console.log( btnMemory); 
     // 2. 무엇을
-    const cnameInput = document.querySelector('#cnameInput');           console.log(cnameInput);
-    const cclassInput = document.querySelector('#cclassInput');         console.log(cclassInput);
-    const ccategoryInput = document.querySelector('#ccategoryInput');   console.log(ccategoryInput);
-    const cimgInput = document.querySelector('#cimgInput');             console.log(cimgInput);
+    const cnameInput = document.querySelector('#cnameInput');           //console.log(cnameInput);
+    const cclassInput = document.querySelector('#cclassInput');        // console.log(cclassInput);
+    const ccategoryInput = document.querySelector('#ccategoryInput');   //console.log(ccategoryInput);
+    const cimgInput = document.querySelector('#cimgInput');            // console.log(cimgInput);
     // 3. 불러온 자료 value값구하기
-    const cname = cnameInput.value;                                     console.log(cname);
-    const cclass = cclassInput.value;                                   console.log(cclass);
-    const ccategory = ccategoryInput.value;                             console.log(ccategory);    
-    const cimg = cimgInput.files[0];                                    console.log(cimg);
+    const cname = cnameInput.value;                                    // console.log(cname);
+    const cclass = cclassInput.value;                                   //console.log(cclass);
+    const ccategory = ccategoryInput.value;                             //console.log(ccategory);    
+    const cimg = cimgInput.files[0];                                    //console.log(cimg);
     // 4. 입력받은 값 객체만들기
     const obj2 = {  팀코드 : ++current팀코드,
                     사원코드 : ++current사원코드,
                     이름 : cname ,
                     직급 : cclass ,
                     부서 : ccategory ,
-                    사진 : cimg ? URL.createObjectURL(cimg) : 'https://placehold.co/100x100',};      console.log(obj2);
+                    사진 : cimg ? URL.createObjectURL(cimg) : 'https://placehold.co/100x100',};      //console.log(obj2);
     // 5. 만든 객체 배열에 push하기
-    사원관리.push( obj2 );          console.log(사원관리);
+    사원관리.push( obj2 );         // console.log(사원관리);
     c출력함수();
+    
     cnameInput.value = '';
     cclassInput.value = '';
     ccategoryInput.value = '';
 }// func end 사원관리 등록함수 끝
 
+// 0-1 . 사원관리카테고리 함수
+categoryPlint();
+function categoryPlint(){
+    // 1. 어디에
+    const ccategoryInput = document.querySelector('#ccategoryInput');         console.log(ccategoryInput)
+    // 2. 무엇을
+    let html = `<option value="" disabled selected > 부서를 선택하세요. </option>`
+    for( let i = 0; i <= 부서관리.length-1; i++){
+        const ccategory = 부서관리[i];                                    console.log(ccategory);
+        html += `<option value="${ccategory.팀코드}"> ${ccategory.부서} </option>`
+    }// for end
+    console.log(html);
+    ccategoryInput.innerHTML = html;    
+}// func end 사원관리카테고리 끝
+
+
 // 6. 사원관리 출력함수
 c출력함수();
-function c출력함수(){           console.log('===c출력함수===');
+function c출력함수(){          // console.log('===c출력함수===');
     // 1. 어디에
-    const cOutput = document.querySelector('#cOutput');         console.log(cOutput);
+    const cOutput = document.querySelector('#cOutput');        // console.log(cOutput);
     // 2. 무엇을
     let html = '';
     for( let i = 0; i <= 사원관리.length-1; i++){
         let obj3 = 사원관리[i]
+        console.log(obj3);
         html += ` <tr>
-                        <td> <img src="${obj3.사진}}" /> </td> <td> ${obj3.이름} </td>
+                        <td> <img src="${obj3.사진}" /> </td> <td> ${obj3.이름} </td>
                         <td> ${obj3.부서} </td> <td> ${obj3.직급}
-                        </td> <td> <button onclick="c삭제함수()"> 삭제 </button> <button onclick="c수정함수()"> 수정 </button></td>
+                        </td> <td> <button onclick="c삭제함수(${obj3.사원코드})"> 삭제 </button> <button onclick="c수정함수(${obj3.사원코드})"> 수정 </button></td>
                   </tr>`
     }// if end
-    cOutput.innerHTML = html;           console.log(html);
+    cOutput.innerHTML = html;          // console.log(html);
 
 } // func end 사원관리 출력함수 끝
+
+// 7. 사원관리 삭제함수
+function c삭제함수(사원코드){ console.log('--c삭제함수--');
+    for( let i = 0; i <= 사원관리.length-1; i++){
+        if(사원관리[i].사원코드 == 사원코드){
+            사원관리[i].splice( i , 1 );
+            c출력함수();
+            alert('[성공] 목록이 변경되었습니다.')
+            return;
+        }// if end
+    }// for end
+}// func end 사원관리 삭제함수 끝
+
+// 8. 사원관리 수정함수
+function c수정함수(사원코드){ console.log( ' --c수정함수-- ' );
+    for( let i = 0; i <= 사원관리.length-1; i++){
+        if( 사원관리[i].사원코드 == 사원코드){
+            const chaName = prompt('이름 : ');
+            const chaClass = prompt('직급 : ');
+            사원관리[i].이름 = chaName;
+            사원관리[i].직급 = chaClass;
+            c출력함수();
+            alert('[성공] 이름/직급 수정되었습니다.')
+            return;
+        }
+    }
+}
