@@ -133,10 +133,10 @@ function 출력함수(){ console.log('---출력함수---');
         for( let a = 0; a <= categoryList.length-1; a++){
             let cate = categoryList[a]
             if( pd.cno == cate.cno){
-                let name = cate.cname
+                let name = cate.cname                           // ${getCategory(pd.cno).cname}
                 html += `<tr>
                             <td><img src="${pd.pimg}"/></td>
-                            <td>${name}</td>
+                            <td>${name}</td>                            
                             <td>${pd.pname}</td>
                             <td>${pd.pprice.toLocaleString()}</td>
                             <td>${pd.pdate}</td>
@@ -187,3 +187,17 @@ function 수정함수(pno){ console.log( '-- 수정함수--'); console.log(pno);
     //(2) 못찾았으면
     alert('[실패] 제품 수정');
 }// func end 수정함수 끝
+
+
+// 6. 카테고리번호(cno) 에 해당하는 카테고리객체 1개 반환 함수
+// function getCategory( cno ){ console.log( '===getCategory===='); console.log(cno);
+//     // 1. 매개변수(cno) 와 동일한 카테고리객체 찾기
+//     for( let i = 0; i <= categoryList.length-1; i++){
+//             let cate = categoryList[i]
+//             if( cno == cate.cno){
+//                 return categoryList[i]
+//             } // if end
+//     } // for end
+//        2. 못찾았다
+//        return null;
+// } // func end
