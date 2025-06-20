@@ -229,6 +229,6 @@ function c수정함수(사원코드){ console.log( ' --c수정함수-- ' );
             c출력함수();
             alert('[성공] 이름/직급 수정되었습니다.')
             return;
-        }
-    }
-}
+        }//if end
+    }// for end
+}// func end 사원관리 수정함수 끝
