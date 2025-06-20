@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <style>
+        /* CSS 문법 */
+    </style>
+</head>
+
+<body>
+    <div id="wrap"> <!-- 전체 구역 -->
+        <div id="hrader"> <!-- 등록 영역 -->
+            <select id="categoryInput">
+                <option value="" disabled checked > 카테고리 선택하세요. </option>
+                <option value="1"> 음료 </option>
+                <option value="2"> 과자 </option>
+            </select>
+            <input id="pnameInput" type="text" placeholder="제품명"/>
+            <input id="ppriceInput" type="number" placeholder="제품가격"/>
+            <input id="pimgInput" type="file" accept="image/"/>
+            <button class="btnAdd"> 등록 </button>
+        </div>
+        <div id="main"> <!-- 출력 영역 -->
+            <table>
+                <thead>
+                    <tr>
+                        <th> 이미지 </th> <th> 카테고리명 </th> <th> 상품명 </th>
+                        <th> 가격</th> <th> 등록일 </th> <th> 비고</th> 
+                    </tr>
+                </thead>
+                <tbody>
+                     <tr>
+                        <td> <img src="https://placehold.co/100x100" /> </td> <td> 음료 </td> <td> 코카콜라 </td>
+                        <td> 1000 </td> <td> 2025-06-17 </td> 
+                        <td> <button class="btnDelete"> 삭제 </button> <button class="btnEdit"> 수정 </button> </td> 
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+
+
+
+
+    <!-- JS파일은 HTML마크업이 모두 출력된 후에 실행할 예정 : body 가장 아래 작성 -->
+    <script src='1.실습14.js'></script>
+</body>
+
+</html>
