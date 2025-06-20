@@ -210,7 +210,7 @@ function c출력함수(){          // console.log('===c출력함수===');
 function c삭제함수(사원코드){ console.log('--c삭제함수--');
     for( let i = 0; i <= 사원관리.length-1; i++){
         if(사원관리[i].사원코드 == 사원코드){
-            사원관리[i].splice( i , 1 );
+            사원관리.splice( i , 1 );
             c출력함수();
             alert('[성공] 목록이 변경되었습니다.')
             return;
