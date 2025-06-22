@@ -302,4 +302,8 @@ function h취소함수(사원코드){
         }// if end
     }// for end
 }// func end 휴가취소함수 끝
+부서값함수();
+function 부서값함수(팀코드){
+    console.log('부서값함수'); console.log(팀코드)
 
+}// func end 부서값함수 끝
