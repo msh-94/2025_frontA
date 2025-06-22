@@ -78,7 +78,8 @@ const 휴가관리 = [{팀코드 : 1 , 사원코드 : 1 , 휴가시작일 : '202
 // 10. 휴가관리 출력함수
 // 11. 휴가관리 취소함수
 // 12. 팀코드를 이용한 다른 배열 대입 함수
-// 13. 드롭다운 함수
+// 13. 카테고리 함수
+// 14. 사원코드를 이용한 다른배열 대입 함수
 
 let current팀코드 = 3;
 let current사원코드 = 3;
@@ -164,13 +165,14 @@ function c등록함수(){       console.log('--c등록함수--');
     // 5. 만든 객체 배열에 push하기
     사원관리.push( obj2 );         // console.log(사원관리);
     c출력함수();
+    holidayPlint();
     
     cnameInput.value = '';
     cclassInput.value = '';
     ccategoryInput.value = '';
 }// func end 사원관리 등록함수 끝
 
-// 0-1 . 사원관리카테고리 함수
+// 13-1 . 사원관리카테고리 함수
 categoryPlint();
 function categoryPlint(){
     // 1. 어디에
@@ -232,3 +234,71 @@ function c수정함수(사원코드){ console.log( ' --c수정함수-- ' );
         }//if end
     }// for end
 }// func end 사원관리 수정함수 끝
+
+// 9. 휴가 신청 함수 
+function h신청함수(){ console.log( ' --h신청함수-- ');
+    // 1. 어디에
+    const btnHoliday = document.querySelector('.btnHoliday');                   console.log(btnHoliday);
+    // 2. 무엇을    
+    const startInput = document.querySelector('#startInput');                   console.log(startInput);
+    const endInput = document.querySelector('#endInput');                       console.log(endInput);
+    const reasonInput = document.querySelector('#reasonInput');                 console.log(reasonInput);
+    // 3. value 값 불러오기    
+    const start = startInput.value;                                             console.log(start);
+    const end = endInput.value;                                                 console.log(end);
+    const reason = reasonInput.value;                                           console.log(reason);
+    // 4. value 값 객체만들기
+    const obj4 = { 팀코드 : current팀코드 , 사원코드 : current사원코드 , 휴가시작일 : start , 휴가종료일 : end , 사유 : reason }
+    console.log( obj4 );
+    // 5. 만듣개체 배열에 저장하기
+    휴가관리.push( obj4 );
+    console.log( 휴가관리 ); 
+    h출력함수();   
+    startInput.value = '';
+    endInput.value = '';
+    reasonInput.value = '';
+}// func end 휴가신청함수 끝
+
+// 13-2 휴가신청자 카테고리함수
+holidayPlint();
+function holidayPlint(){
+    // 1. 어디에
+    const holiInput = document.querySelector('#holiInput');         console.log(holiInput);
+    // 2. 무엇을
+    let html = `<option value="" disabled selected > 휴가 신청자를 고르세요. </option>`
+    for( let i = 0; i <= 사원관리.length-1; i++){
+        const holi = 사원관리[i];                                    console.log(holi);
+        html += `<option value="${holi.사원코드}"> ${holi.이름} </option>`
+    }// for end
+    console.log(html);
+    holiInput.innerHTML = html;    
+}// func end 사원관리카테고리 끝
+
+// 10. 휴가 출력 함수
+h출력함수();
+function h출력함수(){ console.log('==h출력함수==');
+    // 1. 어디에
+    const holiOutput = document.querySelector('#holiOutput');                   console.log(holiOutput);
+    // 2. 무엇을
+    let html = '';
+    for(let i = 0; i <= 휴가관리.length-1; i++){
+        let obj5 = 휴가관리[i]      
+        html +=  `<tr>
+                        <td> 유재석 </td> <td> ${obj5.휴가시작일} ~ ${obj5.휴가종료일} </td> <td> ${obj5.사유} </td>
+                        <td> <button onclick="h삭제함수(${obj5.사원코드})"> 신청취소 </button></td>
+                    </tr>`
+    }//for end
+    holiOutput.innerHTML = html;            console.log(html);
+}//func end 휴가 출력함수 끝
+
+// 11. 휴가 취소 함수
+function h취소함수(사원코드){
+    for( let i = 0; i <= 사원관리.length-1; i++){
+        if(사원관리[i].사원코드 == 사원코드){
+            사원관리.splice( i , 1 );
+            h출력함수();
+            alert('[성공] 목록이 삭제 되었습니다.')
+            return;
+        }// if end
+    }// for end
+}

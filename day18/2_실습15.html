@@ -50,25 +50,26 @@
         </div>
         <div>
             <h3> 휴가 관리 영역</h3>
-            <select id="">
+            <select id="holiInput">
                 <option value="" disabled selected > 휴가 신청자를 고르세요. </option>
                 <option value="1"> 유재석 </option>   <option value="2"> 신동엽 </option> <option value="3"> 강호동 </option>
             </select>
             휴가시작일
-            <input type="date"/>
+            <input id="startInput" type="date"/>
             휴가종료일
-            <input type="date"/>
-            <input type="text" placeholder="사유를 입력해주세요."/>
+            <input id="endInput" type="date"/>
+            <input id="reasonInput" type="text" placeholder="사유를 입력해주세요."/>
+            <button class="btmHoliday" onclick="h신청함수()"> 신청 </button>
             <table>
                 <thead>
                     <tr>
                         <th> 이름 </th> <th> 휴가기간 </th> <th> 사유 </th> <th> 관리 </th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="holiOutput">
                     <tr>
                         <td> 유재석 </td> <td> 2025-06-12 ~ 2025-06-15 </td> <td> 병가 </td>
-                        <td> <button> 신청취소 </button></td>
+                        <td> <button onclick="h삭제함수()"> 신청취소 </button></td>
                     </tr>
                 </tbody>
             </table>
