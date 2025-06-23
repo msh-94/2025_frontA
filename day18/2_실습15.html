@@ -2,9 +2,60 @@
 <html>
 <head>
     <meta charset='utf-8'>    
+    <style>
+        * { border: 1px solid red;}
+        body{ background-color: gray;}
+        #wrap {
+            display: flex; justify-content: space-around;
+            align-items: center;  margin: 0 auto;
+            background-color: white;
+        }
+        #wrap h3{ text-align: center; background-color: yellowgreen;}
+        #wrap th{ background-color: yellow;}
+        #wrap table{ width: 100%; text-align: center;}
+        .btnAdd , .btnMemory , .btnHoliday {
+            padding: 12px 25px;
+            font-size: 14px;
+            font-weight: bold;
+            color: white;
+            background-color: #4c6ef5;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .btnDelete, .btnEdit {
+            font-size: 15px;
+            padding: 7px 12px;
+            margin: 0 4px;
+            border-radius: 6px;
+            font-weight: bold;
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+        
+        /* 수정 버튼 */
+        .btnEdit {
+            color: #4c6ef5;
+            background-color: #edf2ff;
+            border-color: #dbe4ff;
+        }
+        /* 삭제 버튼 */
+        .btnDelete {
+            color: #f03e3e;
+            background-color: #fff5f5;
+            border-color: #ffe3e3;
+        }
+        #wrap input, #wrap select {
+            padding: 12px;
+            font-size: 14px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+        }
+        
+    </style>
 </head>
 <body>
-    <div id="#wrap" style="display: flex; justify-content: space-around;">
+    <div id="wrap">
         <div>
             <h3> 부서 관리 영역</h3>
             <input id="tName" type="text" placeholder="부서이름을 작성해주세요"/>
@@ -18,7 +69,7 @@
                 <tbody id="tOutput">
                     <tr>
                         <td> 개발팀 </td>
-                        <td> <button onclick="t삭제함수()"> 삭제 </button> <button onclick="t수정함수()"> 수정 </button></td>
+                        <td> <button class="btnDelete" onclick="t삭제함수()"> 삭제 </button> <button class="btnEdit" onclick="t수정함수()"> 수정 </button></td>
                     </tr>
                 </tbody>
             </table>
@@ -33,7 +84,7 @@
             </select>
             <input id="cimgInput" type="file" accept="image/* "/>
             <button class="btnMemory" onclick="c등록함수()"> 등록 </button>
-            <table>
+            <table class="ctable">
                 <thead>
                     <tr>
                         <th> 사진 </th> <th> 이름 </th> <th> 부서 </th>
@@ -43,14 +94,14 @@
                 <tbody id="cOutput">
                     <tr>
                         <td> <img src="https://placehold.co/100x100" /> </td> <td> 유재석 </td>
-                        <td> 부서 </td> <td> 직급 </td> <td> <button onclick="c삭제함수()"> 삭제 </button> <button onclick="c수정함수()"> 수정 </button></td>
+                        <td> 부서 </td> <td> 직급 </td> <td> <button class="btnDelete" onclick="c삭제함수()"> 삭제 </button> <button class="btnEdit" onclick="c수정함수()"> 수정 </button></td>
                     </tr>
                 </tbody>
             </table>
         </div>
         <div>
             <h3> 휴가 관리 영역</h3>
-            <select id="holiInput">
+            <select class="holiInput">
                 <option value="" disabled selected > 휴가 신청자를 고르세요. </option>
                 <option value="1"> 유재석 </option>   <option value="2"> 신동엽 </option> <option value="3"> 강호동 </option>
             </select>
@@ -69,7 +120,7 @@
                 <tbody id="holiOutput">
                     <tr>
                         <td> 유재석 </td> <td> 2025-06-12 ~ 2025-06-15 </td> <td> 병가 </td>
-                        <td> <button onclick="h삭제함수()"> 신청취소 </button></td>
+                        <td> <button class="btnDelete" onclick="h삭제함수()"> 신청취소 </button></td>
                     </tr>
                 </tbody>
             </table>

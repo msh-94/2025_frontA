@@ -156,11 +156,11 @@ function c등록함수(){       console.log('--c등록함수--');
     const ccategory = ccategoryInput.value;                             //console.log(ccategory);    
     const cimg = cimgInput.files[0];                                    //console.log(cimg);
     // 4. 입력받은 값 객체만들기
-    const obj2 = {  팀코드 : ++current팀코드,
+    const obj2 = {  팀코드 : ccategory,
                     사원코드 : ++current사원코드,
                     이름 : cname ,
                     직급 : cclass ,
-                    부서 : ccategory ,
+                    부서 : ccategory.innerHTML ,
                     사진 : cimg ? URL.createObjectURL(cimg) : 'https://placehold.co/100x100',};      //console.log(obj2);
     // 5. 만든 객체 배열에 push하기
     사원관리.push( obj2 );         // console.log(사원관리);
@@ -198,11 +198,18 @@ function c출력함수(){          // console.log('===c출력함수===');
     for( let i = 0; i <= 사원관리.length-1; i++){
         let obj3 = 사원관리[i]
         console.log(obj3);
-        html += ` <tr>
+        for(let j = 0; j <= 부서관리.length-1; j++){
+            let 부서명 = 부서관리[j]
+            if( 부서명.팀코드 == obj3.팀코드){
+                html += ` <tr>
                         <td> <img src="${obj3.사진}" /> </td> <td> ${obj3.이름} </td>
-                        <td> ${부서값함수(obj3.팀코드).부서} </td> <td> ${obj3.직급}
+                        <td> ${부서명.부서} </td> <td> ${obj3.직급}
                         </td> <td> <button onclick="c삭제함수(${obj3.사원코드})"> 삭제 </button> <button onclick="c수정함수(${obj3.사원코드})"> 수정 </button></td>
                   </tr>`
+            }
+        }
+        
+        
     }// if end
     cOutput.innerHTML = html;          // console.log(html);
 
@@ -239,16 +246,20 @@ function c수정함수(사원코드){ console.log( ' --c수정함수-- ' );
 function h신청함수(){ console.log( ' --h신청함수-- ');
     // 1. 어디에
     const btnHoliday = document.querySelector('.btnHoliday');                   console.log(btnHoliday);
-    // 2. 무엇을    
+    // 2. 무엇을
+    const holiInput = document.querySelector('#holiInput');                     console.log(holiInput);   
     const startInput = document.querySelector('#startInput');                   console.log(startInput);
     const endInput = document.querySelector('#endInput');                       console.log(endInput);
     const reasonInput = document.querySelector('#reasonInput');                 console.log(reasonInput);
-    // 3. value 값 불러오기    
+    const ccategoryInput = document.querySelector('#ccategoryInput');           console.log(ccategoryInput);
+    // 3. value 값 불러오기  
+    const holi = holiInput.value;                                               console.log(holi);
+    const ccategory = ccategoryInput.value;                                     console.log(ccategory);  
     const start = startInput.value;                                             console.log(start);
     const end = endInput.value;                                                 console.log(end);
     const reason = reasonInput.value;                                           console.log(reason);
-    // 4. value 값 객체만들기
-    const obj4 = { 팀코드 : current팀코드 , 사원코드 : current사원코드 , 휴가시작일 : start , 휴가종료일 : end , 사유 : reason }
+    // 4. value 값 객체만들기    
+    const obj4 = { 팀코드 : ccategory , 사원코드 : holi , 휴가시작일 : start , 휴가종료일 : end , 사유 : reason }
     console.log( obj4 );
     // 5. 만듣개체 배열에 저장하기
     휴가관리.push( obj4 );
@@ -282,11 +293,17 @@ function h출력함수(){ console.log('==h출력함수==');
     // 2. 무엇을
     let html = '';
     for(let i = 0; i <= 휴가관리.length-1; i++){
-        let obj5 = 휴가관리[i]      
-        html +=  `<tr>
-                        <td> ${사원값함수(obj5.사원코드).이름} </td> <td> ${obj5.휴가시작일} ~ ${obj5.휴가종료일} </td> <td> ${obj5.사유} </td>
+        let obj5 = 휴가관리[i] 
+        for( let j = 0; j <= 사원관리.length-1; j++){
+            let 사원 = 사원관리[j]
+            if( 사원.사원코드 == obj5.사원코드){
+                html +=  `<tr>
+                        <td> ${사원.이름} </td> <td> ${obj5.휴가시작일} ~ ${obj5.휴가종료일} </td> <td> ${obj5.사유} </td>
                         <td> <button onclick="h삭제함수(${obj5.사원코드})"> 신청취소 </button></td>
                     </tr>`
+            }
+        }     
+        
     }//for end
     holiOutput.innerHTML = html;            console.log(html);
 }//func end 휴가 출력함수 끝
@@ -305,25 +322,25 @@ function h삭제함수(사원코드){ console.log(사원코드)
 }// func end 휴가취소함수 끝
 
 
-function 부서값함수(팀코드){
-    console.log('부서값함수'); console.log(팀코드);
-    for( let i = 0; i <= 부서관리.length-1; i++){
-        let 부서명 = 부서관리[i]
-        if( 팀코드 == 부서명.팀코드){
-            return 부서관리[i];
-        } // if end
-    }// for end
-    return null;
-}// func end 부서값함수 끝
+// function 부서값함수(팀코드){
+//     console.log('부서값함수'); console.log(팀코드);
+//     for( let i = 0; i <= 부서관리.length-1; i++){
+//         let 부서명 = 부서관리[i]
+//         if( 팀코드 == 부서명.팀코드){
+//             return 부서관리[i];
+//         } // if end
+//     }// for end
+//     return null;
+// }// func end 부서값함수 끝
 
 
-function 사원값함수(사원코드){
-    console.log('사원값함수'); console.log(사원코드);
-    for(let i = 0; i <= 사원관리.length-1; i++){
-        let 사원 = 사원관리[i]
-        if( 사원코드 == 사원.사원코드){
-            return 사원관리[i];
-        }// if end
-    } // for end
-    return null;
-} // func end 사원값함수 끝
+// function 사원값함수(사원코드){
+//     console.log('사원값함수'); console.log(사원코드);
+//     for(let i = 0; i <= 사원관리.length-1; i++){
+//         let 사원 = 사원관리[i]
+//         if( 사원코드 == 사원.사원코드){
+//             return 사원관리[i];
+//         }// if end
+//     } // for end
+//     return null;
+// } // func end 사원값함수 끝
