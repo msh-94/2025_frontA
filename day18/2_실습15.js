@@ -284,7 +284,7 @@ function h출력함수(){ console.log('==h출력함수==');
     for(let i = 0; i <= 휴가관리.length-1; i++){
         let obj5 = 휴가관리[i]      
         html +=  `<tr>
-                        <td> 유재석 </td> <td> ${obj5.휴가시작일} ~ ${obj5.휴가종료일} </td> <td> ${obj5.사유} </td>
+                        <td> ${사원값함수(obj5.사원코드).이름} </td> <td> ${obj5.휴가시작일} ~ ${obj5.휴가종료일} </td> <td> ${obj5.사유} </td>
                         <td> <button onclick="h삭제함수(${obj5.사원코드})"> 신청취소 </button></td>
                     </tr>`
     }//for end
@@ -304,7 +304,7 @@ function h삭제함수(사원코드){ console.log(사원코드)
 
 }// func end 휴가취소함수 끝
 
-부서값함수();
+
 function 부서값함수(팀코드){
     console.log('부서값함수'); console.log(팀코드);
     for( let i = 0; i <= 부서관리.length-1; i++){
@@ -316,7 +316,14 @@ function 부서값함수(팀코드){
     return null;
 }// func end 부서값함수 끝
 
-// 사원값함수()
-// function 사원값함수(사원코드){
-//     console.log('사원값함수'); console.log(사원코드);
-// } // func end 사원값함수 끝
+
+function 사원값함수(사원코드){
+    console.log('사원값함수'); console.log(사원코드);
+    for(let i = 0; i <= 사원관리.length-1; i++){
+        let 사원 = 사원관리[i]
+        if( 사원코드 == 사원.사원코드){
+            return 사원관리[i];
+        }// if end
+    } // for end
+    return null;
+} // func end 사원값함수 끝
