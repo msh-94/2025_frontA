@@ -36,5 +36,58 @@
 
 function addWaiting(){ console.log( 'addWaiting' );
     const nameInput = document.querySelector('.nameInput');     console.log(nameInput);
-    const telInput = document.querySelector('telInput');
-}
+    const telInput = document.querySelector('.telInput');        console.log(telInput);
+    const numberInput = document.querySelector('.numberInput'); console.log(numberInput);
+    // value 값 가져오기
+    const name = nameInput.value;                               console.log(name);
+    const tel = telInput.value;                                 console.log(tel);
+    const number = numberInput.value;                           console.log(number);
+    // 객체화하기
+    let no = 1;
+    // localStorage 에서 'waitingList' 속성 가져오기
+    let waitingList = localStorage.getItem('waitingList');
+    // 존재하지않으면 배열 생성 , 존재하면 타입변환
+    if( waitingList == null){   // 존재하지않으면
+        waitingList = [];   // 배열생성
+        // 대기번호는 그대로 1사용한다
+    }else{  // 존재하면 타입변환
+        waitingList = JSON.parse(waitingList);
+        no = waitingList[ waitingList.length-1 ].no + 1     // 마지막인덱스 대기번호 +1
+    }
+    const obj = { no : no , name : name , phone : tel , count : number };
+    console.log(obj);
+    waitingList.push(obj);
+    alert('[성공] 대기 등록 되었습니다.')
+    nameInput.value = '';
+    telInput.value = '';
+    numberInput.value = '';
+    // localStorage 에 waitingList 저장하기
+    let jsonData = JSON.stringify(waitingList);
+    localStorage.setItem('waitingList' , jsonData);
+} // addwaiting end
+
+
+function checkStatus(){ console.log('==checkStatus==')
+    const checkInput = document.querySelector('.checkInput');           console.log(checkInput);
+    // value값 가져오기
+    check = checkInput.value;
+    // 가져온value 값을 배열내 존재하는지 대조하기
+    // localStorage 에서 'waitingList' 속성 가져오기
+    let waitingList = localStorage.getItem('waitingList');
+    // 존재하지않으면 배열 생성 , 존재하면 타입변환
+    if( waitingList == null){   // 존재하지않으면
+        waitingList = [];   // 배열생성        
+    }else{  // 존재하면 타입변환
+        waitingList = JSON.parse(waitingList);        
+    } // if else end
+    for( let i = 0; i <= waitingList.length-1; i++){
+        let list = waitingList[i]
+        if(list.phone == check){
+            alert(`고객님의 대기번호는 ${list.no}번 입니다.`);
+            checkInput.value = '';
+            return;
+        }// if end
+    } // for end
+    alert('대기 정보가 없습니다.')
+    checkInput.value = '';
+}// checkStatus end
