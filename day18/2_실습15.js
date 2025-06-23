@@ -291,17 +291,17 @@ function h출력함수(){ console.log('==h출력함수==');
     holiOutput.innerHTML = html;            console.log(html);
 }//func end 휴가 출력함수 끝
 
-// // 11. 휴가 취소 함수
-// function h삭제함수(){ console.log(사원코드)
-//     for( let i = 0; i <= 휴가관리.length-1; i++){
-//         if(휴가관리[i].사원코드 == 사원코드){
-//             휴가관리.splice( i , 1 );
-//             h출력함수();
-//             alert('[성공] 목록이 삭제 되었습니다.')
-//             return;
-//         }// if end
-//     }// for end
-// }// func end 휴가취소함수 끝
+// 11. 휴가 취소 함수
+function h삭제함수(사원코드){ console.log(사원코드)
+    for(let i = 0; i <= 휴가관리.length-1; i++){
+        if(휴가관리[i].사원코드 == 사원코드){
+            휴가관리.splice(i , 1);
+            h출력함수();
+            alert('[성공] 목록을 삭제하였습니다.')
+        } // if end
+    } // for end    
+
+}// func end 휴가취소함수 끝
 // 부서값함수();
 // function 부서값함수(팀코드){
 //     console.log('부서값함수'); console.log(팀코드)
