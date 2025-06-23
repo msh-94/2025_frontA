@@ -29,10 +29,10 @@
 //         --입력된 아이디와 비밀번호를 입력받아 (memberList)배열 내의 어떤 회원 객체의 id, pw 값과 모두 일치하면, "로그인 성공" 알림창을 띄우고 함수를 즉시 종료합니다.
 //         --일치하는 정보를 찾지 못하면, "동일한 회원정보가 없습니다. 로그인실패" 알림창을 띄웁니다.
 
-const 회원목록 = [ { no : 1 , id : '유재석' , pw : 12341234 } ,
-                { no : 2 , id : '신동엽' , pw : 13451345 },
-                { no : 3 , id : '강호동' , pw : 43214321 }
-                ]
+// const memberList = [ { no : 1 , id : '유재석' , pw : 12341234 } ,
+//                      { no : 2 , id : '신동엽' , pw : 13451345 },
+//                      { no : 3 , id : '강호동' , pw : 43214321 }
+//                    ] 전역변수 대신에 sessionStorage 활용
 
 
 function signup(){ console.log(' -- signup --');    
@@ -43,14 +43,31 @@ function signup(){ console.log(' -- signup --');
     const sId = signId.value;                                   console.log(sId);
     const sPw = signPw.value;                                   console.log(sPw);
     //  가져온 밸류값 객체화
-    const no = 회원목록[ 회원목록.length-1 ].no + 1 ;   // 배열내 마지막인덱스의 회원번호 + 1
+    let no = 1;
+        //  ================== sessionStorage 에서 memberList 가져오기 ==========//
+        // (1) sessionStorage 에서 memberList 가져오기
+        let memberList = sessionStorage.getItem('memberList');   // .getItem('속성명/key')
+        // (2) 존재하지않으면 (배열) 새로 생성 , 존재하면 타입변환
+        if(memberList == null ){ // 해당 속성명(memberList)이 존재 하지 않으면
+            memberList = [];    // 새로운 배열 생성
+            // no(회원번호) 그대로 1 사용한다.
+        }else{ // 존재하면 JSON(배열타입)으로 변환하기
+            memberList = JSON.parse(memberList);
+            no = memberList[ memberList.length-1 ].no + 1 ; // 배열내 마지막인덱스의 회원번호 + 1
+        }
+    
     const obj1 = { no : no , id : sId , pw : sPw };       console.log(obj1);
     //  객체를 배열에 추가하기
-    회원목록.push(obj1);
-    console.log(회원목록);
+    memberList.push(obj1);
+    console.log(memberList);
     alert(' 회원 등록 성공 ');
     signId.value = '';
     signPw.value = '';
+        // ============ sessionStorage 에서 memberList 저장하기 =============== //
+        // (1) 배열타입을 JSON문자열 타입으로 변환
+        let jsonData = JSON.stringify(memberList);
+        // (2) sessionStorage 에 memberList 속성명으로 배열 저장하기
+        sessionStorage.setItem('memberList' , jsonData);
 } // signup end
 
 function login(){ console.log(' -- login --');    
@@ -61,10 +78,19 @@ function login(){ console.log(' -- login --');
     const lId = loginId.value;                                  console.log(lId);
     const lPw = loginPw.value;                                  console.log(lPw);
     //  가져온 밸류값 과 배열내 값 비교하기
-    for(let i = 0; i <= 회원목록.length-1; i++){
-        let 목록 = 회원목록[i]
+    //  ================== sessionStorage 에서 memberList 가져오기 ==========//
+    let memberList = sessionStorage.getItem('memberList'); // 'memberList'이름의 속성값 가져오기
+    if( memberList == null ){ // 만약에 'memberList' 이름의 속성이 존재하지않으면
+        memberList = []; // 새로운 배열 생성
+    }else{ // 'memberList' 속성명이 존재하면 JSON(배열) 타입으로 변환하기
+        memberList = JSON.parse(memberList);
+    }
+    for(let i = 0; i <= memberList.length-1; i++){
+        let 목록 = memberList[i]
         if( 목록.id == lId && 목록.pw == lPw){
             alert('로그인 성공')
+            loginId.value = '';
+            loginPw.value = '';
             return;
         } // if end
     } // for end
