@@ -109,7 +109,8 @@ function t출력함수(){ //console.log('--t출력함수--')
         let obj1 = 부서관리[i];                                     //console.log(obj1);
         html += `<tr>
                     <td> ${obj1.부서}</td>
-                    <td><button onclick="t삭제함수(${obj1.팀코드})"> 삭제 </button> <button onclick="t수정함수(${obj1.팀코드})"> 수정 </button></td>
+                    <td><button class="btnDelete" onclick="t삭제함수(${obj1.팀코드})"> 삭제 </button> 
+                    <button class="btnEdit" onclick="t수정함수(${obj1.팀코드})"> 수정 </button></td>
                 </tr>`
     } // for end
     // 3. 출력
@@ -204,7 +205,8 @@ function c출력함수(){          // console.log('===c출력함수===');
                 html += ` <tr>
                         <td> <img src="${obj3.사진}" /> </td> <td> ${obj3.이름} </td>
                         <td> ${부서명.부서} </td> <td> ${obj3.직급}
-                        </td> <td> <button onclick="c삭제함수(${obj3.사원코드})"> 삭제 </button> <button onclick="c수정함수(${obj3.사원코드})"> 수정 </button></td>
+                        </td> <td> <button class="btnDelete" onclick="c삭제함수(${obj3.사원코드})"> 삭제 </button>
+                         <button class="btnEdit" onclick="c수정함수(${obj3.사원코드})"> 수정 </button></td>
                   </tr>`
             }
         }
@@ -299,7 +301,7 @@ function h출력함수(){ console.log('==h출력함수==');
             if( 사원.사원코드 == obj5.사원코드){
                 html +=  `<tr>
                         <td> ${사원.이름} </td> <td> ${obj5.휴가시작일} ~ ${obj5.휴가종료일} </td> <td> ${obj5.사유} </td>
-                        <td> <button onclick="h삭제함수(${obj5.사원코드})"> 신청취소 </button></td>
+                        <td> <button class="btnDelete" onclick="h삭제함수(${obj5.사원코드})"> 신청취소 </button></td>
                     </tr>`
             }
         }     
@@ -344,3 +346,8 @@ function h삭제함수(사원코드){ console.log(사원코드)
 //     } // for end
 //     return null;
 // } // func end 사원값함수 끝
+
+
+// 매개변수 와 동일한객체 찾아서 대입하는 함수 하고싶엇는데
+// 매개변수가 undefined 떠서 자꾸 오류가 납니다 
+// 어떤 부분에서 오류가 나는지 알고싶습니다
