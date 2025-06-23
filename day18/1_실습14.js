@@ -202,14 +202,3 @@ function 수정함수(pno){ console.log( '-- 수정함수--'); console.log(pno);
 //        return null;
 // } // func end
 
-function getCategory( cno ){ 
-    console.log('>> getCategory exe '); console.log( cno ); 
-    // 1. 매개변수(cno) 와 동일한 카테고리객체 찾기 
-    for( let index = 0 ; index <= categoryList.length - 1 ; index++ ){
-        if( categoryList[index].cno == cno ){ // 만일 index번째 cno 
-            return categoryList[index]; // 찾은 객체를 반환한다.
-        } // if end 
-    } // for end 
-    // 2. 못찾았다.
-    return null;    // 
-} // func end 
