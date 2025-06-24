@@ -199,6 +199,13 @@ function c출력함수(){          // console.log('===c출력함수===');
     for( let i = 0; i <= 사원관리.length-1; i++){
         let obj3 = 사원관리[i]
         console.log(obj3);
+        // let 부서명 = 부서값함수(obj3.팀코드);
+        // html += ` <tr>
+        //                 <td> <img src="${obj3.사진}" /> </td> <td> ${obj3.이름} </td>
+        //                 <td> ${부서명.부서} </td> <td> ${obj3.직급}
+        //                 </td> <td> <button class="btnDelete" onclick="c삭제함수(${obj3.사원코드})"> 삭제 </button>
+        //                  <button class="btnEdit" onclick="c수정함수(${obj3.사원코드})"> 수정 </button></td>
+        //           </tr>`
         for(let j = 0; j <= 부서관리.length-1; j++){
             let 부서명 = 부서관리[j]
             if( 부서명.팀코드 == obj3.팀코드){
@@ -324,16 +331,16 @@ function h삭제함수(사원코드){ console.log(사원코드)
 }// func end 휴가취소함수 끝
 
 
-// function 부서값함수(팀코드){
-//     console.log('부서값함수'); console.log(팀코드);
-//     for( let i = 0; i <= 부서관리.length-1; i++){
-//         let 부서명 = 부서관리[i]
-//         if( 팀코드 == 부서명.팀코드){
-//             return 부서관리[i];
-//         } // if end
-//     }// for end
-//     return null;
-// }// func end 부서값함수 끝
+function 부서값함수(팀코드){
+    console.log('부서값함수'); console.log(팀코드);
+    for( let i = 0; i <= 부서관리.length-1; i++){
+        let 부서명 = 부서관리[i]
+        if( 팀코드 == 부서명.팀코드){
+            return 부서관리[i];
+        } // if end
+    }// for end
+    return null;
+}// func end 부서값함수 끝
 
 
 // function 사원값함수(사원코드){
