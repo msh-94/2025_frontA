@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset='utf-8'>    
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <meta charset='utf-8'>     
 </head>
 <body>
     <div><!-- wrap -->
@@ -13,7 +12,7 @@
                 가격 : <input type="text" class="payInput"/>
                 설명 : <textarea class="areaInput"></textarea>
                 사진 : <input class="imgInput" type="file" accept="image/* "/>
-                <button id="addBtn" onclick=""> 등록버튼 </button>
+                <button type="button" id="addBtn" onclick="productAdd()"> 등록버튼 </button>
             </form>
         </div>
         <div>
@@ -27,7 +26,7 @@
                 <tbody id="productList">
                     <tr>
                         <td> 아메리카노 </td> <td> 2,000 </td> <td> 콜롬비아원두 </td> 
-                        <td> <img src="https://placehold.co/100"/> </td> <td> <button id="deleteBtn" onclick=""> 제품삭제 </button> </td>
+                        <td> <img src="https://placehold.co/100"/> </td> <td> <button type="button" id="deleteBtn" onclick=""> 제품삭제 </button> </td>
                     </tr>
                 </tbody>
             </table>
