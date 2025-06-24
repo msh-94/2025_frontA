@@ -91,3 +91,18 @@ function checkStatus(){ console.log('==checkStatus==')
     alert('대기 정보가 없습니다.')
     checkInput.value = '';
 }// checkStatus end
+
+
+// function setLocalStorage(){
+
+// }// func end
+
+// function getLocalStorage(){
+//     let waitingList = localStorage.getItem('waitingList');
+//     if( waitingList == null ){
+//         waitingList = []
+//     }else{ 
+//         waitingList = JSON.parse(waitingList);
+//     }
+//     return waitingList;
+// }
