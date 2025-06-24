@@ -26,7 +26,38 @@
                 <tbody id="productList">
                     <tr>
                         <td> 아메리카노 </td> <td> 2,000 </td> <td> 콜롬비아원두 </td> 
-                        <td> <img src="https://placehold.co/100"/> </td> <td> <button type="button" id="deleteBtn" onclick=""> 제품삭제 </button> </td>
+                        <td> <img src="https://placehold.co/100"/> </td> <td> <button type="button" id="deleteBtn" onclick="productDelete()"> 제품삭제 </button> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <form>
+                <h3> 제품 로그 입고 영역</h3>
+                <select id="productId">
+                    <option value="" disabled selected > 제품을 선택하세요. </option>
+                    <option value="1"> 아메리카노 </option>   <option value="2"> 사이다 </option>
+                </select>
+                <select id="categoryId">
+                    <option value="" disabled selected > 입/출고 현황을 선택하세요. </option>
+                <option value="1"> 입고 </option>   <option value="2"> 출고 </option>
+                </select>
+                수량 : <input class="amountInput" type="number"/>
+                입출사유 : <textarea class="reasonInput"></textarea>
+                <button class="btnAdd" type="button" onclick="stockIn()"> 입출등록 </button>
+            </form>
+        </div>
+        <div>
+            <h3> 제품 로그 목록 영역 </h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th> 제품ID </th> <th> 변동유향 </th> <th> 수량 </th> <th> 입출사유 </th> 
+                    </tr>
+                </thead>
+                <tbody id="stList">
+                    <tr>
+                        <td> 아메리카노 </td> <td> 입고 </td> <td> 30 </td>  <td> 사유 </td>  <td> <button onclick="pCorrection()" class="stockReasonBtn"> 입출사유변경 </button></td>
                     </tr>
                 </tbody>
             </table>
