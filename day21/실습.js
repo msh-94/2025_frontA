@@ -50,7 +50,7 @@ function productAdd() {
         pprice: Number(pprice), // 가격은 숫자형으로 변환합니다.
         pcontent: pcontent,
         // 이미지가 선택되었으면 해당 이미지의 임시 URL을 생성하고, 아니면 기본 이미지 주소를 사용합니다.
-        pimg: pimg ? URL.createObjectURL(pimg) : 'https://placehold.co/100x100',
+        pimg: pimg ? URL.createObjectURL(pimg) : 'https://placehold.co/100x100'
     };
 
     // 생성된 새 제품 객체를 products 배열에 추가합니다.

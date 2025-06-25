@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    
+</head>
+<body>
+    <div>
+        <div>
+            <input id="nameInput" type="text"/>
+            <input id="ppriceInput" type="number"/>
+            <input id="imgInput" type="file" accept="image/*"/>
+            <textarea id="areaInput"></textarea>
+            <button onclick="등록함수()"></button>
+        </div>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>제품명</th>                          
+                        <th>가격</th>
+                        <th>설명</th>
+                        <th>이미지</th>
+                        <th>비고</th>                        
+                    </tr>
+                </thead>
+                <tbody id="bodyIn">
+                    <tr>
+                        <td>아메리카노</td>
+                        <td>2000</td>
+                        <td>콜롬비아원두</td>
+                        <td><img src=""/></td>
+                        <td><button onclick="삭제함수()"></button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src='qwe.js'></script>
+</body>
+</html>
